@@ -13,6 +13,10 @@
 \usepackage{enumitem}
 
 \usepackage{geometry}
+
+\usepackage{titling}
+
+
 \geometry{textheight=8.5in, textwidth=6in}
 
 %\usepackage{hyperref}
@@ -22,10 +26,17 @@
 \parindent = 0.0 in
 \parskip = 0.1 in
 
+\pretitle{\begin{center}\Huge\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\Large\ttfamily}
+\postauthor{\end{center}}
+\author{Christopher Johnson, Gabe Morey, Luay Alshawi}
+
 \begin{document}
-\title{Abstract}
+\title{Deep Learning on Embedded Platform}
 \date{}
 \maketitle
+\begin{abstract}
+\end{abstract}
 Deep learning is a form of graphics-based machine learning that uses multi-layered neural networks and high-speed GPU processing to make sense of images, sound and text. The goal of this project is to create an application which uses deep learning to perform a particular task and run on the Jetson TX1 Developer Kit. The application will be utilized as part of a training program to teach users how to solve similar problems with deep learning.
-
 \end{document}
