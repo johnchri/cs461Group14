@@ -1,6 +1,6 @@
 all:
-	xelatex srs.tex
-	xelatex srs.tex
+	xelatex requirementsDoc.tex
+	xelatex requirementsDoc.tex
 	$(MAKE) clean
 
 clean:

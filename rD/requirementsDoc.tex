@@ -1,4 +1,27 @@
-\documentclass[letterpaper,10pt]{article}
+%Copyright 2014 Jean-Philippe Eisenbarth
+%This program is free software: you can
+%redistribute it and/or modify it under the terms of the GNU General Public
+%License as published by the Free Software Foundation, either version 3 of the
+%License, or (at your option) any later version.
+%This program is distributed in the hope that it will be useful,but WITHOUT ANY
+%WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+%PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%You should have received a copy of the GNU General Public License along with
+%this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%Based on the code of Yiannis Lazarides
+%http://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%http://tex.stackexchange.com/users/963/yiannis-lazarides
+%Also based on the template of Karl E. Wiegers
+%http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
+%http://karlwiegers.com
+% \documentclass[letterpaper,10pt]{article}
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -25,26 +48,26 @@ milestone/.append style={red},
 progress label node anchor/.append style={text=red}}
 
 \geometry{textheight=8.5in, textwidth=6in}
-
-%\usepackage{hyperref}
-
-\def\name{Christopher Johnson, Gabe Morey, Luay Alshawi}
-
-\parindent = 0.0 in
-\parskip = 0.1 in
-
-\pretitle{\begin{center}\Huge\bfseries}
-\posttitle{\par\end{center}\vskip 0.5em}
-\preauthor{\begin{center}\Large\ttfamily}
-\postauthor{\end{center}}
-\author{Christopher Johnson, Gabe Morey, Luay Alshawi}
-\title{Requirements Documents}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
 \def\myversion{1.0 }
-\date{October 27, 2016}
+\date{}
+%\title{%
 
+%}
+\usepackage{hyperref}
 \begin{document}
-
-\begin{titlingpage}
 
 \begin{flushright}
     \rule{16cm}{5pt}\vskip1cm
@@ -55,7 +78,7 @@ progress label node anchor/.append style={text=red}}
         \vspace{1.9cm}
         Deep Learning on Embedded Platform\\
         \vspace{1.9cm}
-        \LARGE{Version \myversion approved}\\
+        \LARGE{Version \myversion}\\
         \vspace{1.9cm}
         Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
         \vspace{1.9cm}
@@ -67,27 +90,43 @@ progress label node anchor/.append style={text=red}}
 
 \tableofcontents
 
-\end{titlingpage}
 
-\begin{abstract}
-Deep learning is a form of graphics-based machine learning that uses multi-layered neural networks and high-speed\
- GPU processing to make sense of images, sound and text.
+\chapter{Introduction}
+
+\section{Purpose}
+
 The goal of this document is to create a clear requirements documentation that identifies the necessary parts to \
 accomplish this project.
 The main requirements are to run a deep learning application on the Jetson TX1 development kit and to have docume\
 ntation clear enough to recreate our project.
 The end result of this project will be an AI capable of playing the game Galaga, and the project itself will be u\
 sed by Nvidia to create a lesson for their deep learning institute.
-Since the less plan will not be developed by us, this document only covers the project requirements and not requi\
+Since the lesson plan will not be developed by us, this document only covers the project requirements and not requi\
 rements for the lesson.
-\end{abstract}
 
-Our team name will be AI Gaming.
-Our project is titled Deep Learning on Embedded Platform. 
-We are doing this project in cooperation with Nvidia's deep learning institute with the end goal of turning it into a lesson plan.
-We must use deep learning, a subset field of AI that uses neural networks, as a part of our project.
+\section{Scope}
 
-Our project goal is to teach a neural net to play a video game.
+The project name will be AI Gaming and the solution of our project will need to be able to beat the first level of the game at least 90\% of the time.
+Ideally the system should be able to make it past level five approximately 50\% of the time.
+The ability of the system to make it farther than that on average, or to increase the percent chance on it making it to certain points, will be considered a stretch goal.
+
+\section{Definitions, acronyms, and abbreviations}
+JETSON TX1 Developer Kit: Tiny computer which has a full-featured development platform for visual computing.
+\newline
+AI: A branch of computer science dealing with the simulation of intelligent behavior in computers.
+
+\section{References}
+N. C. L. Information, Deep learning, NVIDIA Developer, 2016. [Online]. Available: https://developer.nvidia.com/deep-learning. Accessed: Oct. 18, 2016.\newline
+NVIDIA, 2016. [Online]. Available: http://www.nvidia.com/object/jetson-tx1-dev-kit.html. Accessed: Nov. 2, 2016.\newline
+Merriam-Webste, 2016. [Online]. Available: http://www.merriam-webster.com/dictionary/artificial%20intelligence. Accessed: Nov. 2, 2016.
+
+\chapter{Overall Description}
+
+\section{Product perspective}
+Open...
+\section{Product Functions}
+
+The project goal is to teach a neural net to play a video game.
 The neural net will take video input and use it to learn how to play the game Galaga.
 A camera or screen capture device must be used to retrieve game state input.
 The neural net must be trained and allowed to create its own code to accomplish the task.
@@ -96,15 +135,15 @@ We may code interactions between the net and the game to allow it to play the ga
 We may not hard code its responses to in-game stimuli, as these responses must be trained into the neural net.
 The final project must be able to run inference on the Jetson TX1 developer platform.
 
-The solution of our project will need to be able to beat the first level of the game at least 90\% of the time.
-Ideally the system should be able to make it past level five approximately 50\% of the time.
-The ability of the system to make it farther than that on average, or to increase the percent chance on it making it to certain points, will be considered a stretch goal.
+\section{User characteristics}
+Open...
+\section{Constraints}
+Open...
+\section{Assumptions and dependencies}
+Open...
 
-We must clearly outline our actions taken and resources required at every step of the process.
-This means that all technology used to accomplish our task must be recorded and accounte.
-Our process will be detailed in such a manner that it will allow others to recreate our project, provided they can acquire the materials we used.
-
-% \begin{turn}{90}
+\chapter{Chart}
+\section{Timeline}
 \resizebox{\textwidth}{!}{
 
 %    \centering
@@ -176,8 +215,5 @@ Our process will be detailed in such a manner that it will allow others to recre
 %    \caption{Gantt diagram for 2013--2014 Project}
 %\end{figure}
 }
-% \end{turn}{90}
 
 \end{document}
-
-\grid
