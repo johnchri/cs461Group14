@@ -1,4 +1,5 @@
-\documentclass[letterpaper,10pt]{article}
+% \documentclass[letterpaper,10pt]{article}
+\documentclass{scrreprt}
 
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -36,19 +37,34 @@
 
 \begin{document}
 
-\begin{titlingpage}
-\maketitle
-CS461 Fall Term
-\begin{abstract}
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{Problem Statement}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        Deep Learning on Embedded Platform\\
+        \vspace{1.9cm}
+        Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
+        \vspace{1.9cm}
+        CS 461\\
+    \end{bfseries}
+\end{flushright}
+
+\tableofcontents
+
+\chapter{Abstract}
 NVIDIA's Deep Learning Institute has a high demand for training programs in the field of artificial intelligence(AI).
 Deep learning is a form of graphics-based machine learning that uses multi-layered neural networks and high-speed GPU processing to make sense of images, sound and text, which allows a computer based AI to learn over time.
 The goal of this project is to create a system which uses deep learning to learn how to play the game Galaga and runs on the Jetson TX1 Developer Kit.
 The results of our project will be utilized as part of a training program to teach users how to solve similar problems with deep learning.
 We will not be creating the learning module itself, but our project will contribute to deeper understanding and greater chances for learning in the field of deep learning.
-\end{abstract}
-\end{titlingpage}
 
-\section{Problem Statement}
+
+\chapter{Problem Statement}
+
+\section{Problem Definition}
 NVIDIA’s Deep Learning Institute is a set of online courses and workshops with the aim of teaching developers how to use and apply deep learning to their own problems.
 With this goal in mind, NVIDIA is constantly looking for new and better ways to teach about the subject, as well as further this field of research.
 Not many people know what deep learning is, and the concepts of it can seem daunting to some.
@@ -68,7 +84,7 @@ Each neuron has a trained input weight, which assigns how correct or incorrect t
 These weights are developed through intensive training of the neural network as it attempts to complete tasks [1].
 The neural net uses these weights to create a probability vector that predicts the outcome chance of success.
 
-
+\section{Proposed solution}
 The traditional problem with neural networks has been their incredible computational requirements.
  It takes massive processing power to train and develop a neural network.
  However, this problem has been partially solved by taking advantage of the power of the modern GPU.
@@ -80,15 +96,16 @@ The traditional problem with neural networks has been their incredible computati
  Making this technology accessible to more developers is the ultimate goal of NVIDIA's Deep Learning Institute and this project.
 
 
-Our solution to the problem must be a useful learning tool for others. 
+Our solution to the problem must be a useful learning tool for others.
 It should be easily presentable so people can understand the impact of deep learning on the solution.
  It should be a program that can utilize deep learning and provide a comprehensive example of deep learning's power and capabilities.
- Our solution will be to teach a neural network how to play the game Galaga. 
+ Our solution will be to teach a neural network how to play the game Galaga.
  Teaching the system to play Galaga allows us to have a clearly presentable project with clear ways of defining performance and improvement.
  It also adds a layer of fun to the project, making it more interesting to those who see it.
  Ideally the fun aspect will both encourage people to try and replicate it and generate new interest in the field of deep learning and the things it can accomplish.
 
 
+\section{Perfomance Metrics}
 Version control will be used in this project to keep track of the tasks and measure the performance for each person on the team as well as the performance of the project.
  Tasks will be labeled to three different categories.
  The First label called “Feature” which will be used to label major tasks toward the project.
@@ -108,12 +125,13 @@ The measurement of success on this project depends on how well the neural networ
 The aim is to play the game Galaga and have a winning rate of 90\'\% in the first level.
 Ideally the system should be able to make it past level five approximately 50\'\% of the time.
 
-The measurement of success on this project depends on how well the neural network is trained to play the game Galaga. 
+The measurement of success on this project depends on how well the neural network is trained to play the game Galaga.
 The aim is to play the game Galaga and have a winning rate of 90\'\% on the first level.
 Ideally, the system should be able to make it past level five approximately 50\'\% of the time.
 On the other hand, another success is when the team is able to return easily followed documentation to allow a deep learning trainee and trainer to rebuild the project.
-\section{Sources}
 
+\chapter{Refrences}
+\section{Bibliography}
 [1]N. C. L. Information, /`/`Deep learning,'' NVIDIA Developer, 2016. [Online]. Available: https://developer.nvidia.com/deep-learning. Accessed: Oct. 18, 2016.
 
 \end{document}
