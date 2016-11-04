@@ -69,40 +69,69 @@ progress label node anchor/.append style={text=red}}
 
 \end{titlingpage}
 
-\begin{abstract}
+\chapter{Introduction}
+
+\section{Purpose}
 Deep learning is a form of graphics-based machine learning that uses multi-layered neural networks and high-speed\
  GPU processing to make sense of images, sound and text.
 The goal of this document is to create a clear requirements documentation that identifies the necessary parts to \
 accomplish this project.
+
+\section{Intended Audience and Reading Suggestions}
+The intended audience of this document are the instructors and TAs of our CS 461 course, as well as the client who has tasked us with the project.
+
+\section{Project Scope}
 The main requirements are to run a deep learning application on the Jetson TX1 development kit and to have docume\
 ntation clear enough to recreate our project.
 The end result of this project will be an AI capable of playing the game Galaga, and the project itself will be u\
 sed by Nvidia to create a lesson for their deep learning institute.
 Since the less plan will not be developed by us, this document only covers the project requirements and not requi\
 rements for the lesson.
-\end{abstract}
 
+\section{References}
+$<$List any other documents or Web addresses to which this SRS refers. These may
+include user interface style guides, contracts, standards, system requirements
+specifications, use case documents, or a vision and scope document. Provide
+enough information so that the reader could access a copy of each reference,
+including title, author, version number, date, and source or location.$>$
+
+\chapter{Overall Description}
+
+\section{Product Perspective}
 Our team name will be AI Gaming.
-Our project is titled Deep Learning on Embedded Platform. 
-We are doing this project in cooperation with Nvidia's deep learning institute with the end goal of turning it into a lesson plan.
-We must use deep learning, a subset field of AI that uses neural networks, as a part of our project.
+Our project is titled Deep Learning on Embedded Platform.
+We are doing this project in cooperation with Nvidia's deep learning institute with the end goal of turning it int\
+o a lesson plan.
+We must use deep learning, a subset field of AI that uses neural networks, as a part of our project. This is a standalone project that will be used by NVIDIA for training purposes.
 
+\section{Product Functions}
 Our project goal is to teach a neural net to play a video game.
 The neural net will take video input and use it to learn how to play the game Galaga.
 A camera or screen capture device must be used to retrieve game state input.
 The neural net must be trained and allowed to create its own code to accomplish the task.
-The neural network should define for itself how to respond to in-game stimuli and react accordingly, as per the training it has received.
-We may code interactions between the net and the game to allow it to play the game.
-We may not hard code its responses to in-game stimuli, as these responses must be trained into the neural net.
+The neural network should define for itself how to respond to in-game stimuli and react accordingly, as per the tr\
+aining it has received.
+
+\section{User Classes and Characteristics}
+This product as well as its documentation will be used by deep learning trainers and trainees.
+
+\section{Operating Environment}
 The final project must be able to run inference on the Jetson TX1 developer platform.
 
+\section{Design and Implementation Constraints}
+We may code interactions between the net and the game to allow it to play the game.
+We may not hard code its responses to in-game stimuli, as these responses must be trained into the neural net.
+
+\section{User Documentation}
+We must clearly outline our actions taken and resources required at every step of the process.
+This means that all technology used to accomplish our task must be recorded and accounte.
+Our process will be detailed in such a manner that it will allow others to recreate our project, provided they can\
+ acquire the materials we used.
+
+\section{Assumptions and Dependencies}
 The solution of our project will need to be able to beat the first level of the game at least 90\% of the time.
 Ideally the system should be able to make it past level five approximately 50\% of the time.
 The ability of the system to make it farther than that on average, or to increase the percent chance on it making it to certain points, will be considered a stretch goal.
-
-We must clearly outline our actions taken and resources required at every step of the process.
-This means that all technology used to accomplish our task must be recorded and accounte.
-Our process will be detailed in such a manner that it will allow others to recreate our project, provided they can acquire the materials we used.
 
 % \begin{turn}{90}
 \resizebox{\textwidth}{!}{
