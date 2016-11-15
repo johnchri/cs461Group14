@@ -1,0 +1,125 @@
+%Copyright 2014 Jean-Philippe Eisenbarth
+%This program is free software: you can
+%redistribute it and/or modify it under the terms of the GNU General Public
+%License as published by the Free Software Foundation, either version 3 of the
+%License, or (at your option) any later version.
+%This program is distributed in the hope that it will be useful,but WITHOUT ANY
+%WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+%PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%You should have received a copy of the GNU General Public License along with
+%this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%Based on the code of Yiannis Lazarides
+%http://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%http://tex.stackexchange.com/users/963/yiannis-lazarides
+%Also based on the template of Karl E. Wiegers
+%http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
+%http://karlwiegers.com
+% \documentclass[letterpaper,10pt]{article}
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{enumitem}
+
+\usepackage{geometry}
+
+\usepackage{titling}
+\usepackage{rotating}
+\usepackage{pgfgantt}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{anyfontsize}
+
+\ganttset{group/.append style={orange},
+milestone/.append style={red},
+progress label node anchor/.append style={text=red}}
+
+\geometry{textheight=8.5in, textwidth=6in}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.01 }
+\date{}
+%\title{%
+
+%}
+\usepackage{hyperref}
+\begin{document}
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{Technology Review and Implementation Plan}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        Deep Learning on Embedded Platform\\
+        \vspace{1.9cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.9cm}
+        Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
+        \vspace{1.9cm}
+        CS 461 Fall Term\\
+        \vspace{1.9cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
+
+
+
+The role of making sure everything runs smoothly on the platform required of us to implement out solution on can be devided into three categories.
+These categories are finding the right communication methods with our client for group meetings, deciding on an interface toolkit, and figuring out the best way to visialize the data.
+For each of these three tasks I have found three approaches that I have research and given thorough consideration.
+This is to ensure that we are making the best possible decisions when working with the Jetson TX1.
+
+There are many very popular and suitable tools available to conduct online meetings.
+These include Skype, Discord, and Team Speak.
+Skype was founded in 2003 by Niklas Zennström.
+Skype has a lot of features that Discord and Team Speak don't have.
+One of these features includes screen sharing.
+This feature could be very beneficial during group meetings when a group member has to explain something visually.
+Our group has used Skype twice in the past and the sound quality was good enough for everyone to understand each other.
+Discord and Team Speak also do not allow video calls, they only provide groups to voice and text chat.
+One down side with Skype however is the presence of bugs.
+Among reviewers, skype is the least reliable.
+
+Discord, which is the most recent VoIP service released, is known for its very nice user interface.
+This service also does not require a download.
+Users can log on and join a Discord server using their browser.
+Discord hosts its own servers which are very reliable.
+Call quality is not limited to a group members poor internet.
+Discord is also very light weight and puts much less strain on the cpu than Skype and Team Speak.
+However, Discord does not have many of the Skype features including video calling and screen sharing.
+
+Team Speak is known for its sound quality.
+Team Speak is the second oldest voice chat service, which has been in development since 2004. 
+
+
+
+
+
+
+\end{document}
