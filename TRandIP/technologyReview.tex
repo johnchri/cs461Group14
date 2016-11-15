@@ -91,7 +91,7 @@ progress label node anchor/.append style={text=red}}
 
 
 The role of making sure everything runs smoothly on the platform required of us to implement out solution on can be devided into three categories.
-These categories are finding the right communication methods with our client for group meetings, deciding on an interface toolkit, and figuring out the best way to visialize the data.
+These categories are finding the right communication methods with our client for group meetings, deciding what camera technology we need, and figuring out the best way to visialize the data.
 For each of these three tasks I have found three approaches that I have research and given thorough consideration.
 This is to ensure that we are making the best possible decisions when working with the Jetson TX1.
 
@@ -116,7 +116,45 @@ However, Discord does not have many of the Skype features including video callin
 
 Team Speak is known for its sound quality.
 Team Speak is the second oldest voice chat service, which has been in development since 2004. 
+The newest version is Team Speak 3.
+Team Speak has the greatest sound quality and reliability out of all three VoIP applications.
+One of the big problems with Team Speak however is its user interface.
+For beginner users it can be a lot more difficult to figure out.
+Many reviewers say that it has the worst user interface design compared to Discord and Skype.
+This is probably a product of its customizability.
+There are many ways to improve a users experience with Team Speak including downloading user interface package downloads.
 
+For deciding what kind of camera we should use, there are a lot of factors to consider.
+The camera will need to be able to record in HD with at least 30 frames per second.
+The program will need to be able to make out shapes for its visual computing.
+Leopard Imaging had partnered with NVIDIA to build cameras spceifically for the Jetson TX1.
+This camera meets the miniumum requirements and was built specifically for machine vision.
+
+There is also another camera offered by Leopard Imaging that shoots at 30 frames per second and has 4k resolution.
+This camera is the same price as the one HD video camera.
+Both are \$400.
+A better resolution will allow our program to better understand what it is seeing and be able to compute accordingly.
+
+There is also a camera that our client is supplying us.
+This is likely the camera best used since it is provided freely and meets the needs of our project.
+
+The third task involves figuring out how to visualize the data gathered from the program.
+There are many ways in which this could be done.
+We could have live data visualization, that shows the time, number of lives, number of near misses, and other such useful information to help gage how well the program is performing during the current playthrough.
+We could have live data visualization that is also graphical and includes graphs and figures.
+We could also have the data only appear at the end after the program has completed so that only the end result is displayed.
+Live data visualization can offer a few things for data analysis.
+In the beginning this might be very useful because during the start of the project the program may only survive a few seconds of the game.
+Later however, when the program is beating more complicated levels, data gathered during the playthough could indicate areas where the program struggles.
+
+Live data that can be displayed visually could enhance the benefits of seeing data gathered thoughout the playthrough.
+Graphs that recorded which level the program lost a life at and what was the thing that hit it could easily be displayed visually to enhance comprehension.
+One problem with live visualization is that it could also flood the screen with too much information, especially when the playthroughs get really long.
+
+One benefit to having a smaller amount of data appear at the end giving a summary of the playthrough is the simplicity.
+An end of game summary could previde more of the information we need and leave out a lot of unnecessary items.
+A lot of the live information can also be gathered by just watching the playthrough.
+We'll be able to see when the program lost a life or suddenly could not compute how to avoid objects.
 
 
 
