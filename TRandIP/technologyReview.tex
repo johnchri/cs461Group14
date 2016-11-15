@@ -92,7 +92,24 @@ progress label node anchor/.append style={text=red}}
 
 
 \chapter{Abstract}
-Abstract ....
+Working on a large scale project requires multiple pieces to come together in the right way. If the right pieces aren’t used,
+the project will turn out poorly for it. In this document we lay out several different components necessary to build our project,
+which consists of building a neural network setup which can learn to play the game Galaga.
+We will discuss different technologies that can be used to satisfy the needs of those components and come to a conclusion on which technologies to use.
+ This document also lays out which team members are responsible for different pieces of the final project.
+
+\chapter{Duties}
+\section{section name}
+\subsection{Gabe Morey’s}
+I will be in charge of setting up the neural network for learning on the embedded processor. It is
+my job to make sure the network can be properly trained and utilized to play the game Galaga.
+With this in mind, i will be reviewing the different deep learning frameworks around the web
+and deciding on one to use for the project. I will also be in charge of the actual neural network
+we train and will be covering several established networks. I will also be reviewing several
+clouds that allow for GPU use without physically having a strong enough GPU for neural
+network training. So in total I am responsible for making sure we have a proper neural network
+structure which has ample cloud based processing power to perform the task we have set out for
+it.
 
 \chapter{Technologies}
 \section{Visual Library}
@@ -201,21 +218,17 @@ Linux security requires a user to enter an administrator’s password in order t
 download things, so it is harder for harmful programs to gain access to the computer.
 
 \subsection{Comparision Table}
-\begin{center}
-  \begin{tabular}{| l | c | r |}
-    % \hline
-    % Open CV & SimpleCV & Community Core Vision \\ \hline
-    % \parbox{5cm}{- Libraries for most other languages(C,C++ and Python)} & \parbox{5cm}{- Interactive shell for testing} & \parbox{5cm}{- Uses statically-linked library} \\
-    % \parbox{5cm}{- Great for large scale programs} & \parbox{5cm}{- Great for quick demonstration purposes} & \parbox{5cm}{- Gives up non-essential functionalities aggressively} \\
-    % \parbox{5cm}{- OpenCV is best for implementation as it offers a lot more possibilities} & \parbox{5cm}{- Works very well with Pythons} & \parbox{5cm}{- It is not a library for you to experiment different algorithms} \\
-    % \hline
-    \hline
-    Windows OS & Linux OS & MAC OS \\ \hline
 
-    \hline
-
-  \end{tabular}
-\end{center}
+% \begin{table}[]
+% \centering
+% \begin{tabular}{|l|l|l|l|l|l|l|l|}
+% \hline
+% Operating Systems & Security                                                                                              & Price                                 & Compatibility                                                                                              & Reliability                                                                             & Package Manager                                                                                   \\ \hline
+% Windows OS        & \parbox{5cm}{There are many types of viruses in Windows OS because of a large amount of market share}               & Windows is less expensive than Mac OS & Anyone can install any type of game into Windows PC,as it is,compatible to all types of software and games & Windows is very reliable but due to its affinity to viruses it,struck                   & No official package manager                                                                         \\ \hline
+% Linux OS          & \parbox{5cm}{There are lesser amount of viruses in Linux as compared to,Windows because Linux is an open source OS & Linux software is totally free}        & Since Linux is an open source software you can program the,software that you want.                         & Since Linux is not a complete OS you can modify it for that,type of usage that you want & Most Linux distributions provide official package manager,software to install third party software \\ \hline
+% MAC OS            & \parbox{5cm}{There are no virus in Mac OS because you can install Mac only,on Apple devices}      & Apple devices are too much expensive  & Most software are not compatible with Mac OS so you feel,limited on Mac OS                                 & Mac is very reliable and smooth because it has no viruses that,drag its performance     & No official package manager                                                                        \\ \hline
+% \end{tabular}
+% \end{table}
 \subsection{Discussion}
 Though some operating systems like Linux may seem the better option because of its flexibility to be
 used in any kind of way, the choice is usually up to the user. If you’re a gamer, then you have no choice,
