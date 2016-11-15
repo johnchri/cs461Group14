@@ -458,10 +458,13 @@ reasonable option on this project. It also offers less power than the Amazon clo
 \section{Jetson...}
 
 The role of making sure everything runs smoothly on the platform required of us to implement out solution on can be devided into three categories.
-These categories are finding the right communication methods with our client for group meetings, deciding on an interface toolkit, and figuring out the best way to visialize the data.
+These categories are finding the right communication methods with our client for group meetings, deciding what camera technology we need, and figuring out the best way to visialize the data.
 For each of these three tasks I have found three approaches that I have research and given thorough consideration.
 This is to ensure that we are making the best possible decisions when working with the Jetson TX1.
 
+One of the most omportant aspects of a group project is communication.
+This is especially true when we're working with a client who has tasked us with using a certain platform.
+There will most likely be many times when we'll need to discuss something about the Jetson.
 There are many very popular and suitable tools available to conduct online meetings.
 These include Skype, Discord, and Team Speak.
 Skype was founded in 2003 by Niklas Zennström.
@@ -472,18 +475,73 @@ Our group has used Skype twice in the past and the sound quality was good enough
 Discord and Team Speak also do not allow video calls, they only provide groups to voice and text chat.
 One down side with Skype however is the presence of bugs.
 Among reviewers, skype is the least reliable.
+A huge factor in our decision on with communication tool to use is what everyone is comfortable using.
+Since most people are alread familiar with skype and our group has alread conducted two meetings with it, skype might be the best tool for the job.
 
 Discord, which is the most recent VoIP service released, is known for its very nice user interface.
 This service also does not require a download.
 Users can log on and join a Discord server using their browser.
 Discord hosts its own servers which are very reliable.
+Joining a call is very simple.
+Whoever is hosting the server simply sends each group member a link.
+Other group members simply click the link and join the voice server using either their web browser or downloaded application.
+It also has a very good chat system.
 Call quality is not limited to a group members poor internet.
 Discord is also very light weight and puts much less strain on the cpu than Skype and Team Speak.
 However, Discord does not have many of the Skype features including video calling and screen sharing.
 
-Team Speak is known for its sound quality.
-Team Speak is the second oldest voice chat service, which has been in development since 2004.
+Team Speak is best known for its sound quality.
+Team Speak is the second oldest voice chat service, which has been in development since 2004. 
+The newest version is Team Speak 3.
+Team Speak has the greatest sound quality and reliability out of all three VoIP applications.
+One of the big problems with Team Speak however is its user interface.
+For beginner users it can be a lot more difficult to figure out.
+Many reviewers say that it has the worst user interface design compared to Discord and Skype.
+This is probably a product of its customizability.
+There are many ways to improve a users experience with Team Speak including downloading user interface package downloads.
+If there are only a couple of us in the group already familiar with how to use Team Speak then it probably isn't the best choice.
+However, if everyone is alread accustomed to using Team Speak then our group might be able to benefit from Team Speak's greater flexibility.
 
+For deciding what kind of camera we should use, there are a lot of factors to consider.
+The camera will need to be able to record in HD with at least 30 frames per second.
+The program will need to be able to make out shapes for its visual computing.
+Leopard Imaging had partnered with NVIDIA to build cameras spceifically for the Jetson TX1.
+This camera meets the miniumum requirements and was built specifically for machine vision.
+There are many other HD cameras and Camcorders that are much less expensive but meet all the requirements.
+However, the project might benefit from a camera built for visual computing.
+
+There is also another camera offered by Leopard Imaging that shoots at 30 frames per second and has 4k resolution.
+This camera is the same price as the one HD video camera.
+Both are \$400.
+A better resolution will allow our program to better understand what it is seeing and be able to compute accordingly.
+
+There is also a camera that our client is supplying us.
+This is likely the camera best used since it is provided freely and meets the needs of our project.
+The camera is also recommended by our client for use with the Jetson TX1.
+
+The third task involves figuring out how to visualize the data gathered from the program.
+There are many ways in which this could be done.
+We could have live data visualization, that shows the time, number of lives, number of near misses, and other such useful information to help gage how well the program is performing during the current playthrough.
+We could have live data visualization that is also graphical and includes graphs and figures.
+We could also have the data only appear at the end after the program has completed so that only the end result is displayed.
+Live data visualization can offer a few things for data analysis.
+In the beginning this might be very useful because during the start of the project the program may only survive a few seconds of the game.
+Later however, when the program is beating more complicated levels, data gathered during the playthough could indicate areas where the program struggles.
+
+Live data that can be displayed visually could enhance the benefits of seeing data gathered thoughout the playthrough.
+Graphs that recorded which level the program lost a life at and what was the thing that hit it could easily be displayed visually to enhance comprehension.
+There could be a lot of benefit to seeing a bar graph go up and down throughout the playthrough as the program loses or gains a life.
+We could comparatively see how long it takes the program to complete each level.
+This could be seen in real time and compared to how the program is actaully performing in the game.
+One problem with live visualization is that it could also flood the screen with too much information, especially when the playthroughs get really long.
+
+One benefit to having a smaller amount of data appear at the end giving a summary of the playthrough is the simplicity.
+An end of game summary could provide more of the information we need and leave out a lot of unnecessary items.
+A lot of information would be floating by on the screen as the program played the game.
+A concrete summary might be a lot more efficient if it could compile all the data in a meaningful way.
+A lot of the live information can also be gathered by just watching the playthrough.
+We'll be able to see when the program lost a life or suddenly could not compute how to avoid objects.
+We'll also be able to see what objects the program might have trouble seeing, which would be a hard thing to discover with just the data.
 
 
 \chapter{Bibliography}
