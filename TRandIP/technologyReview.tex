@@ -109,15 +109,11 @@ Although we as developers we should not be struggling with the programming langu
 
 \section{Technology 4-7}
 \subsection{Gabe Morey}
-I will be in charge of setting up the neural network for learning on the embedded processor. It is
-my job to make sure the network can be properly trained and utilized to play the game Galaga.
-With this in mind, i will be reviewing the different deep learning frameworks around the web
-and deciding on one to use for the project. I will also be in charge of the actual neural network
-we train and will be covering several established networks. I will also be reviewing several
-clouds that allow for GPU use without physically having a strong enough GPU for neural
-network training. So in total I am responsible for making sure we have a proper neural network
-structure which has ample cloud based processing power to perform the task we have set out for
-it.
+I will be in charge of setting up the neural network for learning on the embedded processor. 
+It is my job to make sure the network can be properly trained and utilized to play the game Galaga.
+With this in mind, i will be reviewing the different deep learning frameworks around the weband deciding on one to use for the project. 
+I will also be in charge of the actual neural network we train and will be covering several established networks. 
+I will also be reviewing several clouds that allow for GPU use without physically having a strong enough GPU for neural network training. So in total I am responsible for making sure we have a proper neural network structure which has ample cloud based processing power to perform the task we have set out for it.
 
 \section{Technology 8-9}
 \subsection{Christopher Johnson}
@@ -330,165 +326,144 @@ arrays, dictionaries, and tuples.
 \section{Deep Learning Framework}
 
 \subsection{Theano}
-Theano is a library for Python which focuses on simplifying and speeding up the calculation of
-complex mathematical expressions that use multidimensional arrays. It was originally created by
-LISA lab for use in quick development of machine learning algorithms. It uses its own compiler
-and functions as an extension to the Python programming language. Its optimizations allow for
-the translation of commands to GPU and CPU instruction code for increased speed of operation.
-Theano can perform graph optimizations and compile parts or all of a graph into CPU or GPU
-instructions [1]. It also has the ability to detect certain unstable expressions and replace them
-with much more stable algorithms for the program run. It supports tensors and sparse type
-operations. Theano provides many more functions related to graph evaluation and mathematical
-optimization. Theano is still in development and is currently at version 0.8 [1]. This technology
-is primarily useful in deep learning for its ability to interact directly with a GPU and process
-graph data. This allows for the deep learning algorithms made with it to process data at high
-speeds, though I have not found any solid metrics of how fast it can process a graph. The speed
-does depend on the quality of the GPU used and the nature of the graph being processed.
+Theano is a library for Python which focuses on simplifying and speeding up the calculation of complex mathematical expressions that use multidimensional arrays. 
+It was originally created by LISA lab for use in quick development of machine learning algorithms.
+It uses its own compiler and functions as an extension to the Python programming language. 
+Its optimizations allow for the translation of commands to GPU and CPU instruction code for increased speed of operation.
+Theano can perform graph optimizations and compile parts or all of a graph into CPU or GPU instructions [1]. 
+It also has the ability to detect certain unstable expressions and replace them with much more stable algorithms for the program run.
+It supports tensors and sparse type operations. 
+Theano provides many more functions related to graph evaluation and mathematical optimization. 
+Theano is still in development and is currently at version 0.8 [1]. 
+This technology is primarily useful in deep learning for its ability to interact directly with a GPU and process graph data. 
+This allows for the deep learning algorithms made with it to process data at high speeds, though I have not found any solid metrics of how fast it can process a graph. 
+The speed does depend on the quality of the GPU used and the nature of the graph being processed.
 
 \subsection{Caffe}
-Developed by the Berkely Vision and Learning Center, Caffe is designed specifically as a
-framework for deep learning. According to their website, it was made with “expression, speed,
-and modularity in mind,” [2]. Caffe can interface with Python and Matlab, but its primary
-interface is command line. It uses its own schema to define layers in its deep learning network.
-Caffe uses what its developers call Blobs, which are essentially multidimensional arrays that
-wrap the data that will be processed or sent along by Caffe. Blobs are used to “conceal the
-computational and mental overhead of mixed CPU/GPU operation by synchronizing from the
-CPU host to the GPU device as needed,” [2]. It can allocate memory as needed for its operation.
-The site claims they believe their program to be convnet implementation possible, though their
-metric of speed is applied to one specific GPU [2]. The system supports optimizations for many
-different data operations required for interfacing with a neural network and training it properly.
+Developed by the Berkely Vision and Learning Center, Caffe is designed specifically as a framework for deep learning. 
+According to their website, it was made with “expression, speed, and modularity in mind,” [2]. 
+Caffe can interface with Python and Matlab, but its primary interface is command line. 
+It uses its own schema to define layers in its deep learning network.
+Caffe uses what its developers call Blobs, which are essentially multidimensional arrays that wrap the data that will be processed or sent along by Caffe. 
+Blobs are used to “conceal the computational and mental overhead of mixed CPU/GPU operation by synchronizing from the CPU host to the GPU device as needed,” [2]. 
+It can allocate memory as needed for its operation.
+The site claims they believe their program to be convnet implementation possible, though their metric of speed is applied to one specific GPU and probably doesn't apply to regular use [2]. 
+The system supports optimizations for many different data operations required for interfacing with a neural network and training it properly.
+Caffe also has an optimization spec developed by NVIDIA specifically for running on their GPUs.
 
 \subsection{Torch}
-Torch is a computing framework that uses LuaJIT as its main code language interface. It has
-“support for machine learning algorithms that put GPU’s first,” [3]. Torch supports several
-models and functions necessary for scientific calculations such as linear algebra routines,
-numeric optimization, GPU support, n-dimensional arrays, indexing, slicing, and transposing
-among others [3]. Torch’s Lua base provides is with incredible speed as compared to other
-programming languages, but this comes with the downside of less cross-compatibility. Lua is not
-a widely used programming language, so support for it is less common than support for the bases
-of many other frameworks programmed in langauges like C, C++, and Python [5]. Torch
-provides tensor support and packages for machine learning and computer vision [4]. The GPU
-focus of torch makes it ideal for GPU based neural network training.
+Torch is a computing framework that uses LuaJIT as its main code language interface. 
+It has “support for machine learning algorithms that put GPU’s first,” [3]. 
+Torch supports several models and functions necessary for scientific calculations such as linear algebra routines, numeric optimization, GPU support, n-dimensional arrays, indexing, slicing, and transposing among others [3]. 
+Torch’s Lua base provides is with incredible speed as compared to other programming languages, but this comes with the downside of less cross-compatibility. 
+Lua is not a widely used programming language, so support for it is less common than support for the bases of many other frameworks programmed in langauges like C, C++, and Python [5]. 
+Torch provides tensor support and packages for machine learning and computer vision [4]. 
+The GPU focus of torch makes it ideal for GPU based neural network training.
 
 \subsection{Choice of Framework}
-
-This project will be using Caffe. Caffe has widespread support for systems and has been around
-long enough to have plenty of documentation on its use as well as examples of it in action. Caffe
-is coded at base in C++, which makes it easy to set up on most systems. The python framework
-provides support for an easy to use language that everyone in the group understands and can
-utilize to full potential. The systems integration with major neural nets is well documented as
-well.
+This project will be using Caffe. 
+Caffe has widespread support for systems and has been aroundlong enough to have plenty of documentation on its use as well as examples of it in action. 
+Caffe is coded at base in C++, which makes it easy to set up on most systems. 
+The python framework provides support for an easy to use language that everyone in the group understands and can utilize to full potential. 
+The system's integration with major neural nets is well documented, providing us a great base of research to get started. 
+The final lynchpin for this decision is the existing optimizations for it that make it easy to run on NVIDIA GPUs.
 
 \section{Neural Network}
 
 \subsection{Information}
-Regardless of which neural net being discussed, a few things need to be laid out to clarify what
-we mean by neural network and other terms related. A neural network is essentially a
-complicated decision graph built in layers by a machine learning algorithm. Each node is
-referred to as a neuron and has its own learned weights and bias. A convolutional neural network
-assumes all of its inputs are images, thus reducing the parameters for its use [13]. Because our
-project relies on visual input from a video game, we can process all incoming data as images.
+Regardless of which neural net being discussed, a few things need to be laid out to clarify what we mean by neural network and other terms related. 
+A neural network is essentially a complicated decision graph built in layers by a machine learning algorithm. 
+Each node is referred to as a neuron and has its own learned weights and bias. 
+A convolutional neural network assumes all of its inputs are images, thus reducing the parameters for its use [13]. 
+Because our project relies on visual input from a video game, we can process all incoming data as images.
+As such, a convulutional model network is ideal for this project.
 This section will cover the different convolutional models we could use to process our data.
 
 \subsection{GoogLeNet}
-GoogLeNet is a neural network design which uses Inception architecture. The Inception
-architecture is designed “to consider how an optimal local sparse structure of a convolutional
-vision network can be approximated and covered by readily available dense components,” [10].
-The idea behind this lies in how it deals with the layers that make up a neural network. It
-attempts to cluster these layers in optimal arrangements for program flow. It also attempts to
-reduce dimensionality of the network whenever computational requirements would get too high.
-The chief goal of the architecture is computational efficiency and practicality [10]. GoogLeNet is
-22 layers deep. It uses about 100 layers to actual construct this network, though the exact number
-is reliant upon how many layers are actually counted by the machine learning infrastructure [10].
-The document covering GoogLeNet contains a rough estimate that, given the dataset used for its
-premier competition, the network could be trained to convergence using a high-end GPUs within
-a week. The biggest limitation of training speed is memory usage [10].
+GoogLeNet is a neural network design which uses Inception architecture. 
+The Inception architecture is designed “to consider how an optimal local sparse structure of a convolutional vision network can be approximated and covered by readily available dense components,” [10].
+The idea behind this lies in how it deals with the layers that make up a neural network.
+It attempts to cluster these layers in optimal arrangements for program flow. 
+It also attempts to reduce dimensionality of the network whenever computational requirements would get too high.
+The chief goal of the architecture is computational efficiency and practicality [10]. 
+GoogLeNet is 22 layers deep. 
+It uses about 100 layers to actual construct this network, though the exact number is reliant upon how many layers are actually counted by the machine learning infrastructure [10].
+The document covering GoogLeNet contains a rough estimate that, given the dataset used for its premier competition, the network could be trained to convergence using a high-end GPUs within a week. 
+The biggest limitation of training speed is memory usage [10].
 
 \subsection{AlexNet}
-AlexNet is a neural network architecture designed by Alex Krizhevsky, Ilya Sutskever, and
-Geoffrey Hinton at the University of Toronto. It was trained originally with a dataset of “over 15
-million labeled high-resolution images belonging to roughly 22,000 categories,” [11]. The
-architecture contains eight learned layers; five of these layers are convolutional and the other
-three are fully connected [11]. The architecture is designed to be slit across two GPUs, with each
-GPU running separate layers. The GPU’s only communicate between each other on specific
-layers. The convolutional layers filter the image size for proper processing. The network has 60
-million parameters each fully connected layer has 4,096 neurons [11]. The architecture uses two
-forms of data augmentation to ensure that the images are processed properly despite filtering size
-down. The aim is to reduce complexity of calculation and increase speed. The first method
-consists of image translations and horizontal reflections, while the second consists of altering
-intensities of RGB (Red Green Blue) channels in the images used to train the network [11]. This
-network achieved a test error rate of 15.3\% in the ILSVRC-2012 neural network training
-competition, placing it among the top 5 entrants.
+AlexNet is a neural network architecture designed by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton at the University of Toronto.
+It was trained originally with a dataset of “over 15 million labeled high-resolution images belonging to roughly 22,000 categories,” [11]. 
+The architecture contains eight learned layers; five of these layers are convolutional and the other three are fully connected [11]. 
+The architecture is designed to be slit across two GPUs, with each GPU running separate layers. 
+The GPU’s only communicate between each other on specific layers. 
+The convolutional layers filter the image size for proper processing. 
+The network has 60 million parameters each fully connected layer has 4,096 neurons [11]. 
+The architecture uses two forms of data augmentation to ensure that the images are processed properly despite filtering size down. 
+The aim is to reduce complexity of calculation and increase speed. 
+The first method consists of image translations and horizontal reflections, while the second consists of altering intensities of RGB (Red Green Blue) channels in the images used to train the network [11]. 
+This network achieved a test error rate of 15.3\% in the ILSVRC-2012 neural network training competition, placing it among the top 5 entrants.
 
 \subsection{OxfordNet}
-OxforNet is a neural network architecture designed by Karen Simonyan and Andrew Zisserman
-at the University of Oxford. One of the key features of this architecture is that all of the filters
-used in the convolution layers for image processing are quite small. Most other convolutional
-neural networks work down from slightly larger filters, but OxfordNet remains steadier in its
-filter size. It makes up for the lost image depth through having 16-19 weight layers in the
-network [12]. The training methods of this network are similar to those used for AlexNet, as this
-framework was built to improve upon that architecture. The weights of the node layers at
-initialization plays a key role in affecting how long it takes the net to learn properly [12]. The
-structure requires multiple GPUs to practice parallelism in its data processing. The network on
-its own achieved a 7.3\% test error rate, and when two models were combined the error rate was
-only 6.8\%.
+OxforNet is a neural network architecture designed by Karen Simonyan and Andrew Zisserman at the University of Oxford. 
+One of the key features of this architecture is that all of the filters used in the convolution layers for image processing are quite small. 
+Most other convolutional neural networks work down from slightly larger filters, but OxfordNet remains steadier in its filter size. 
+It makes up for the lost image depth through having 16-19 weight layers in the network [12]. 
+The training methods of this network are similar to those used for AlexNet, as this framework was built to improve upon that architecture. 
+The weights of the node layers at initialization plays a key role in affecting how long it takes the net to learn properly [12]. 
+The structure requires multiple GPUs to practice parallelism in its data processing. 
+The network on its own achieved a 7.3\% test error rate, and when two models were combined the error rate was only 6.8\%.
 
 
 \subsection{Choice of Network}
-After reviewing the documentation, implementations, and performance of the neural network
-architectures available, we decided to use GoogLeNet. GoogLeNet is a newer architecture and
-provides heavy processing power for multiple images. It takes advantage of the most nodes while
-also having a solid plan to compress its data usage, which results in the kind of speed we need
-for real-time image processing. Our network needs to be able to process the game fast enough to
-play, and GoogLeNet offers a viable model for doing so.
+After reviewing the documentation, implementations, and performance of the neural network architectures available, we decided to use GoogLeNet for now. 
+GoogLeNet is a newer architecture and provides heavy processing power for multiple images. 
+It takes advantage of the most nodes while also having a solid plan to compress its data usage, which results in the kind of speed we need for real-time image processing. 
+Our network needs to be able to process the game fast enough to play, and GoogLeNet offers a viable model for doing so.
+There is a high probability our choice of neural network architecture will change. 
+Most of the available documentation on neural network architectures is highly complex and we do not fully understand every element of these architectures at this time. 
+The current decision is made based on what we have been able to understand, but our opinions may change as we study further and research other neural network architectures that might suit our needs better.
 
 \section{GPU Cloud}
 \subsection{EC2}
-EC2 is a cloud computing environment set up by Amazon Web Services. The EC2 cloud
-supports a wide array of practical features for computing on a large scale. The system supports
-high performance computing with many more cores than the average CPU. The cloud provides
-“up to 16 NVIDIA K80 GPUs, with a combined 192 GB of GPU memory, 40 thousand parallel
-processing cores, 70 teraflops of single precision floating point performance, and over 23
-teraflops of double precision floating point performance,” [6]. The GPUs are capable of
-supporting CUDA and OpenCL frameworks. Machine learning is specifically listed as a taskwhich these GPU’s are able to support, which makes it a good fit for a deep learning project. The
-high GPU count also allows for high real time graphics processing, which pairs well with things
-that require graphical input. The cloud supports many more features such as security,
-networking, and auto scaling, but the high GPU count is the most impactful to its use on this
-project. Pricing for on demand use varies per server and memory needs from less than a dollar
-per hour to around \$17/hour.
+EC2 is a cloud computing environment set up by Amazon Web Services. The EC2 cloud supports a wide array of practical features for computing on a large scale. 
+The system supports high performance computing with many more cores than the average CPU. The cloud provides “up to 16 NVIDIA K80 GPUs, with a combined 192 GB of GPU memory, 40 thousand parallel processing cores, 70 teraflops of single precision floating point performance, and over 23 teraflops of double precision floating point performance,” [6]. 
+The GPUs are capable of supporting CUDA and OpenCL frameworks. 
+Machine learning is specifically listed as a taskwhich these GPU’s are able to support, which makes it a good fit for a deep learning project. 
+The high GPU count also allows for high real time graphics processing, which pairs well with things that require graphical input.
+The cloud supports many more features such as security, networking, and auto scaling, but the high GPU count is the most impactful to its use on this project. 
+Pricing for on demand use varies per server and memory needs from less than a dollar per hour to around \$17/hour.
 
 \subsection{Nimbix}
-Nimbix is a cloud computing and storage company. Their cloud supports several different types
-of NVIDIA GPUs, including the K40 and K80. The cloud supports OpenGL, OpenCL, and
-CUDA environments [7]. The cloud offers up to 128 GB of RAM and 1 Terabyte of storage. The
-JARVICE platform on their cloud offers support for big data and heavy computation. It contains
-an API for use specifically with GPU’s. It uses custom Linux systems, referred to as Nimbix
-Application Environments, to build and run application on the cloud [8]. The environments have
-full access to the CPU, GPU capacity, and memory of the underlying hardware. Nimbix offers
-pay rates for up to 16 cores and up to two NVIDIA Tesla K80 or K40 GPUs. The price of using
-two K80s hits \$5.00/hour. The Nimbix cloud has a lot of articles and documentation surrounded
-its uses in high power computing and deep learning.
+Nimbix is a cloud computing and storage company. 
+Their cloud supports several different types of NVIDIA GPUs, including the K40 and K80. 
+The cloud supports OpenGL, OpenCL, and CUDA environments [7]. 
+The cloud offers up to 128 GB of RAM and 1 Terabyte of storage. 
+The JARVICE platform on their cloud offers support for big data and heavy computation. 
+It contains an API for use specifically with GPU’s. 
+It uses custom Linux systems, referred to as Nimbix Application Environments, to build and run application on the cloud [8]. 
+The environments have full access to the CPU, GPU capacity, and memory of the underlying hardware. 
+Nimbix offers pay rates for up to 16 cores and up to two NVIDIA Tesla K80 or K40 GPUs. 
+The price of using two K80s hits \$5.00/hour. 
+The Nimbix cloud has a lot of articles and documentation surrounded its uses in high power computing and deep learning.
 
 \subsection{Cogeco Peer 1}
-Cogeco Peer 1’s cloud offers customized GPU server solutions with NVIDIA Tesla series GPUs
-[9]. Cogeco Peer 1 does not offer on-demand server use. To use their cloud, one must rent a
-physical dedicated server from them. They provide setup and management for the cloud server.
-They tailor GPU solutions to the tenant’s needs. They can set up the server with several
-operating systems including Windows and Red Hat. Their website promises rapid response to
-any server issues experienced while using their product. The customizability of the setup offers a
-concrete way to ensure the cloud has the proper setup for our group needs, but requires much
-more setup time. The company seems to largely focus on business solutions rather than
-individual use, so it’s not very well suited to our project needs.
+Cogeco Peer 1’s cloud offers customized GPU server solutions with NVIDIA Tesla series GPUs [9]. 
+Cogeco Peer 1 does not offer on-demand server use. 
+To use their cloud, one must rent a physical dedicated server from them. 
+They provide setup and management for the cloud server.
+They tailor GPU solutions to the tenant’s needs. 
+They can set up the server with several operating systems including Windows and Red Hat. 
+Their website promises rapid response to any server issues experienced while using their product. 
+The customizability of the setup offers a concrete way to ensure the cloud has the proper setup for our group needs, but requires much more setup time. 
+The company seems to largely focus on business solutions rather than individual use, so it’s not very well suited to our project needs.
 
 \subsection{Choice of Cloud}
-Given the information we have on cloud computing systems, we have chosen to use Amazon
-Web Services EC2 due to its convenient use, high availability of powerful GPU processing, and
-support for frameworks we’ll be working with. Furthermore, our client has offered to handle the
-costs of this cloud computing platform, which means that we will not need to pay out of pocket
-to use its services. Nimbex is a very tempting second, as it offers very good pricing and a lot of
-NVIDIA GPU support for Neural Network training. However it isn’t quite as powerful as the
-Amazon cloud. Cogeco Peer 1 is much too focused for long term business solutions to be a
-reasonable option on this project. It also offers less power than the Amazon cloud.
+Given the information we have on cloud computing systems, we have chosen to use Amazon Web Services EC2 due to its convenient use, high availability of powerful GPU processing, and support for frameworks we’ll be working with. 
+Furthermore, our client has offered to handle the costs of this cloud computing platform, which means that we will not need to pay out of pocket to use its services. 
+Nimbex is a very tempting second, as it offers very good pricing and a lot of NVIDIA GPU support for Neural Network training. However it isn’t quite as powerful as the Amazon cloud. 
+Cogeco Peer 1 is much too focused for long term business solutions to be a reasonable option on this project. 
+It also offers less power than the Amazon cloud.
 
 \section{Jetson TX1}
 \subsection{Introduction}
@@ -608,29 +583,26 @@ We might get more efficient feedback if it was all summarized at the end.
 
 \chapter{Bibliography}
 
-Beal, V. (n.d.). Linux OS (Operating System). Retrieved 11 13, 2016, from Webopedia:
-http://www.webopedia.com/TERM/L/linux_os.html\newline
-Britannica, h. E. (2015, November 16). Windows-OS. Retrieved 11 13, 2015, from Encyclopedia
-Britannica: https://www.britannica.com/technology/Windows-OS\newline
-Dong, J. (2007). Macintosh Operating System. In J. Dong, Network Dictionary (p. 298). Javvin
-Technologies Inc.\newline
-Sanner, M. F. (1999). Python: a programming language for software integration and	development. J Mol Graph Model, 17(1), 57-61.\newline
-Selic, B. (2003). The pragmatics of model-driven development. IEEE software, 20(5), 19.\newline
-[1] http://deeplearning.net/software/theano/introduction.html\newline
-[2] http://caffe.berkeleyvision.org/\newline
-[3] http://torch.ch/\newline
-[4] https://github.com/torch/torch7/wiki/Cheatsheet\#newbies\newline
-[5] https://github.com/zer0n/deepframeworks\newline
-[6] https://aws.amazon.com/ec2/details/\newline
-[7] https://www.nimbix.net/cloud-computing-nvidia/\newline
-[8] https://nimbix.zendesk.com/hc/en-us/articles/201740897-Working-in-the-Nimbix-Application-Environment-NAE-\newline
-[9] https://www.cogecopeer1.com/en/services/hosting/servers/managed-gpu/\newline
-[10] https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf\newline
+[1] "Theano at a glance — Theano 0.8.2 documentation," in deeplearning.net, 2008. [Online]. Available: http://deeplearning.net/software/theano/introduction.html.\newline
+[2] "Deep learning framework," in caffe.berkeleyvision.org. [Online]. Available: http://caffe.berkeleyvision.org/.\newline
+[3] "Scientific computing for LuaJIT," in torch.ch. [Online]. Available: http://torch.ch/.\newline
+[4] 	torch, "Torch/torch7," in GitHub, GitHub, 2016. [Online]. Available: https://github.com/torch/torch7/wiki/Cheatsheet\#newbies.\newline
+[5] zer0n, "Zer0n/deepframeworks," in GitHub, GitHub, 2016. [Online]. Available: https://github.com/zer0n/deepframeworks.\newline
+[6] "EC2 product details - Amazon web services," in Amazon Web Services, Amazon Web Services, 2016. [Online]. Available: https://aws.amazon.com/ec2/details/.\newline
+[7] Nimbix, "NVIDIA cloud computing - GPU cloud," in Nimbix, Nimbix. [Online]. Available: https://www.nimbix.net/cloud-computing nvidia/.\newline
+[8] "Working in the Nimbix application environment (NAE)," in Nimbix, Nimbix, 2015. [Online]. Available: https://nimbix.zendesk.com/hc/en-us/articles/201740897-Working-in-the-Nimbix-Application-Environment-NAE-.\newline
+[9] C. P. 1, "Managed GPU servers | affordable high performance computing," in Cogeco Peer 1, Cogeco Peer 1, 2016. [Online]. Available: https://www.cogecopeer1.com/en/services/hosting/servers/managed-gpu/. Accessed: Nov. 16, 2016.\newline
+[10] \newline
 [11] https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf\newline
 [12] https://arxiv.org/pdf/1409.1556v6.pdf\newline
 [13] http://cs231n.github.io/convolutional-networks/\newline
 [14] http://deeplearning.net/software_links/\newline
 [15] http://www.nvidia.com/object/gpu-cloud-computing-services.html\newline
+[16] Beal, V. (n.d.). Linux OS (Operating System). Retrieved 11 13, 2016, from Webopedia: http://www.webopedia.com/TERM/L/linux_os.html\newline
+[17] Britannica, h. E. (2015, November 16). Windows-OS. Retrieved 11 13, 2015, from Encyclopedia Britannica: https://www.britannica.com/technology/Windows-OS\newline
+[18] Dong, J. (2007). Macintosh Operating System. In J. Dong, Network Dictionary (p. 298). Javvin Technologies Inc.\newline
+[19] Sanner, M. F. (1999). Python: a programming language for software integration and	development. J Mol Graph Model, 17(1), 57 61.\newline
+[20] Selic, B. (2003). The pragmatics of model-driven development. IEEE software, 20(5), 19.\newline
 
 
 
