@@ -1,0 +1,189 @@
+%Copyright 2014 Jean-Philippe Eisenbarth
+%This program is free software: you can
+%redistribute it and/or modify it under the terms of the GNU General Public
+%License as published by the Free Software Foundation, either version 3 of the
+%License, or {at your option} any later version.
+%This program is distributed in the hope that it will be useful,but WITHOUT ANY
+%WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+%PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%You should have received a copy of the GNU General Public License along with
+%this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%Based on the code of Yiannis Lazarides
+%http://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%http://tex.stackexchange.com/users/963/yiannis-lazarides
+%Also based on the template of Karl E. Wiegers
+%http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
+%http://karlwiegers.com
+% \documentclass[letterpaper,10pt]{article}
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{afterpage}
+
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{enumitem}
+
+\usepackage{geometry}
+
+\usepackage{titling}
+\usepackage{rotating}
+\usepackage{pgfgantt}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{anyfontsize}
+
+\ganttset{group/.append style={orange},
+milestone/.append style={red},
+progress label node anchor/.append style={text=red}}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\geometry{textheight=8.5in, textwidth=6in}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.0 }
+\date{}
+%\title{%
+
+%}
+\usepackage{hyperref}
+\begin{document}
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{Design Document}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        Deep Learning on Embedded Platform\\
+        \vspace{1.9cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.9cm}
+        Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
+        \vspace{1.9cm}
+        CS 461 Fall 2016\\
+        \vspace{1.9cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
+\afterpage{\blankpage}
+
+\tableofcontents
+
+\section{Overview}
+\subsection{Scope}
+
+\subsection{Purpose}
+
+\subsection{Intended Audience}
+
+\subsection{Conformance}
+
+\section{Definitions}
+
+\section{Conceptual Model for Software Design Descritions}
+
+\subsection{Software Design in Context}
+
+\subsection{Siftware Design Description within the life cycle}
+
+\subsubsection{Influences on SDD preparation}
+
+\subsubsection{Influences on software life cycle products}
+
+\subsubsection{Design verification and design role in validation}
+
+\section{Design descrition information content}
+
+\subsection{Introducation}
+
+\subsection{SSD identification}
+
+\subsection{Design stakeholders and their concerns}
+
+\subsection{Design views}
+
+\subsection{Design viewpoints}
+
+\subsection{Design elements}
+
+\subsubsection{Design entities}
+
+\subsubsection{Design attributes}
+
+%\subsubsubsection{Name attribute}
+
+%\subsubsubsection{Type attribute}
+
+%\subsubsubsection{Pupose attribute}
+
+%\subsubsubsection{Author Attribute}
+
+\subsubsection{Design relationships}
+
+\subsubsection{Design constraints}
+
+\subsection{Design overlays}
+
+\subsection{Design rationale}
+
+\subsection{Design language}
+
+\section{Design viewpoints}
+
+\subsection{Introducation}
+
+\subsection{Context viewpoint}
+
+\subsection{Composition viewpoint}
+
+\subsection{Logical viewpoint}
+
+\subsection{information viewpoint}
+
+\subsection{Pattns use viewpoint}
+
+\subsection{Interface viewpoint}
+
+\subsection{Structure viewpoint}
+
+\subsection{Interaction viewpoint}
+
+\subsection{State dynamics viewpoint}
+
+\subsection{Algorithm viewpoint}
+
+\subsection{Resource viewpoint}
+
+
+
+
+\end{document}
