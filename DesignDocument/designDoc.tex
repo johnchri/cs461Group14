@@ -15,7 +15,7 @@
 %Also based on the template of Karl E. Wiegers
 %http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
 %http://karlwiegers.com
-% \documentclass[letterpaper,10pt]{article}
+%\documentclass[letterpaper,10pt]{article}
 \documentclass{scrreprt}
 \usepackage{listings}
 \usepackage{underscore}
@@ -48,10 +48,10 @@
 milestone/.append style={red},
 progress label node anchor/.append style={text=red}}
 
-\newcommand\blankpage{%
+\newcommand\blankpage{
     \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
     \newpage}
 
 \geometry{textheight=8.5in, textwidth=6in}
@@ -96,7 +96,7 @@ progress label node anchor/.append style={text=red}}
 This document goes over the design decision made for our Deep Learning on Embedded Platform project.
 In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
 
-\afterpage{\blankpage}
+%\afterpage{\blankpage}
 
 \tableofcontents
 
@@ -146,10 +146,23 @@ Instead we decided to find a game controller that could be hardwired to the Jets
 A game controller would significantly reduce the work load because it would already contain a lot of built in functionality that we would need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 
+\includegraphics[natwidth=100,natheight=100]{design.png}
+
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
 This seemed to be the simplest option seeing as we could connect the camera directly to the Jetson.
-The Jetson
+The camera will be connected to the Jetson and aimed at another screen displaying the game.
+The Jetson will first be trained by being given the video input to recognize and characterize objects within the game.
+We will set up tables so that the neural net will be able to store information such as the locations of objects.
+Once those things are set up it will be able to train itself by playing the game using the controller.
+It will base its decisions on the table of information that it stores and eventaully be able to survive the games longer.
+Eventually it will learn to respond to certain patterns in the table in order to become better at the game.
+
+We also needed to figure out how we were going to display the results of each round.
+We decided it would be best to have a summary graphical display of the data at the end of the playthrough.
+Once the program runs out of lives a screen will appear graphing statistics about the machines performance.
+These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
+Having detailed and easily readable data is key to knowing how to train the machine as we progress through the project.
 
 \chapter{Conclusion}
 
