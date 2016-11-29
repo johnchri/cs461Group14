@@ -80,20 +80,22 @@ progress label node anchor/.append style={text=red}}
     \rule{16cm}{5pt}\vskip1cm
     \begin{bfseries}
         \Huge{Design Document}\\
-        \vspace{1.9cm}
-        for\\
-        \vspace{1.9cm}
+        \vspace{1.0cm}
         Deep Learning on Embedded Platform\\
-        \vspace{1.9cm}
+        \vspace{1.0cm}
         \LARGE{Version \myversion}\\
-        \vspace{1.9cm}
+        \vspace{1.0cm}
         Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
-        \vspace{1.9cm}
+        \vspace{1.0cm}
         CS 461 Fall 2016\\
-        \vspace{1.9cm}
+        \vspace{1.0cm}
         \today\\
     \end{bfseries}
 \end{flushright}
+
+This document goes over the design decision made for our Deep Learning on Embedded Platform project.
+In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
+
 \afterpage{\blankpage}
 
 \tableofcontents
@@ -117,6 +119,24 @@ The intended audience of this document is the client who's project we are design
 
 Deep Learning or Machine Learning - Using
 API - Application Programming Interface
+Jetson TX1 - Quad core embedded system designed for power efficiency and deep learning projects
+OS - Operating system
+
+\chapter{Design}
+
+\section{Introduction}
+
+\section{Gabe}
+
+\section{Luay}
+
+\section{Working with the Jetson}
+
+While working with the Jetson TX1 there are several things that we needed to decide.
+These included our methods to communicate with our client, and the hardware used with the Jetson.
+For communication purposes, our team decided to stick with using skype.
+We will conduct regular meetings with our client and continue using skype, which everyone is familiar with.
+Skype will allow us to video call as well, in case any visuals need to be explained.
 
 Our project will actually need to be able to control the game.
 Inputs from the neural net need to be received by the game so that it can be played.
@@ -124,82 +144,14 @@ To do this we decided not to use the standard keyboard.
 This would require a lot of additional coding to map the Jetson to the controls.
 Instead we decided to find a game controller that could be hardwired to the Jetson TX1.
 A game controller would significantly reduce the work load because it would already contain a lot of built in functionality that we would need to connect it to the Jetson.
+The Jetson will be able to control the game using the controller's built in functionality.
 
+Since the Jetson has to learn how to play the game it needs to be able to see the game.
+For this we decided to use the camera sent to us by our client.
+This seemed to be the simplest option seeing as we could connect the camera directly to the Jetson.
+The Jetson
 
-\chapter{Conceptual Model for Software Design Descritions}
-
-\section{Software Design in Context}
-
-\section{Software Design Description within the life cycle}
-
-\subsection{Influences on SDD preparation}
-
-\subsection{Influences on software life cycle products}
-
-\subsection{Design verification and design role in validation}
-
-\chapter{Design descrition information content}
-
-\section{Introducation}
-
-\section{SSD identification}
-
-\section{Design stakeholders and their concerns}
-
-\section{Design views}
-
-\section{Design viewpoints}
-
-\section{Design elements}
-
-\subsection{Design entities}
-
-\subsection{Design attributes}
-
-\subsection{Name attribute}
-
-\subsection{Type attribute}
-
-\subsection{Pupose attribute}
-
-\subsection{Author Attribute}
-
-\subsection{Design relationships}
-
-\subsection{Design constraints}
-
-\section{Design overlays}
-
-\section{Design rationale}
-
-\section{Design language}
-
-\chapter{Design viewpoints}
-
-\section{Introducation}
-
-\section{Context viewpoint}
-
-\section{Composition viewpoint}
-
-\section{Logical viewpoint}
-
-\section{information viewpoint}
-
-\section{Pattns use viewpoint}
-
-\section{Interface viewpoint}
-
-\section{Structure viewpoint}
-
-\section{Interaction viewpoint}
-
-\section{State dynamics viewpoint}
-
-\section{Algorithm viewpoint}
-
-\section{Resource viewpoint}
-
+\chapter{Conclusion}
 
 
 

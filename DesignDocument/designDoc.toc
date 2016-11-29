@@ -1,40 +1,13 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Overview}{4}{chapter.1}
-\contentsline {section}{\numberline {1.1}Scope}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Purpose}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}Intended Audience}{4}{section.1.3}
-\contentsline {section}{\numberline {1.4}Conformance}{4}{section.1.4}
-\contentsline {chapter}{\numberline {2}Definitions}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}Conceptual Model for Software Design Descritions}{6}{chapter.3}
-\contentsline {section}{\numberline {3.1}Software Design in Context}{6}{section.3.1}
-\contentsline {section}{\numberline {3.2}Siftware Design Description within the life cycle}{6}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Influences on SDD preparation}{6}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Influences on software life cycle products}{6}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Design verification and design role in validation}{6}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Design descrition information content}{7}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introducation}{7}{section.4.1}
-\contentsline {section}{\numberline {4.2}SSD identification}{7}{section.4.2}
-\contentsline {section}{\numberline {4.3}Design stakeholders and their concerns}{7}{section.4.3}
-\contentsline {section}{\numberline {4.4}Design views}{7}{section.4.4}
-\contentsline {section}{\numberline {4.5}Design viewpoints}{7}{section.4.5}
-\contentsline {section}{\numberline {4.6}Design elements}{7}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Design entities}{7}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Design attributes}{7}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Design relationships}{7}{subsection.4.6.3}
-\contentsline {subsection}{\numberline {4.6.4}Design constraints}{7}{subsection.4.6.4}
-\contentsline {section}{\numberline {4.7}Design overlays}{7}{section.4.7}
-\contentsline {section}{\numberline {4.8}Design rationale}{7}{section.4.8}
-\contentsline {section}{\numberline {4.9}Design language}{7}{section.4.9}
-\contentsline {chapter}{\numberline {5}Design viewpoints}{8}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introducation}{8}{section.5.1}
-\contentsline {section}{\numberline {5.2}Context viewpoint}{8}{section.5.2}
-\contentsline {section}{\numberline {5.3}Composition viewpoint}{8}{section.5.3}
-\contentsline {section}{\numberline {5.4}Logical viewpoint}{8}{section.5.4}
-\contentsline {section}{\numberline {5.5}information viewpoint}{8}{section.5.5}
-\contentsline {section}{\numberline {5.6}Pattns use viewpoint}{8}{section.5.6}
-\contentsline {section}{\numberline {5.7}Interface viewpoint}{8}{section.5.7}
-\contentsline {section}{\numberline {5.8}Structure viewpoint}{8}{section.5.8}
-\contentsline {section}{\numberline {5.9}Interaction viewpoint}{8}{section.5.9}
-\contentsline {section}{\numberline {5.10}State dynamics viewpoint}{8}{section.5.10}
-\contentsline {section}{\numberline {5.11}Algorithm viewpoint}{8}{section.5.11}
-\contentsline {section}{\numberline {5.12}Resource viewpoint}{8}{section.5.12}
+\contentsline {chapter}{\numberline {1}Overview}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Scope}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Purpose}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Intended Audience}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Conformance}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Definitions}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Design}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gabe}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Luay}{5}{section.3.3}
+\contentsline {section}{\numberline {3.4}Working with the Jetson}{5}{section.3.4}
+\contentsline {chapter}{\numberline {4}Conclusion}{6}{chapter.4}
