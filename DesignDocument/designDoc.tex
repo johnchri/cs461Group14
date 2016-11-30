@@ -129,12 +129,13 @@ The document must be thorough enough for NVIDIA to recreate the project and pack
 
 3.4 Caffe: A code framework that allows for complex mathematical operations that are required for training a neural network.
 
-3. API: Application Programming Interface
+3.5 API: Application Programming Interface
 
-3. Jetson TX1: Quad core embedded system designed for power efficiency and deep learning projects
+3.6 Jetson TX1: Quad core embedded system designed for power efficiency and deep learning projects
 
-3. OS: Operating system
+3.7 OS: Operating system
 
+3.8 OpenCV: (Open Source Computer Vision) is a library that can be used with different languages(C, C++, Java, Python, etc.). It provides standard functionalities such as image capture, Faces recognition, Gesture recognition, Motion tracking, Mobile robotics, Object identification and Image manipulation.
 \chapter{Design}
 
 \section{Introduction}
@@ -142,6 +143,13 @@ The document must be thorough enough for NVIDIA to recreate the project and pack
 \section{Development viewpoint}%Gabe
 
 \subsection{Set up image dataset}%Luay
+
+OpenCV is a useful tool for this deep learning project.
+It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
+A script will be written in python which will use an OpenCV to crop, resize, and filter the game images when needed.
+The goal is to have a full set of the game images and their labels which will be used to train the neural network.
+However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
+Although, collecting objects’ images can be done manually, eventually, open cv will be used to resize the collected images to a consistent size.
 
 \section{Neural network setup}%Gabe
 
