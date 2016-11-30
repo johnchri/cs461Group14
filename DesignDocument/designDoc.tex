@@ -101,24 +101,35 @@ progress label node anchor/.append style={text=red}}
 \chapter{Overview}
 \section{Scope}
 
+This document outlines the design of a system for teaching a deep learning neural network how to play the game Galaga.
+The sections of this document will outline the system details, setup, and all things necessary to understand how and why the project is designed.
+Hardware required, API's used, and setup will be detailed as part of the project design.
+
+This project is to be used to produce a training course for NVIDIA's Deep Learning Institute. 
+After the project is complete it will be handed off to NVIDIA for the purposes of accomplishing this goal.
+
 \section{Purpose}
 
-The purpose of this document is to lay out the ground work for the design of our project plan out the process.
-
-\section{Intended Audience}
-
-The intended audience of this document is the client who's project we are designing, as well as the instructors and TAs guiding us through the process.
-
-\section{Conformance}
-
+The main aim of this document is to give others a thorough enough understanding of the project and its design.
+The reader of this document should walk away able to understand how the system works and why it was designed this way.
+The document must be thorough enough for NVIDIA to recreate the project and package the design into a training course on deep learning.
 
 
 \chapter{Definitions}
 
-Deep Learning or Machine Learning - Using
-API - Application Programming Interface
-Jetson TX1 - Quad core embedded system designed for power efficiency and deep learning projects
-OS - Operating system
+3.1 Neural Network: A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision. The weights of nodes are decided through training the network, and a traversal of the graph acts as a large chain of decisions as the neural network is confronted with situations.
+
+3.2 Deep Learning: Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
+
+3.3 Convolutional Neural Network: A neural network specifically designed to take images as input. It uses convolutional layers to process the image into a more manageable chunk of data and extracts the information relevant to the network.
+
+3.4 Caffe: A code framework that allows for complex mathematical operations that are required for training a neural network.
+
+3. API: Application Programming Interface
+
+3. Jetson TX1: Quad core embedded system designed for power efficiency and deep learning projects
+
+3. OS: Operating system
 
 \chapter{Design}
 
