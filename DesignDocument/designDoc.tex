@@ -76,27 +76,29 @@ progress label node anchor/.append style={text=red}}
 \usepackage{hyperref}
 \begin{document}
 
-\begin{flushright}
-    \rule{16cm}{5pt}\vskip1cm
-    \begin{bfseries}
-        \Huge{Design Document}\\
-        \vspace{1.0cm}
-        Deep Learning on Embedded Platform\\
-        \vspace{1.0cm}
-        \LARGE{Version \myversion}\\
-        \vspace{1.0cm}
-        Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
-        \vspace{1.0cm}
-        CS 461 Fall 2016\\
-        \vspace{1.0cm}
-        \today\\
-    \end{bfseries}
-\end{flushright}
-
-This document goes over the design decision made for our Deep Learning on Embedded Platform project.
-In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
-
-%\afterpage{\blankpage}
+\begin{titlingpage}
+	\begin{flushright}
+		\rule{16cm}{5pt}\vskip1cm
+		\begin{bfseries}
+			\Huge{Design Document}\\
+			\vspace{1.0cm}
+			Deep Learning on Embedded Platform\\
+			\vspace{1.0cm}
+			\LARGE{Version \myversion}\\
+			\vspace{1.0cm}
+			Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
+			\vspace{1.0cm}
+			CS 461 Fall 2016\\
+			\vspace{1.0cm}
+			\today\\
+		\end{bfseries}
+	\end{flushright}
+	\begin{abstract}
+	This document goes over the design decision made for our Deep Learning on Embedded Platform project.
+	In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
+	\end{abstract}
+\end{titlingpage}
+\afterpage{\blankpage}
 
 \tableofcontents
 
@@ -137,11 +139,27 @@ The document must be thorough enough for NVIDIA to recreate the project and pack
 
 \section{Introduction}
 
-\section{Gabe}
+\section{Development viewpoint}%Gabe
 
-\section{Luay}
+\subsection{Set up image dataset}%Luay
 
-\section{Working with the Jetson}
+\section{Neural network setup}%Gabe
+
+\section{Data viewpoint}%Luay
+
+\subsection{Image processing}%Luay
+
+\subsection{Neural training methods}%Gabe
+
+\subsection{Data visualization}%Chris
+
+We also needed to figure out how we were going to display the results of each round.
+We decided it would be best to have a summary graphical display of the data at the end of the playthrough.
+Once the program runs out of lives a screen will appear graphing statistics about the machines performance.
+These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
+Having detailed and easily readable data is key to knowing how to train the machine as we progress through the project.
+
+\section{Hardware viewpoint}%Chris
 
 While working with the Jetson TX1 there are several things that we needed to decide.
 These included our methods to communicate with our client, and the hardware used with the Jetson.
@@ -154,10 +172,18 @@ Inputs from the neural net need to be received by the game so that it can be pla
 To do this we decided not to use the standard keyboard.
 This would require a lot of additional coding to map the Jetson to the controls.
 Instead we decided to find a game controller that could be hardwired to the Jetson TX1.
+
+\subsection{Hardware setup}%Chris
+
 A game controller would significantly reduce the work load because it would already contain a lot of built in functionality that we would need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 
-\includegraphics[natwidth=100,natheight=100]{design.png}
+\begin{figure}
+  \includegraphics[natwidth=50,natheight=100]{design.PNG}
+  \caption{Hardware Layout}
+  \label{fig:design1}
+\end{figure}
+Figure \ref{fig:design1} shows the basic layout.
 
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
@@ -168,12 +194,6 @@ We will set up tables so that the neural net will be able to store information s
 Once those things are set up it will be able to train itself by playing the game using the controller.
 It will base its decisions on the table of information that it stores and eventaully be able to survive the games longer.
 Eventually it will learn to respond to certain patterns in the table in order to become better at the game.
-
-We also needed to figure out how we were going to display the results of each round.
-We decided it would be best to have a summary graphical display of the data at the end of the playthrough.
-Once the program runs out of lives a screen will appear graphing statistics about the machines performance.
-These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
-Having detailed and easily readable data is key to knowing how to train the machine as we progress through the project.
 
 \chapter{Conclusion}
 
