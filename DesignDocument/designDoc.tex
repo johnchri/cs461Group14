@@ -120,28 +120,61 @@ The document must be thorough enough for NVIDIA to recreate the project and pack
 
 
 \chapter{Definitions}
+\begin{description}
 
-3.1 Neural Network: A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision. The weights of nodes are decided through training the network, and a traversal of the graph acts as a large chain of decisions as the neural network is confronted with situations.
+  \item[3.1 Neural Network:] A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision. The weights of nodes are decided through training the network, and a traversal of the graph acts as a large chain of decisions as the neural network is confronted with situations.
 
-3.2 Deep Learning: Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
+  \item[3.2 Deep Learning:]  Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
 
-3.3 Convolutional Neural Network: A neural network specifically designed to take images as input. It uses convolutional layers to process the image into a more manageable chunk of data and extracts the information relevant to the network.
+  \item[3.3 Convolutional Neural Network:] A neural network specifically designed to take images as input. It uses convolutional layers to process the image into a more manageable chunk of data and extracts the information relevant to the network.
 
-3.4 Caffe: A code framework that allows for complex mathematical operations that are required for training a neural network.
+  \item[3.4 Caffe:] A code framework that allows for complex mathematical operations that are required for training a neural network.
 
-3. API: Application Programming Interface
+  \item[3.5 API:] Application Programming Interface
 
-3. Jetson TX1: Quad core embedded system designed for power efficiency and deep learning projects
+  \item[3.6 Jetson TX1:] Quad core embedded system designed for power efficiency and deep learning projects
 
-3. OS: Operating system
+  \item[3.7 OS:] Operating system
+
+  \item[3.8 OpenCV:] (Open Source Computer Vision) is a library that can be used with different languages(C, C++, Java, Python, etc.). It provides standard functionalities such as image capture, Faces recognition, Gesture recognition, Motion tracking, Mobile robotics, Object identification and Image manipulation.
+
+\end{description}
+
+
+
+
+
+
+
 
 \chapter{Design}
 
 \section{Introduction}
 
+This section lays out several viewpoints from which we have approached the design of this project.
+Each component will be matched under an appropriate viewpoint that gives the reader a clear idea of how the design was apparoached.
+Each subsection details a different set of components, many of which will be lumped together, which constitute a major piece of the final design.
+There are three main viewpoints from which we have approached the design:
+\begin{itemize}
+  \item Developer Viewpoint: Design elements approached from the eyes of a developer trying to recreate this project.
+
+  \item Data Viewpoint: Design elements approached from a perspective of data flow operations and data processing.
+
+  \item Hardware Wiewpoint: Design elements approached from the perspective of the hardware level. Particularly focused on hardware setups required for the rest of the process.
+\end{itemize}
+
+Each viewpoint is covered in more depth in its respective section.
+
 \section{Development viewpoint}%Gabe
 
 \subsection{Set up image dataset}%Luay
+
+OpenCV is a useful tool for this deep learning project.
+It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
+A script will be written in python which will use an OpenCV to crop, resize, and filter the game images when needed.
+The goal is to have a full set of the game images and their labels which will be used to train the neural network.
+However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
+Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
 
 \section{Neural network setup}%Gabe
 
@@ -157,7 +190,7 @@ We also needed to figure out how we were going to display the results of each ro
 We decided it would be best to have a summary graphical display of the data at the end of the playthrough.
 Once the program runs out of lives a screen will appear graphing statistics about the machines performance.
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
-Having detailed and easily readable data is key to knowing how to train the machine as we progress through the project.
+Having detailed and easily readable data is key to knowing how to train the machine to keep performing better in the game.
 
 \section{Hardware viewpoint}%Chris
 
@@ -181,7 +214,7 @@ A game controller will significantly reduce the work load because it will alread
 The Jetson will be able to control the game using the controller's built in functionality.
 
 \begin{figure}
-  \includegraphics[width=\linewidth,natwidth=50,natheight=100]{design.PNG}
+  \includegraphics[width=\linewidth,natwidth=50,natheight=100]{design.JPG}
   \caption{Hardware Layout}
   \label{fig:design1}
 \end{figure}
@@ -190,8 +223,8 @@ Figure \ref{fig:design1} shows the basic layout.
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
 This was the simplest option seeing as we can connect the camera directly to the Jetson.
-The camera will be connected to the Jetson and aimed at another screen displaying the game.
-The Jetson will first be trained by being given the video input to recognize and characterize objects within the game.
+The camera will be connected to the Jetson and aimed at the screen showing the programs gameplay.
+The program will first be trained by being given the video input to recognize and characterize objects within the game.
 We will set up tables so that the neural net will be able to store information such as the locations of objects.
 Once those things are set up it will be able to train itself by playing the game using the controller.
 It will base its decisions on the table of information that it stores and will increasingly be able to survive the game longer.
