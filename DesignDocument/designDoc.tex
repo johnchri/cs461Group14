@@ -142,6 +142,11 @@ The system will run inference on the Jetson TX1 developer kit, which will interf
 Cloud computing GPUs will be used to handle the meat of the training.
 In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
 
+\chapter{References}
+
+[1] F. Rojas, "Galaga (Namco)," in gaminghistory101.com, Gaming History 101, 2012. [Online]. Available: https://gaminghistory101.com/2012/03/22/galaga/.\newline
+[2] C. Szegedy et al., "Going Deeper with Convolutions," in cs.unc.edu. [Online]. Available: https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf.\newline
+
 \chapter{Definitions}
 \begin{description}
 
@@ -198,12 +203,12 @@ The neural network set-up itself is a multi-layered combination of components.
 At the basic level of design, our neural network follows the architecture known as GoogLeNet.
 GoogLeNet is designed, as a convolutional neural network, specifically to process images and categorize them.
 At the architectural level it has 22 layers, each consisting of special modules [2].
-These modules have a structure similar to that outlined in figure \ref{fig:3.1}.
+These modules have a structure similar to that outlined in figure \ref{fig:4.1}.
 
 \begin{figure}
   \includegraphics[natwidth=100,natheight=85]{GoogLeNetModule.png}
   \caption{GoogLeNet Module}
-  \label{fig:3.1}
+  \label{fig:4.1}
 \end{figure}
 
 The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
@@ -298,9 +303,9 @@ The Jetson will be able to control the game using the controller's built in func
 \begin{figure}
   \includegraphics[natwidth=100,natheight=200]{design.JPG}
   \caption{Hardware Layout}
-  \label{fig:design1}
+  \label{fig:4.3}
 \end{figure}
-Figure \ref{fig:design1} shows the basic layout.
+Figure \ref{fig:4.3} shows the basic layout.
 
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
