@@ -254,7 +254,7 @@ Although, collecting objects’ images can be done manually, eventually, OpenCV 
 After having a trained neural network, a software written in python will start by loading the necessary dependencies which are OpenCV, Caffe, and the trained neural network.
 At this step, it’s important to convert the given neural network to an object that OpenCV can understand.
 Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
-\footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in a different section.}.
+\footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in section \ref{sssec:num1}.}.
 Since videos are just consecutive of images, OpenCV will be used to process the images by comparing them with the trained neural network.
 The idea is to identify the location of each dangerous objects that would reduce the player's life so the Jetson TX1 can send a command to the game controller which moves the player away from the harmful object.
 
@@ -293,7 +293,7 @@ Having detailed and easily readable data is key to knowing how to train the mach
 
 \newpage
 
-\section{Interaction Viewpoint}%Chris
+\section{Interaction Viewpoint}\label{sssec:num1}%Chris
 
 This section details how our physical hardware components interact to form a cohesive system.
 It will outline several pieces of hardware used to realize the goal of playing galaga.
