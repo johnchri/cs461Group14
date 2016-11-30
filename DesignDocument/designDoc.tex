@@ -122,6 +122,26 @@ This document outlines the design of a system for teaching a deep learning neura
 The sections of this document will outline the system details, setup, and all things necessary to understand how and why the project is designed.
 Hardware required, API's used, and setup will be detailed as part of the project design.
 
+\section{Context}
+
+This system is not designed for an average computer user. 
+This system is a showcase of possibilities when working with Neural Networks.
+As such, no real UI has been developed for the purposes of this project.
+Average people may see the result of the project by viewing the network play Galaga.
+
+This system is designed for developers.
+Developers should be able to do a project like this as an introduction to deep learning neural networks.
+The documentation provided here reflects this focus and is written with developers in mind.
+
+\section{Summary}
+
+The neural network created for this project will be able to play Galaga.
+Its design is based on GoogLeNet, a convolutional neural network designed in coordination by people at Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, Ann Arbor, and Magic Leap Inc. [2].
+This neural network will undergo two main phases of training. One with just images, and a second hooked up to the game Galaga.
+The system will run inference on the Jetson TX1 developer kit, which will interface between a computer playing the game with a controller.
+Cloud computing GPUs will be used to handle the meat of the training.
+In total, the system should be able to learn how to play Galaga, and then continually improve as it plays. 
+
 \chapter{Definitions}
 \begin{description}
 
@@ -147,13 +167,6 @@ It uses convolutional layers to process the image into a more manageable chunk o
 Victory in a level is achieved by destroying all enemy ships.
 
 \end{description}
-
-
-
-
-
-
-
 
 \chapter{Design}
 
@@ -186,6 +199,24 @@ Although, collecting objects’ images can be done manually, eventually, OpenCV 
 
 \section{Neural network setup}%Gabe
 
+The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
+For the framework this project uses Caffe. 
+Caffe allows for command line instructions to be sent to define the network.
+To set up the network and Caffe properly we are using a program called DIGITS.
+DIGITS is a neural network set-up application designed and released by NVIDIA. 
+It gives an easy interface for setting up the exact parameters for learning as well as building the network up.
+The exact parameters we need for the set-up of this net are unknown at this time and will be added when available.
+
+Training of the neural network will be done on NVIDIA GPUs on the Amazon Web Services cloud.
+The network will run its calculations on the cloud and send its response down to the Jetson TX1.
+There the response will be interpreted into the proper action.
+
+The structural goal of the neural net changes between two stages. 
+In the first stage, the structure of the neural net is meant purely to teach it how to recognize and categorize in game objects from images.
+In the second stage, the neural network will be deployed on the Jetson TX1 and will take active game information.
+It will use that information to make one of three choices: move left, move right, or shoot.
+More detail on the training will be given in section X.X.
+
 \section{Data viewpoint}%Luay
 
 \subsection{Image processing}%Luay
@@ -198,6 +229,19 @@ Since videos are just consecutive of images, OpenCV will be used to process the 
 The idea is to identify the location of each dangerous objects that would reduce the player’s life so the Jetson can send a command to the game controller which moves the player away from the harmful object.
 
 \subsection{Neural training methods}%Gabe
+
+The training of the neural network will be done in two stages.
+In the first stage, we will be using images created from the game to teach the network how to recognize in game objects.
+Given that GoogLeNet was designed with image categorization in mind, this set-up will be easy to create and bring to functionality.
+We will feed the network with images doctored by OpenCV and it will interpret them and label them.
+Once it has a high degree of success in correctly identifying in game objects, we will take the training to stage two.
+
+In the second stage of training we will be feeding the network images directly from live game progress.
+The game will be running and the network will be deployed on the Jetson.
+The network will be given the ability to take actions based on the objects it identifies on screen.
+Positive feedback will be given to the neural network when it correctly kills an enemy or completes a level.
+Negative feedback will be given to the network when it dies, gets a game over, or loops too long doing nothing.
+As the neural network plays the game, it will improve performance and eventually be considered proficient.
 
 \subsection{Data visualization}%Chris
 
