@@ -124,7 +124,7 @@ Hardware required, API's used, and setup will be detailed as part of the project
 
 \section{Context}
 
-This system is not designed for an average computer user. 
+This system is not designed for an average computer user.
 This system is a showcase of possibilities when working with Neural Networks.
 As such, no real UI has been developed for the purposes of this project.
 Average people may see the result of the project by viewing the network play Galaga.
@@ -140,7 +140,7 @@ Its design is based on GoogLeNet, a convolutional neural network designed in coo
 This neural network will undergo two main phases of training. One with just images, and a second hooked up to the game Galaga.
 The system will run inference on the Jetson TX1 developer kit, which will interface between a computer playing the game with a controller.
 Cloud computing GPUs will be used to handle the meat of the training.
-In total, the system should be able to learn how to play Galaga, and then continually improve as it plays. 
+In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
 
 \chapter{Definitions}
 \begin{description}
@@ -197,7 +197,7 @@ The goal is to have a full set of the game images and their labels which will be
 However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
 Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
 
-\section{Neural network setup}%Gabe
+\subsection{Neural network setup}%Gabe
 
 The neural network set-up itself is a multi-layered combination of components.
 At the basic level of design, our neural network follows the architecture known as GoogLeNet.
@@ -206,16 +206,16 @@ At the architectural level it has 22 layers, each consisting of special modules 
 These modules have a structure similar to that outlined in figure \ref{fig:3.1}.
 
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=150]{GoogLeNetModule.png}
+  \includegraphics[natwidth=100,natheight=85]{GoogLeNetModule.png}
   \caption{GoogLeNet Module}
   \label{fig:3.1}
 \end{figure}
 
 The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
-For the framework this project uses Caffe. 
+For the framework this project uses Caffe.
 Caffe allows for command line instructions to be sent to define the network.
 To set up the network and Caffe properly we are using a program called DIGITS.
-DIGITS is a neural network set-up application designed and released by NVIDIA. 
+DIGITS is a neural network set-up application designed and released by NVIDIA.
 It gives an easy interface for setting up the exact parameters for learning as well as building the network up.
 The exact parameters we need for the set-up of this net are unknown at this time and will be added when available.
 
@@ -223,7 +223,7 @@ Training of the neural network will be done on NVIDIA GPUs on the Amazon Web Ser
 The network will run its calculations on the cloud and send its response down to the Jetson TX1.
 There the response will be interpreted into the proper action.
 
-The structural goal of the neural net changes between two stages. 
+The structural goal of the neural net changes between two stages.
 In the first stage, the structure of the neural net is meant purely to teach it how to recognize and categorize in game objects from images.
 In the second stage, the neural network will be deployed on the Jetson TX1 and will take active game information.
 It will use that information to make one of three choices: move left, move right, or shoot.
@@ -243,7 +243,7 @@ At this step, it’s important to convert the given neural network to an object 
 Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
 \footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in a different section.}.
 Since videos are just consecutive of images, OpenCV will be used to process the images by comparing them with the trained neural network.
-The idea is to identify the location of each dangerous objects that would reduce the player’s life so the Jetson can send a command to the game controller which moves the player away from the harmful object.
+The idea is to identify the location of each dangerous objects that would reduce the player's life so the Jetson TX1 can send a command to the game controller which moves the player away from the harmful object.
 
 \subsection{Neural training methods}%Gabe
 
@@ -290,7 +290,7 @@ A game controller will significantly reduce the work load because it will alread
 The Jetson will be able to control the game using the controller's built in functionality.
 
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=50]{design.JPG}
+  \includegraphics[natwidth=100,natheight=200]{design.JPG}
   \caption{Hardware Layout}
   \label{fig:design1}
 \end{figure}
