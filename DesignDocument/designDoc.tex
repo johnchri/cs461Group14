@@ -199,6 +199,24 @@ Although, collecting objects’ images can be done manually, eventually, OpenCV 
 
 \section{Neural network setup}%Gabe
 
+The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
+For the framework this project uses Caffe. 
+Caffe allows for command line instructions to be sent to define the network.
+To set up the network and Caffe properly we are using a program called DIGITS.
+DIGITS is a neural network set-up application designed and released by NVIDIA. 
+It gives an easy interface for setting up the exact parameters for learning as well as building the network up.
+The exact parameters we need for the set-up of this net are unknown at this time and will be added when available.
+
+Training of the neural network will be done on NVIDIA GPUs on the Amazon Web Services cloud.
+The network will run its calculations on the cloud and send its response down to the Jetson TX1.
+There the response will be interpreted into the proper action.
+
+The structural goal of the neural net changes between two stages. 
+In the first stage, the structure of the neural net is meant purely to teach it how to recognize and categorize in game objects from images.
+In the second stage, the neural network will be deployed on the Jetson TX1 and will take active game information.
+It will use that information to make one of three choices: move left, move right, or shoot.
+More detail on the training will be given in section X.X.
+
 \section{Data viewpoint}%Luay
 
 \subsection{Image processing}%Luay
@@ -211,6 +229,19 @@ Since videos are just consecutive of images, OpenCV will be used to process the 
 The idea is to identify the location of each dangerous objects that would reduce the player’s life so the Jetson can send a command to the game controller which moves the player away from the harmful object.
 
 \subsection{Neural training methods}%Gabe
+
+The training of the neural network will be done in two stages.
+In the first stage, we will be using images created from the game to teach the network how to recognize in game objects.
+Given that GoogLeNet was designed with image categorization in mind, this set-up will be easy to create and bring to functionality.
+We will feed the network with images doctored by OpenCV and it will interpret them and label them.
+Once it has a high degree of success in correctly identifying in game objects, we will take the training to stage two.
+
+In the second stage of training we will be feeding the network images directly from live game progress.
+The game will be running and the network will be deployed on the Jetson.
+The network will be given the ability to take actions based on the objects it identifies on screen.
+Positive feedback will be given to the neural network when it correctly kills an enemy or completes a level.
+Negative feedback will be given to the network when it dies, gets a game over, or loops too long doing nothing.
+As the neural network plays the game, it will improve performance and eventually be considered proficient.
 
 \subsection{Data visualization}%Chris
 
