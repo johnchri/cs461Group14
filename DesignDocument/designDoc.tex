@@ -93,16 +93,18 @@ progress label node anchor/.append style={text=red}}
 			\today\\
 		\end{bfseries}
 	\end{flushright}
-	\begin{abstract}
-	In this document we describe the design of a deep learning system developed to learn how to play the arcade game Galaga.
-	Galaga is an arcade shooter which was released in 1981 by Namco [1].
-	This system is designed with the ultimate goal of being turned into a course for the NVIDIA Deep Learning Institute.
-	The documentation will outline exactly what hardware was used, how the system was put together, and what methods were used in a way that allows others to recreate this project.
-	\end{abstract}
 \end{titlingpage}
 \afterpage{\blankpage}
 
+
+
 \tableofcontents
+
+\chapter{Abstract}
+In this document we describe the design of a deep learning system developed to learn how to play the arcade game Galaga.
+Galaga is an arcade shooter which was released in 1981 by Namco [1].
+This system is designed with the ultimate goal of being turned into a course for the NVIDIA Deep Learning Institute.
+The documentation will outline exactly what hardware was used, how the system was put together, and what methods were used in a way that allows others to recreate this project.
 
 \chapter{Overview}
 
@@ -152,25 +154,25 @@ In total, the system should be able to learn how to play Galaga, and then contin
 \chapter{Definitions}
 \begin{description}
 
-  \item[3.1 Neural Network:] A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision.
+  \item[4.1 Neural Network:] A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision.
 The weights of nodes are decided through training the network, and a traversal of the graph acts as a large chain of decisions as the neural network is confronted with situations.
 
-  \item[3.2 Deep Learning:]  Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
+  \item[4.2 Deep Learning:]  Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
 
-  \item[3.3 Convolutional Neural Network:] A neural network specifically designed to take images as input.
+  \item[4.3 Convolutional Neural Network:] A neural network specifically designed to take images as input.
 It uses convolutional layers to process the image into a more manageable chunk of data and extracts the information relevant to the network.
 
-  \item[3.4 Caffe:] A code framework that allows for complex mathematical operations that are required for training a neural network.
+  \item[4.4 Caffe:] A code framework that allows for complex mathematical operations that are required for training a neural network.
 
-  \item[3.5 API:] Application Programming Interface
+  \item[4.5 API:] Application Programming Interface
 
-  \item[3.6 Jetson TX1:] Quad core embedded system designed for power efficiency and deep learning projects
+  \item[4.6 Jetson TX1:] Quad core embedded system designed for power efficiency and deep learning projects
 
-  \item[3.7 OS:] Operating system
+  \item[4.7 OS:] Operating system
 
-  \item[3.8 OpenCV:] (Open Source Computer Vision) is a library that can be used with different languages(C, C++, Java, Python, etc.). It provides standard functionalities such as image capture, Faces recognition, Gesture recognition, Motion tracking, Mobile robotics, Object identification and Image manipulation.
+  \item[4.8 OpenCV:] (Open Source Computer Vision) is a library that can be used with different languages(C, C++, Java, Python, etc.). It provides standard functionalities such as image capture, Faces recognition, Gesture recognition, Motion tracking, Mobile robotics, Object identification and Image manipulation.
 
-  \item[3.9 Galaga:] Galaga is an arcade video game released in 1981 by Namco [1]. The player takes control of a small space ship and must shoot at and dodge waves of alien space ships.
+  \item[4.9 Galaga:] Galaga is an arcade video game released in 1981 by Namco [1]. The player takes control of a small space ship and must shoot at and dodge waves of alien space ships.
 Victory in a level is achieved by destroying all enemy ships.
 
 \end{description}
