@@ -112,6 +112,7 @@ The main aim of this document is to give others a thorough enough understanding 
 The reader of this document should walk away able to understand how the system works and why it was designed this way.
 The document must be thorough enough for NVIDIA to recreate the project and package the design into a training course on deep learning.
 
+
 This project is to be used to produce a training course for NVIDIA's Deep Learning Institute.
 After the project is complete it will be handed off to NVIDIA for the purposes of accomplishing this goal.
 To that end the documentation has been designed to provide readers a clear path towards building this system themselves.
@@ -128,6 +129,7 @@ This system is not designed for an average computer user.
 This system is a showcase of possibilities when working with Neural Networks.
 As such, no real UI has been developed for the purposes of this project.
 Average people may see the result of the project by viewing the network play Galaga.
+
 
 This system is designed for developers.
 Developers should be able to do a project like this as an introduction to deep learning neural networks.
@@ -182,11 +184,11 @@ Each component will be matched under an appropriate viewpoint that gives the rea
 Each subsection details a different set of components, many of which will be lumped together, which constitute a major piece of the final design.
 There are three main viewpoints from which we have approached the design:
 \begin{itemize}
-  \item Developer Viewpoint: Design elements approached from the eyes of a developer trying to recreate this project.
+  \item Structure Viewpoint: Design elements approached from a structural level.
 
-  \item Data Viewpoint: Design elements approached from a perspective of data flow operations and data processing.
+  \item Information Viewpoint: Design elements approached from a perspective of data flow operations and data processing.
 
-  \item Hardware Wiewpoint: Design elements approached from the perspective of the hardware level. Particularly focused on hardware setups required for the rest of the process.
+  \item Interaction Wiewpoint: Design elements relevant to getting systems to integrate with each other. Particularly focused on hardware setups required for the rest of the process.
 \end{itemize}
 
 Each viewpoint is covered in more depth in its respective section.
@@ -219,9 +221,11 @@ DIGITS is a neural network set-up application designed and released by NVIDIA.
 It gives an easy interface for setting up the exact parameters for learning as well as building the network up.
 The exact parameters we need for the set-up of this net are unknown at this time and will be added when available.
 
+
 Training of the neural network will be done on NVIDIA GPUs on the Amazon Web Services cloud.
 The network will run its calculations on the cloud and send its response down to the Jetson TX1.
 There the response will be interpreted into the proper action.
+
 
 The structural goal of the neural net changes between two stages.
 In the first stage, the structure of the neural net is meant purely to teach it how to recognize and categorize in game objects from images.
@@ -262,6 +266,7 @@ Given that GoogLeNet was designed with image categorization in mind, this set-up
 We will feed the network with images doctored by OpenCV and it will interpret them and label them.
 Once it has a high degree of success in correctly identifying in game objects, we will take the training to stage two.
 
+
 In the second stage of training we will be feeding the network images directly from live game progress.
 The game will be running and the network will be deployed on the Jetson.
 The network will be given the ability to take actions based on the objects it identifies on screen.
@@ -288,9 +293,11 @@ While working with the Jetson TX1 there are several things that we needed to dec
 These included our methods to communicate with our client, and the hardware used with the Jetson.
 Choosing out hardware was key to determining how each piece would fit into the design.
 
+
 For communication purposes, our team decided to stick with using skype.
 We will conduct regular meetings with our client and continue using skype, which everyone is familiar with.
 Skype will allow us to video call as well, in case any visuals need to be explained.
+
 
 Our project will actually need to be able to control the game.
 Inputs from the neural net need to be received by the game so that it can be played.
