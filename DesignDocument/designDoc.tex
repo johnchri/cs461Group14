@@ -186,16 +186,11 @@ There are three main viewpoints from which we have approached the design:
 
 Each viewpoint is covered in more depth in its respective section.
 
-\section{Development viewpoint}%Gabe
+\section{Structure viewpoint}%Gabe
 
-\subsection{Set up image dataset}%Luay
-
-OpenCV is a useful tool for this deep learning project.
-It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
-A script will be written in python which will use an OpenCV to crop, resize, and filter the game images when needed.
-The goal is to have a full set of the game images and their labels which will be used to train the neural network.
-However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
-Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
+This section covers integral structural elements of the system and how they come together.
+Tools used will be covered to give readers an idea of how we set up the system structure.
+The heart of this structure is our neural network set-up.
 
 \subsection{Neural network setup}%Gabe
 
@@ -229,12 +224,21 @@ In the second stage, the neural network will be deployed on the Jetson TX1 and w
 It will use that information to make one of three choices: move left, move right, or shoot.
 More detail on the training will be given in section X.X.
 
-\section{Data viewpoint}%Luay
+\section{Information viewpoint}%Luay
 
 The data in this section consists of image processing of the game being played as well as the data of the trained neural network.
 This section will go in depth of both how image processing will be done as well as different ways to train and improve the neural network.
 A pseudocode will be included to give an overview of where these data will be used in this project.
 Also, the pseudocode will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
+
+\subsection{Set up image dataset}%Luay
+
+OpenCV is a useful tool for this deep learning project.
+It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
+A script will be written in python which will use an OpenCV to crop, resize, and filter the game images when needed.
+The goal is to have a full set of the game images and their labels which will be used to train the neural network.
+However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
+Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
 
 \subsection{Image processing}%Luay
 
@@ -268,7 +272,12 @@ Once the program runs out of lives a screen will appear graphing statistics abou
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
 Having detailed and easily readable data is key to knowing how to train the machine to keep performing better in the game.
 
-\section{Hardware viewpoint}%Chris
+\section{Interaction Viewpoint}%Chris
+
+This section details how our physical hardware components interact to form a cohesive system.
+It will outline several pieces of hardware used to realize the goal of playing galaga.
+
+\subsection{Hardware setup}%Chris
 
 While working with the Jetson TX1 there are several things that we needed to decide.
 These included our methods to communicate with our client, and the hardware used with the Jetson.
@@ -283,9 +292,6 @@ Inputs from the neural net need to be received by the game so that it can be pla
 To do this we decided not to use the standard keyboard.
 Using a keyboard requires a lot of additional coding to map the Jetson to the controls.
 Instead we decided to find a game controller that we will hardwire to the Jetson TX1.
-
-\subsection{Hardware setup}%Chris
-
 A game controller will significantly reduce the work load because it will already contain a lot of built in functionality that we need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 
