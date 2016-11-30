@@ -122,6 +122,26 @@ This document outlines the design of a system for teaching a deep learning neura
 The sections of this document will outline the system details, setup, and all things necessary to understand how and why the project is designed.
 Hardware required, API's used, and setup will be detailed as part of the project design.
 
+\section{Context}
+
+This system is not designed for an average computer user. 
+This system is a showcase of possibilities when working with Neural Networks.
+As such, no real UI has been developed for the purposes of this project.
+Average people may see the result of the project by viewing the network play Galaga.
+
+This system is designed for developers.
+Developers should be able to do a project like this as an introduction to deep learning neural networks.
+The documentation provided here reflects this focus and is written with developers in mind.
+
+\section{Summary}
+
+The neural network created for this project will be able to play Galaga.
+Its design is based on GoogLeNet, a convolutional neural network designed in coordination by people at Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, Ann Arbor, and Magic Leap Inc. [2].
+This neural network will undergo two main phases of training. One with just images, and a second hooked up to the game Galaga.
+The system will run inference on the Jetson TX1 developer kit, which will interface between a computer playing the game with a controller.
+Cloud computing GPUs will be used to handle the meat of the training.
+In total, the system should be able to learn how to play Galaga, and then continually improve as it plays. 
+
 \chapter{Definitions}
 \begin{description}
 
@@ -147,13 +167,6 @@ It uses convolutional layers to process the image into a more manageable chunk o
 Victory in a level is achieved by destroying all enemy ships.
 
 \end{description}
-
-
-
-
-
-
-
 
 \chapter{Design}
 
