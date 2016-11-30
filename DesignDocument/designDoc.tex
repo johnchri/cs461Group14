@@ -199,6 +199,18 @@ Although, collecting objects’ images can be done manually, eventually, OpenCV 
 
 \section{Neural network setup}%Gabe
 
+The neural network set-up itself is a multi-layered combination of components.
+At the basic level of design, our neural network follows the architecture known as GoogLeNet.
+GoogLeNet is designed, as a convolutional neural network, specifically to process images and categorize them.
+At the architectural level it has 22 layers, each consisting of special modules [2].
+These modules have a structure similar to that outlined in figure \ref{fig:3.1}.
+
+\begin{figure}
+  \includegraphics[natwidth=576,natheight=624]{GoogLeNetModule.png}
+  \caption{GoogLeNet Module}
+  \label{fig:3.1}
+\end{figure}
+
 The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
 For the framework this project uses Caffe. 
 Caffe allows for command line instructions to be sent to define the network.
