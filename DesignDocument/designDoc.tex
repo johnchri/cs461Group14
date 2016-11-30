@@ -112,7 +112,7 @@ The main aim of this document is to give others a thorough enough understanding 
 The reader of this document should walk away able to understand how the system works and why it was designed this way.
 The document must be thorough enough for NVIDIA to recreate the project and package the design into a training course on deep learning.
 \newline
-
+\newline
 This project is to be used to produce a training course for NVIDIA's Deep Learning Institute.
 After the project is complete it will be handed off to NVIDIA for the purposes of accomplishing this goal.
 To that end the documentation has been designed to provide readers a clear path towards building this system themselves.
@@ -130,7 +130,7 @@ This system is a showcase of possibilities when working with Neural Networks.
 As such, no real UI has been developed for the purposes of this project.
 Average people may see the result of the project by viewing the network play Galaga.
 \newline
-
+\newline
 This system is designed for developers.
 Developers should be able to do a project like this as an introduction to deep learning neural networks.
 The documentation provided here reflects this focus and is written with developers in mind.
@@ -188,7 +188,7 @@ There are three main viewpoints from which we have approached the design:
 
   \item Information Viewpoint: Design elements approached from a perspective of data flow operations and data processing.
 
-  \item Interaction Wiewpoint: Design elements relevant to getting systems to integrate with each other. Particularly focused on hardware setups required for the rest of the process.
+  \item Interaction Viewpoint: Design elements relevant to getting systems to integrate with each other. Particularly focused on hardware setups required for the rest of the process.
 \end{itemize}
 
 Each viewpoint is covered in more depth in its respective section.
@@ -207,14 +207,12 @@ GoogLeNet is designed, as a convolutional neural network, specifically to proces
 At the architectural level it has 22 layers, each consisting of special modules [2].
 These modules have a structure similar to that outlined in figure \ref{fig:4.1}.
 \newline
-
+\newline
 \begin{figure}
   \includegraphics[natwidth=100,natheight=85]{GoogLeNetModule.png}
   \caption{GoogLeNet Module}
   \label{fig:4.1}
-\end{figure}
-
-The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
+\end{figure}The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
 For the framework this project uses Caffe.
 Caffe allows for command line instructions to be sent to define the network.
 To set up the network and Caffe properly we are using a program called DIGITS.
@@ -222,12 +220,12 @@ DIGITS is a neural network set-up application designed and released by NVIDIA.
 It gives an easy interface for setting up the exact parameters for learning as well as building the network up.
 The exact parameters we need for the set-up of this net are unknown at this time and will be added when available.
 \newline
-
+\newline
 Training of the neural network will be done on NVIDIA GPUs on the Amazon Web Services cloud.
 The network will run its calculations on the cloud and send its response down to the Jetson TX1.
 There the response will be interpreted into the proper action.
 \newline
-
+\newline
 The structural goal of the neural net changes between two stages.
 In the first stage, the structure of the neural net is meant purely to teach it how to recognize and categorize in game objects from images.
 In the second stage, the neural network will be deployed on the Jetson TX1 and will take active game information.
@@ -269,7 +267,7 @@ Given that GoogLeNet was designed with image categorization in mind, this set-up
 We will feed the network with images doctored by OpenCV and it will interpret them and label them.
 Once it has a high degree of success in correctly identifying in game objects, we will take the training to stage two.
 \newline
-
+\newline
 In the second stage of training we will be feeding the network images directly from live game progress.
 The game will be running and the network will be deployed on the Jetson.
 The network will be given the ability to take actions based on the objects it identifies on screen.
@@ -305,7 +303,7 @@ While working with the Jetson TX1 there are several things that we needed to dec
 These included our methods to communicate with our client, and the hardware used with the Jetson.
 Choosing out hardware was key to determining how each piece would fit into the design.
 \newline
-
+\newline
 Our project will actually need to be able to control the game.
 Inputs from the neural net need to be received by the game so that it can be played.
 To do this we decided not to use the standard keyboard.
@@ -314,14 +312,12 @@ Instead we decided to find a game controller that we will hardwire to the Jetson
 A game controller will significantly reduce the work load because it will already contain a lot of built in functionality that we need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 \newline
-
+\newline
 \begin{figure}
   \includegraphics[natwidth=100,natheight=200]{design.JPG}
   \caption{Hardware Layout}
   \label{fig:4.3}
-\end{figure}
-Figure \ref{fig:4.3} shows the basic layout.
-
+\end{figure}% Figure \ref{fig:4.3} shows the basic layout.
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
 This was the simplest option seeing as we can connect the camera directly to the Jetson.
