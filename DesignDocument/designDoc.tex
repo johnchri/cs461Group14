@@ -51,7 +51,7 @@ progress label node anchor/.append style={text=red}}
 \newcommand\blankpage{
     \null
     \thispagestyle{empty}
-    \addtocounter{page}{-1}
+    \addtocounter{page}{0}
     \newpage}
 
 \geometry{textheight=8.5in, textwidth=6in}
@@ -163,6 +163,8 @@ Having detailed and easily readable data is key to knowing how to train the mach
 
 While working with the Jetson TX1 there are several things that we needed to decide.
 These included our methods to communicate with our client, and the hardware used with the Jetson.
+Choosing out hardware was key to determining how each piece would fit into the design.
+
 For communication purposes, our team decided to stick with using skype.
 We will conduct regular meetings with our client and continue using skype, which everyone is familiar with.
 Skype will allow us to video call as well, in case any visuals need to be explained.
@@ -170,16 +172,16 @@ Skype will allow us to video call as well, in case any visuals need to be explai
 Our project will actually need to be able to control the game.
 Inputs from the neural net need to be received by the game so that it can be played.
 To do this we decided not to use the standard keyboard.
-This would require a lot of additional coding to map the Jetson to the controls.
-Instead we decided to find a game controller that could be hardwired to the Jetson TX1.
+Using a keyboard requires a lot of additional coding to map the Jetson to the controls.
+Instead we decided to find a game controller that we will hardwire to the Jetson TX1.
 
 \subsection{Hardware setup}%Chris
 
-A game controller would significantly reduce the work load because it would already contain a lot of built in functionality that we would need to connect it to the Jetson.
+A game controller will significantly reduce the work load because it will already contain a lot of built in functionality that we need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 
 \begin{figure}
-  \includegraphics[natwidth=50,natheight=100]{design.PNG}
+  \includegraphics[width=\linewidth,natwidth=50,natheight=100]{design.PNG}
   \caption{Hardware Layout}
   \label{fig:design1}
 \end{figure}
@@ -187,16 +189,14 @@ Figure \ref{fig:design1} shows the basic layout.
 
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
-This seemed to be the simplest option seeing as we could connect the camera directly to the Jetson.
+This was the simplest option seeing as we can connect the camera directly to the Jetson.
 The camera will be connected to the Jetson and aimed at another screen displaying the game.
 The Jetson will first be trained by being given the video input to recognize and characterize objects within the game.
 We will set up tables so that the neural net will be able to store information such as the locations of objects.
 Once those things are set up it will be able to train itself by playing the game using the controller.
-It will base its decisions on the table of information that it stores and eventaully be able to survive the games longer.
+It will base its decisions on the table of information that it stores and will increasingly be able to survive the game longer.
 Eventually it will learn to respond to certain patterns in the table in order to become better at the game.
 
 \chapter{Conclusion}
-
-
 
 \end{document}

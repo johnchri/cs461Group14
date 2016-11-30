@@ -1,0 +1,16 @@
+\BOOKMARK [0][-]{chapter.1}{Overview}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Scope}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Purpose}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Definitions}{}% 4
+\BOOKMARK [0][-]{chapter.3}{Design}{}% 5
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.2}{Development viewpoint}{chapter.3}% 7
+\BOOKMARK [2][-]{subsection.3.2.1}{Set up image dataset}{section.3.2}% 8
+\BOOKMARK [1][-]{section.3.3}{Neural network setup}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.4}{Data viewpoint}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.4.1}{Image processing}{section.3.4}% 11
+\BOOKMARK [2][-]{subsection.3.4.2}{Neural training methods}{section.3.4}% 12
+\BOOKMARK [2][-]{subsection.3.4.3}{Data visualization}{section.3.4}% 13
+\BOOKMARK [1][-]{section.3.5}{Hardware viewpoint}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.5.1}{Hardware setup}{section.3.5}% 15
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 16
