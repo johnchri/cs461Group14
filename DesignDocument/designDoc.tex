@@ -229,7 +229,7 @@ More detail on the training will be given in section X.X.
 The data in this section consists of image processing of the game being played as well as the data of the trained neural network.
 This section will go in depth of both how image processing will be done as well as different ways to train and improve the neural network.
 A pseudocode will be included to give an overview of where these data will be used in this project.
-Also, the pseudocode will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
+Also, the pseudocode \ref{fig:3.2} will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
 
 \subsection{Set up image dataset}%Luay
 
@@ -248,6 +248,8 @@ Then, a video capture of the game will take a place to record the monitor where 
 \footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in a different section.}.
 Since videos are just consecutive of images, OpenCV will be used to process the images by comparing them with the trained neural network.
 The idea is to identify the location of each dangerous objects that would reduce the player's life so the Jetson TX1 can send a command to the game controller which moves the player away from the harmful object.
+
+
 
 \subsection{Neural training methods}%Gabe
 
@@ -271,6 +273,15 @@ We decided it would be best to have a summary graphical display of the data at t
 Once the program runs out of lives a screen will appear graphing statistics about the machines performance.
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
 Having detailed and easily readable data is key to knowing how to train the machine to keep performing better in the game.
+
+\subsection{Pseudocode}
+\begin{figure}
+  \includegraphics[natwidth=100,natheight=120]{pseudocode.png}
+  \caption{Software Design to Play the Game}
+  \label{fig:3.2}
+\end{figure}
+
+\newpage
 
 \section{Interaction Viewpoint}%Chris
 
@@ -314,7 +325,7 @@ Eventually it will learn to respond to certain patterns in the table in order to
 
 \chapter{Conclusion}
 The goal of this design document is to provide the "how to" of this deep learning project which will be turned to the NVIDIA's deep learning institute to use it in a deep learning course.
-The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects to become effectively able to move the player away from enemies. 
+The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects to become effectively able to move the player away from enemies.
 This can be done based on three major phases which are preparing images for the game objects, train neural network based on the set of images and label them, and finally by using a camera connected to the Jetson TX1 while the game hosted on a different machine that is being controlled using the Jetson TX1.
 
 \end{document}
