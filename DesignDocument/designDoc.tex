@@ -130,7 +130,7 @@ The weights of nodes are decided through training the network, and a traversal o
 
   \item[3.2 Deep Learning:]  Using a layered neural network constructed by GPU processing to teach a computer how to accomplish a specific task.
 
-  \item[3.3 Convolutional Neural Network:] A neural network specifically designed to take images as input. 
+  \item[3.3 Convolutional Neural Network:] A neural network specifically designed to take images as input.
 It uses convolutional layers to process the image into a more manageable chunk of data and extracts the information relevant to the network.
 
   \item[3.4 Caffe:] A code framework that allows for complex mathematical operations that are required for training a neural network.
@@ -142,8 +142,8 @@ It uses convolutional layers to process the image into a more manageable chunk o
   \item[3.7 OS:] Operating system
 
   \item[3.8 OpenCV:] (Open Source Computer Vision) is a library that can be used with different languages(C, C++, Java, Python, etc.). It provides standard functionalities such as image capture, Faces recognition, Gesture recognition, Motion tracking, Mobile robotics, Object identification and Image manipulation.
-  
-  \item[3.9 Galaga:] Galaga is an arcade video game released in 1981 by Namco [1]. The player takes control of a small space ship and must shoot at and dodge waves of alien space ships. 
+
+  \item[3.9 Galaga:] Galaga is an arcade video game released in 1981 by Namco [1]. The player takes control of a small space ship and must shoot at and dodge waves of alien space ships.
 Victory in a level is achieved by destroying all enemy ships.
 
 \end{description}
@@ -188,11 +188,16 @@ Although, collecting objects’ images can be done manually, eventually, OpenCV 
 
 \section{Data viewpoint}%Luay
 
+The data in this section consists of image processing of the game being played as well as the data of the trained neural network.
+This section will go in depth of both how image processing will be done as well as different ways to train and improve the neural network.
+A pseudocode will be included to give an overview of where these data will be used in this project.
+Also, the pseudocode will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
+
 \subsection{Image processing}%Luay
 
 After having a trained neural network, a software written in python will start by loading the necessary dependencies which are OpenCV, Caffe, and the trained neural network.
 At this step, it’s important to convert the given neural network to an object that OpenCV can understand.
-Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV’s API
+Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
 \footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in a different section.}.
 Since videos are just consecutive of images, OpenCV will be used to process the images by comparing them with the trained neural network.
 The idea is to identify the location of each dangerous objects that would reduce the player’s life so the Jetson can send a command to the game controller which moves the player away from the harmful object.
