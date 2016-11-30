@@ -22,7 +22,6 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -70,33 +69,32 @@ progress label node anchor/.append style={text=red}}
 }%
 \def\myversion{1.0 }
 \date{}
-%\title{%
 
-%}
 \usepackage{hyperref}
 \begin{document}
-
-\begin{flushright}
-    \rule{16cm}{5pt}\vskip1cm
-    \begin{bfseries}
-        \Huge{Design Document}\\
-        \vspace{1.0cm}
-        Deep Learning on Embedded Platform\\
-        \vspace{1.0cm}
-        \LARGE{Version \myversion}\\
-        \vspace{1.0cm}
-        Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
-        \vspace{1.0cm}
-        CS 461 Fall 2016\\
-        \vspace{1.0cm}
-        \today\\
-    \end{bfseries}
-\end{flushright}
-
-This document goes over the design decision made for our Deep Learning on Embedded Platform project.
-In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
-
-%\afterpage{\blankpage}
+\begin{titlingpage}
+	\begin{flushright}
+		\rule{16cm}{5pt}\vskip1cm
+		\begin{bfseries}
+			\Huge{Design Document}\\
+			\vspace{1.0cm}
+			Deep Learning on Embedded Platform\\
+			\vspace{1.0cm}
+			\LARGE{Version \myversion}\\
+			\vspace{1.0cm}
+			Prepared by Christopher Johnson, Luay Alshawi, Gabe Morey\\
+			\vspace{1.0cm}
+			CS 461 Fall 2016\\
+			\vspace{1.0cm}
+			\today\\
+		\end{bfseries}
+	\end{flushright}
+	\begin{abstract}
+	This document goes over the design decision made for our Deep Learning on Embedded Platform project.
+	In it we will explain our approach, provide detailed information about why we designed it a certain way, and explain our expected outcome.
+	\end{abstract}
+\end{titlingpage}
+\afterpage{\blankpage}
 
 \tableofcontents
 
@@ -146,7 +144,12 @@ Instead we decided to find a game controller that could be hardwired to the Jets
 A game controller would significantly reduce the work load because it would already contain a lot of built in functionality that we would need to connect it to the Jetson.
 The Jetson will be able to control the game using the controller's built in functionality.
 
-\includegraphics[natwidth=100,natheight=100]{design.png}
+\begin{figure}
+  \includegraphics[natwidth=50,natheight=100]{design.PNG}
+  \caption{Hardware Layout}
+  \label{fig:design1}
+\end{figure}
+Figure \ref{fig:design1} shows the basic layout.
 
 Since the Jetson has to learn how to play the game it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
