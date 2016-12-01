@@ -16,7 +16,7 @@
 %http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
 %http://karlwiegers.com
 %\documentclass[letterpaper,10pt]{article}
-\documentclass{scrreprt}
+\documentclass{onecolumn, draftclsnofoot,10pt, compsoc}[IEEEtran
 \usepackage{listings}
 \usepackage{underscore}
 \usepackage[bookmarks=true]{hyperref}
@@ -138,9 +138,9 @@ progress label node anchor/.append style={text=red}}
 \pagenumbering{arabic}
 \tableofcontents
 
-\chapter{Overview}
+\section{Overview}
 
-\section{Purpose}
+\subsection{Purpose}
 
 The main aim of this document is to give others a thorough enough understanding of the project and its design.
 The reader of this document should walk away able to understand how the system works and why it was designed this way.
@@ -151,13 +151,13 @@ This project is to be used to produce a training course for NVIDIA's Deep Learni
 After the project is complete it will be handed off to NVIDIA for the purposes of accomplishing this goal.
 To that end the documentation has been designed to provide readers a clear path towards building this system themselves.
 
-\section{Scope}
+\subsection{Scope}
 
 This document outlines the design of a system for teaching a deep learning neural network how to play the game Galaga.
 The sections of this document will outline the system details, setup, and all things necessary to understand how and why the project is designed.
 Hardware required, API's to be used, and setup will be detailed as part of the project design.
 
-\section{Context}
+\subsection{Context}
 
 This system is not designed for an average computer user.
 This system is a showcase of possibilities when working with Neural Networks.
@@ -169,7 +169,7 @@ This system is designed for developers.
 Developers should be able to do a project like this as an introduction to deep learning neural networks.
 The documentation provided here reflects this focus and is written with developers in mind.
 
-\section{Summary}
+\subsection{Summary}
 
 The neural network created for this project will be able to play Galaga.
 Its design is based on GoogLeNet, a convolutional neural network designed in coordination by people at Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, Ann Arbor, and Magic Leap Inc. [2].
@@ -180,12 +180,12 @@ The Jetson will be wired to the controller to control the game on the seperate c
 Cloud computing GPUs will be used to handle the training.
 In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
 
-\chapter{References}
+\subsection{References}
 
 [1] F. Rojas, "Galaga (Namco)," in gaminghistory101.com, Gaming History 101, 2012. [Online]. Available: https://gaminghistory101.com/2012/03/22/galaga/.\newline
 [2] C. Szegedy et al., "Going Deeper with Convolutions," in cs.unc.edu. [Online]. Available: https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf.\newline
 
-\chapter{Definitions}
+\subsection{Definitions}
 \begin{description}
 
   \item[4.1 Neural Network:] A multilayered graph structure containing nodes, referred to as neurons, and weights that affect how likely the node is to be chosen when confronted with a decision.
@@ -211,9 +211,9 @@ Victory in a level is achieved by destroying all enemy ships.
 
 \end{description}
 
-\chapter{Design}
+\section{Design}
 
-\section{Introduction}
+\subsection{Introduction}
 
 This section lays out several viewpoints from which we have approached the design of this project.
 Each component will be matched under an appropriate viewpoint that gives the reader a clear idea of how the design was apparoached.
@@ -229,13 +229,13 @@ There are three main viewpoints from which we have approached the design:
 
 Each viewpoint is covered in more depth in its respective section.
 
-\section{Structure viewpoint}%Gabe
+\subsection{Structure viewpoint}%Gabe
 
 This section covers integral structural elements of the system and how they come together.
 Tools used will be covered to give readers an idea of how we set up the system structure.
 The heart of this structure is our neural network set-up.
 
-\subsection{Neural network setup}%Gabe
+\subsubsection{Neural network setup}%Gabe
 
 The neural network set-up itself is a multi-layered combination of components.
 At the basic level of design, our neural network follows the architecture known as GoogLeNet.
@@ -351,7 +351,7 @@ This controller will be hooked up to another computer that will actually be runn
 \newline
 \newline
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=200]{design.JPG}
+  \includegraphics[natwidth=100,natheight=200]{design.eps}
   \caption{Hardware Layout}
   \label{fig:4.3}
 \end{figure}% Figure \ref{fig:4.3} shows the basic layout.
@@ -365,7 +365,7 @@ Once those things are set up it will be able to train itself by playing the game
 It will base its decisions on the table of information that it stores and will increasingly be able to survive the game longer.
 Eventually it will learn to respond to certain patterns in the table in order to become better at the game.
 
-\chapter{Conclusion}
+\section{Conclusion}
 The goal of this design document is to provide the "how to" of this deep learning project which will be turned to the NVIDIA's deep learning institute to use it in a deep learning course.
 The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects to become effectively able to move the player away from enemies.
 This can be done based on three major phases which are preparing images for the game objects, train neural network based on the set of images and label them, and finally by using a camera connected to the Jetson TX1 while the game hosted on a different machine that is being controlled using the Jetson TX1.
