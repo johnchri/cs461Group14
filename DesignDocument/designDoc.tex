@@ -104,7 +104,7 @@ progress label node anchor/.append style={text=red}}
 In this document we describe the design of a deep learning system developed to learn how to play the arcade game Galaga.
 Galaga is an arcade shooter which was released in 1981 by Namco [1].
 This system is designed with the ultimate goal of being turned into a course for the NVIDIA Deep Learning Institute.
-The documentation will outline exactly what hardware was used, how the system was put together, and what methods were used in a way that allows others to recreate this project.
+The documentation will outline exactly what hardware will used, how the system will be put together, and what methods will be used in a way that allows others to recreate this project.
 
 \chapter{Overview}
 
@@ -123,14 +123,14 @@ To that end the documentation has been designed to provide readers a clear path 
 
 This document outlines the design of a system for teaching a deep learning neural network how to play the game Galaga.
 The sections of this document will outline the system details, setup, and all things necessary to understand how and why the project is designed.
-Hardware required, API's used, and setup will be detailed as part of the project design.
+Hardware required, API's to be used, and setup will be detailed as part of the project design.
 
 \section{Context}
 
 This system is not designed for an average computer user.
 This system is a showcase of possibilities when working with Neural Networks.
-As such, no real UI has been developed for the purposes of this project.
-Average people may see the result of the project by viewing the network play Galaga.
+As such, no real UI will be developed for the purposes of this project.
+Average people may see the result of the final project by viewing the network play Galaga.
 \newline
 \newline
 This system is designed for developers.
@@ -141,9 +141,11 @@ The documentation provided here reflects this focus and is written with develope
 
 The neural network created for this project will be able to play Galaga.
 Its design is based on GoogLeNet, a convolutional neural network designed in coordination by people at Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, Ann Arbor, and Magic Leap Inc. [2].
-This neural network will undergo two main phases of training. One with just images, and a second hooked up to the game Galaga.
-The system will run inference on the Jetson TX1 developer kit, which will interface between a computer playing the game with a controller.
-Cloud computing GPUs will be used to handle the meat of the training.
+This neural network will undergo two main phases of training. 
+One training phase will be done with just still images, while the second will involve live image feed from the game Galaga.
+The system will run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via a controller.
+The Jetson will be wired to the controller to control the game on the seperate computer.
+Cloud computing GPUs will be used to handle the training.
 In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
 
 \chapter{References}
@@ -281,7 +283,7 @@ As the neural network plays the game, it will improve performance and eventually
 
 We also needed to figure out how we were going to display the results of each round.
 We decided it would be best to have a summary, graphical display of the data at the end of the playthrough.
-Once the program runs out of lives, a screen will appear graphing statistics about the machines performance.
+Once the program runs out of lives, a screen will appear graphing statistics about the machine's performance.
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
 Having detailed and easily readable data is key to knowing how to train the machine to keep performing better in the game.
 
