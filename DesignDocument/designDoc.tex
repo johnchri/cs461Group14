@@ -142,7 +142,7 @@ progress label node anchor/.append style={text=red}}
 
 \subsection{Purpose}
 
-The main aim of this document is to give others a thorough enough understanding of the project and its design.
+The main aim of this document is to give others a thorough enough understanding of the project and its design to replicate the project.
 The reader of this document should walk away able to understand how the system works and why it was designed this way.
 The document must be thorough enough for NVIDIA to recreate the project and package the design into a training course on deep learning.
 \newline
@@ -172,7 +172,7 @@ The documentation provided here reflects this focus and is written with develope
 \subsection{Summary}
 
 The neural network created for this project will be able to play Galaga.
-Its design is based on GoogLeNet, a convolutional neural network designed in coordination by people at Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, Ann Arbor, and Magic Leap Inc. [2].
+Its design is based on GoogLeNet, a convolutional neural network designed in coordination with Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, and Magic Leap Inc. [2].
 This neural network will undergo two main phases of training. 
 One training phase will be done with just still images, while the second will involve live image feed from the game Galaga.
 The system will run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via a controller.
@@ -245,7 +245,7 @@ These modules have a structure similar to that outlined in figure \ref{fig:4.1}.
 \newline
 \newline
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=85]{GoogLeNetModule.png}
+  \includegraphics[natwidth=100,natheight=85]{GoogLeNetModule.eps}
   \caption{GoogLeNet Module}
   \label{fig:4.1}
 \end{figure}The network set-up provided by GoogLeNet needs to be accessed with a framework, as well as modified slightly for this project's needs.
@@ -321,7 +321,7 @@ Having detailed and easily readable data is key to knowing how to train the mach
 
 \subsection{Pseudocode}
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=120]{pseudocode.png}
+  \includegraphics[natwidth=100,natheight=120]{pseudocode.eps}
   \caption{Software Design to Play the Game}
   \label{fig:3.2}
 \end{figure}
