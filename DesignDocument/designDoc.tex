@@ -127,9 +127,9 @@ progress label node anchor/.append style={text=red}}
         }
         \begin{abstract}   
         	In this document we describe the design of a deep learning system developed to learn how to play the arcade game Galaga.
-			Galaga is an arcade shooter which was released in 1981 by Namco [1].
-			This system is designed with the ultimate goal of being turned into a course for the NVIDIA Deep Learning Institute.
-			The documentation will outline exactly what hardware will used, how the system will be put together, and what methods will be used in a way that allows others to recreate this project.
+		Galaga is an arcade shooter which was released in 1981 by Namco [1].
+		This system is designed with the ultimate goal of being turned into a course for the NVIDIA Deep Learning Institute.
+		The documentation will outline exactly what hardware will used, how the system will be put together, and what methods will be used in a way that allows others to recreate this project.
         \end{abstract}     
     \end{singlespace}
 \end{titlepage}
@@ -279,19 +279,19 @@ Also, the pseudocode \ref{fig:3.2} will include a general algorithm of how the J
 
 OpenCV is a useful tool for this deep learning project.
 It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
-A script will be written in python which will use an OpenCV to crop, resize, and filter the game images when needed.
+A script will be written in python which will use OpenCV to crop, resize, and filter the game images when needed.
 The goal is to have a full set of the game images and their labels which will be used to train the neural network.
-However, using OpenCV at this phase is optional, but due to the need of fast image manipulation, OpenCV can be used to do this task easily as it will help to save time and efforts.
+Using OpenCV at this phase is optional, but, due to the need of fast image manipulation, OpenCV can be used to do this task easily and will help to save time and effort.
 Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
 
 \subsection{Image processing}%Luay
 
-After having a trained neural network, a software written in python will start by loading the necessary dependencies which are OpenCV, Caffe, and the trained neural network.
+After having a trained neural network, a software written in python will start by loading the necessary dependencies, which are OpenCV, Caffe, and the trained neural network.
 At this step, it’s important to convert the given neural network to an object that OpenCV can understand.
 Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
-\footnote{The hardware connection of the camera as well as the control mechanism of the game shall be explained in section \ref{sssec:num1}.}.
-Since videos are just consecutive of images, OpenCV will be used to process the images by comparing them with the trained neural network.
-The idea is to identify the location of each dangerous objects that would reduce the player's life so the Jetson TX1 can send a command to the game controller which moves the player away from the harmful object.
+The hardware connection of the camera as well as the control mechanism of the game shall be explained in section \ref{sssec:num1}.
+Since videos are just consecutive images, OpenCV will be used to process the images by comparing them with the trained neural network.
+The idea is to identify the location of each dangerous object that could reduce the player's life so the Jetson TX1 can send a command to the game controller and move the player away from the harmful object.
 
 
 
@@ -313,7 +313,7 @@ As the neural network plays the game, it will improve performance and eventually
 
 \subsection{Data visualization}%Chris
 
-We also needed to figure out how we were going to display the results of each round.
+It was necessary to figure out how to display the results of each round.
 We decided it would be best to have a summary, graphical display of the data at the end of the playthrough.
 Once the program runs out of lives, a screen will appear, graphing statistics about the machine's performance.
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
@@ -367,7 +367,7 @@ Eventually the neural net will learn to respond to certain patterns in the table
 
 \section{Conclusion}
 The goal of this design document is to provide the "how to" of this deep learning project which will be turned to the NVIDIA's deep learning institute to use it in a deep learning course.
-The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects to become effectively able to move the player away from enemies.
-This can be done based on three major phases which are preparing images for the game objects, train neural network based on the set of images and label them, and finally by using a camera connected to the Jetson TX1 while the game hosted on a different machine that is being controlled using the Jetson TX1.
+The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects and become effectively able to move the player away from enemies.
+This can be done based on three major phases which are preparing images for the game objects, training a neural network based on the set of images with labels, and finally by using a camera connected to the Jetson TX1 while the game, hosted on a different machine, is being controlled using the Jetson TX1 and a controller input.
 
 \end{document}
