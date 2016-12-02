@@ -315,7 +315,7 @@ As the neural network plays the game, it will improve performance and eventually
 
 We also needed to figure out how we were going to display the results of each round.
 We decided it would be best to have a summary, graphical display of the data at the end of the playthrough.
-Once the program runs out of lives, a screen will appear graphing statistics about the machine's performance.
+Once the program runs out of lives, a screen will appear, graphing statistics about the machine's performance.
 These statistics will include things such as how long the machine lasted, how many levels it completed, which enemies or objects took away the most lives, and so on.
 Having detailed and easily readable data is key to knowing how to train the machine to keep performing better in the game.
 
@@ -351,19 +351,19 @@ This controller will be hooked up to another computer that will actually be runn
 \newline
 \newline
 \begin{figure}
-  \includegraphics[natwidth=100,natheight=200]{design.eps}
+  \includegraphics[width=\textwidth]{design.eps}
   \caption{Hardware Layout}
   \label{fig:4.3}
 \end{figure}% Figure \ref{fig:4.3} shows the basic layout.
-Since the Jetson has to learn how to play the game it needs to be able to see the game.
+Since the Jetson has to learn how to play the game on its own it needs to be able to see the game.
 For this we decided to use the camera sent to us by our client.
 This was the simplest option seeing as we can connect the camera directly to the Jetson.
 The camera will be connected to the Jetson and aimed at the monitor, which is connected to the computer running the game.
 The program will first be trained by being given the video input to recognize and characterize objects within the game.
 We will set up tables so that the neural net will be able to store information such as the locations of objects.
-Once those things are set up it will be able to train itself by playing the game using the controller.
-It will base its decisions on the table of information that it stores and will increasingly be able to survive the game longer.
-Eventually it will learn to respond to certain patterns in the table in order to become better at the game.
+Once the objects and tables are set up the neural net will be able to train itself by playing the game using the controller.
+Its decisions will be based on the table of information that it stores and will increasingly be able to survive the game longer.
+Eventually the neural net will learn to respond to certain patterns in the table in order to become better at the game.
 
 \section{Conclusion}
 The goal of this design document is to provide the "how to" of this deep learning project which will be turned to the NVIDIA's deep learning institute to use it in a deep learning course.
