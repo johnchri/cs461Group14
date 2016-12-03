@@ -45,7 +45,8 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{anyfontsize}
-
+\usepackage{amsmath}
+\usepackage[linesnumbered,ruled]{algorithm2e}
 \ganttset{group/.append style={orange},
 milestone/.append style={red},
 progress label node anchor/.append style={text=red}}
@@ -273,7 +274,7 @@ More detail on the training will be given in section \ref{sssec:num2}.
 The data in this section consists of image processing of the game being played as well as the data of the trained neural network.
 This section will go in depth of both how image processing will be done as well as different ways to train and improve the neural network.
 A pseudocode will be included to give an overview of where these data will be used in this project.
-Also, the pseudocode \ref{fig:3.2} will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
+Also, the pseudocode in \ref{sssec:num3} will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
 
 \subsection{Set up image dataset}%Luay
 
@@ -321,6 +322,30 @@ Having detailed and easily readable data is key to knowing how to train the mach
 
 
 \newpage
+
+\subsection{Pseudocode}\label{sssec:num3}%Chris
+\begin{algorithm}
+  % Load necessary packages for openCV, and Caffe.\.
+  % Load the trained net.\.
+  % Convert the trained net to an object which OpenCV understands.
+  % Start video capture.
+  % For each frame in the video capture:
+  \emph{Load necessary packages for openCV, and Caffe}\;
+  \emph{Load the trained net}\;
+  \emph{Convert the trained net to an object which OpenCV understands}\;
+  \emph{Start video capture}\;
+  \ForEach{frame in the video capture}{
+    \If {there is a match in the frame of an enemy object from the trained neural network}
+    {
+      \nl$enemy_x,enemy_y\leftarrow Coordinates Of Enemy Object$\;
+      \emph{move the player away from the coordinates enemy_x, enemy_y}\
+
+    }
+
+  }
+
+    \caption{Pseudocode}
+\end{algorithm}
 
 \section{Interaction Viewpoint}\label{sssec:num1}%Chris
 
