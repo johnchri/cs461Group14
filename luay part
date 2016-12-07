@@ -1,0 +1,8 @@
+Our plan Is still to do more research. We need to understand more in terms of how neural network works well and when it behaves poorly. So that we can improve our training methodology. Also, we considering talking to other people that are familiar with deep learning. We are hoping to get in touch with people that are export in deep learning by talking to professors in Oregon state and maybe ask our client for help to connect us with the right people. 
+
+Since the winter break lasts for 30 days. It would be a great time to start working on the project during the winter break. 
+We also need to test DIGITS and understands how it works. We also need to install caffe framework on our machine so that we can use it. It’s a lot easier for us to do all the setup on unix based maching. Because the jetson TX! Will be running on Ubonto. So everyone in the team will use ubonto and move forward with the traingin process.
+
+After haing a unix based maching and installing caffe and DIGITS the plan is to start building the neural network by giving it set of images along with its label. Then we can start training the neural network.
+
+Of course, we will have a spend a little time to train the neural network because we have to find the best settings and parameters for the training setup.
