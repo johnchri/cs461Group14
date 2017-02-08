@@ -53,8 +53,9 @@
         }
         \begin{abstract}
         In this document we describe the what we have done so far with our project to create a deep learning program that can learn to play the game Galaga, and will be used as a training tool.
-		We breifly describe the pupose of the project, the progress we made, and the problems we faced throughout the initial phase of development.
-		
+	We breifly describe the pupose of the project, the progress we made, and the problems we faced throughout the initial phase of development.
+	We also set forward some goals and plans for the next term and how we will be moving forward on this project.
+
         \end{abstract}
     \end{singlespace}
 \end{titlepage}
@@ -64,14 +65,17 @@
 \tableofcontents
 
 \section{Project Purpose}
-The main pupose of our project is to create a neural net that can learn to play the game Galaga.
+The main goal of our project is to create a neural net that can learn to play the game Galaga.
 This project will be used by trainers and students in the field of deep learning.
-Users will be able to disect this project in order to gain a better understanding of deep learning and its capabilities.
+NVIDIA's Deep Learning Institute will take the work that we do and use it to create a learning course.
+It must be possible to recreate this project, or it will not make a good learning tool.
+As such, our documentation must be detailed enough to give readers a clear understanding of how we made the system.
 
 \section{Current Progress}
 Throughout the term we have laid out all the ground work for out project.
 We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
 These documents have been given to our client who has signed and returned them to ensure that everything will run smoothly for the future of the project.
+We have not yet begun implementation, but plan to begin during the winter break.
 
 \section{Problems and Solutions}
 We ran into several problems throughout the term.
@@ -79,22 +83,39 @@ One problem we had was our busy schedules.
 It was difficult to find times to meet up and work on projects.
 We had to schedule our weekly TA meeting on Fridays which wasn't ideal.
 Our TA is planning on scheduling all his meetings on Monday which might help for Winter term.
+We're also handling this problem by improving our lines of communication with each other.
+By staying in touch regularly and planning ahead, we can mitigate a lot of the scheduling issues that have plagued this term.
+\newline\newline
 Another problem we had was getting our documents signed.
 Our client was very busy throughout the term and it took a while to to get responses from him.
 All of our assignments were either turned in late or without a signature.
 He said that his schedule should soon be clearing up and he won't have to travel as much so it shouldn't be as bad next term.
-Also, since our project was pretty vague and required more research than anything else, it was difficult to write up all the documentation.
+Just in case our client remains difficult to contact we plan to ask him about more methods of contact as well as maybe finding other people at the company who can weigh in when he's unavilable.
+\newline\newline
+Another problem arose in this project due to the vagueness of the initial project.
+Initially, we had no solid idea what our project was going to be, other than that it had to involve a neural network.
+Issues contacting our client compounded this issue as we needed information about what kinds of projects would be considered suitble for the task at hand.
+Eventually we were able to establish solid enough contact to determine our actual task.
+\newline\newline
+The most recent issue this term arose from the difficulty of actually understanding neural networks.
+Learning about neural networks required much more research than we initially assumed, and the field is incredibly complex.
+In order to better understand what was going on, we had to try and cram tons of research into a very small period.
+This has met with middling success and we still aren't fully confident in our design.
+We do, however, have a solution in mind.
+We will be reaching out to several professors here on campus in order to receive assistance in understanding the proper way to build a deep learning system.
+We will also be taking advantage of the increased free time during winter break to more thoroughly study our subject and prepare the initial system.
 
-\section{Interesting Code}
 \section{Retrospective}
 
 \begin{center}
-\begin{tabu} to 0.9\linewidth{ || X[l] | X[c] | X[r] || } 
+\begin{tabu} to 0.9\linewidth{ || X[l] | X[l] | X[l] || }
 	\hline
 	Positives & Deltas & Actions \\
 	\hline\hline
-	cell4 & cell5 & cell6 \\ 
-	cell7 & cell8 & cell9 \\ 
+	Decided on Galaga as main project & Need to improve system setup & Research more in depth how deep learning systems are constructed \\ \hline
+	Found a way to work together despite scheduling problems & Need to carefully evaluate design of system to ensure robustness & Seek help from professors who research neural networks and ask our client if anyone at NVIDIA can give us some setup advice \\ \hline
+	Finished all necessary documentation & Need to improve clarity and quality of documentation & Rewrite portions of documentation as our design improves to make sure our project's goals and design are clear \\ \hline
+	Figured out a preliminary design with several tools we can use to make it work & Need to complete setup of the network to begin training & Begin working on neural network setup, particularly engaging phase 1, teaching the network how to recognize in game objects \\
 	\hline
 \end{tabu}
 \end{center}
@@ -107,12 +128,14 @@ We had been planning on brainstorming ideas and figuring out exactly what we wan
 Our client gave us a pretty good description of what we were doing and some examples of projects that revolved around deep learning.
 Our progress as of this point had involved getting a better understanding of our problem.
 Our main issue was setting up meetings that worked for everyone's schedules.
+We also started working on the problem statement where each person on the team was assigned to do a portion of the document.
+Gabe was responsible for Problem definition, Chris was responsible for proposed solution and Luay for the performance metrics.
 
 \subsection{Week 4}
-Week 4 was a slow week.
-We didn't make a whole lot of progress.
-We were still unsure of exactly what we wanted to do for our project and were waiting to set up a meeting with our client so we could talk about some of the specifics.
-We planned to discuss ideas with our client to get a better idea of what each idea would require.
+On week four the team met two times to discuss our problem statement's document and to improve it, also, we met with our TA Vee for the first time.
+Also, during our meeting, we decided what our project is going to be.
+Our project will use deep learning to train a machine to identify mesquite and point at them using a laser.
+The plan for next week is to gather as many requirements regarding the project to make progress and we planned to discuss ideas with our client to get a better idea of what each idea would require.
 
 \subsection{Week 5}
 This week we were able to get the problem statement submitted, turn in a rough draft of our requirements document, and schedule another meeting with our client.
@@ -124,19 +147,27 @@ We planned to meet again with our client via skype and hash out some more of the
 \subsection{Week 6}
 This week we still had trouble catching up.
 We needed work revising some of our previous documents now that we had a better idea of what we were doing.
-We still also had a bit of trouble coordinating since all of our schedules are pretty busy and our client's schedule even more busy.
+We also met with Kirsten to go over what we had on the requirements document where she helped us on the formatting and gave us feedback.
+We also went over the problem statements and did the changes based on the feedback we received from Kirsten.
+Currently, we are waiting for our Client to sign the requirements document.
+But, we still had a bit of trouble coordinating since all of our schedules are pretty busy and our client's schedule even more busy.
 Next week we thought we'd be able to get our requirements document in and get started on our tech review.
 
 \subsection{Week 7}
-We didn't get a whole lot done this week.
-We were able to get a signature back from out client for our requirements document and gave it to our TA who was able to give us some ideas to improve it.
-It was a pretty busy week.
-We planned to add improvements to our requirements document and turn it in again before starting on our tech review.
+This week the team met to revise the requirements document.
+The necessary revisions were made based on the feedback we have received from our client.
+Also, each member of the team knows what to do for the tech review document.
+However, we didn't get a whole lot done this week, but we were able to get a signature back from out client for our requirements document and gave it to our TA who was able to give us some ideas to improve it.
+It was a pretty busy week. We plan to add improvements to our requirements document and turn it in again before starting on our tech review.
 
 \subsection{Week 8}
-Week 8 was another really busy week.
-We were able to get our requirements document finished and turned in.
-We also got a start on our design document and were hoping to be able to send Mark something by Wednesday, just to stay ahead.
+This week we finished the Tech Review and tried to start on the design document.
+The tech review ran into trouble and we couldn't quite finish before it was due.
+We did send in for an extension and luckily were not the only ones.
+We managed to turn it in complete by the new cutoff date discussed in class.
+With that done, we set our sights on the design document and met Friday to get started.
+We reviewed the IEEE standard and tried to brainstorm a way to approach it, but ultimately didn't get much of the document written.
+We split off to work on relevant sections by ourselves and reconvene later.
 
 \subsection{Week 9}
 This was a short week because of thanksgiving break.
@@ -152,6 +183,5 @@ We planned on arranging a meeting with people who can better explain details of 
 We sent Mark a rough design document before getting help from the professor on how to improve it.
 We sent a new copy of the document on Thursday and another on Friday.
 On Friday we spent a good portion of the day working on our project report.
-We plan on finishing it up a little bit during the weekend and recording our presentation on Monday or Tuesday.
 
 \end{document}
