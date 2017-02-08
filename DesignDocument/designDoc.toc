@@ -15,6 +15,7 @@
 \contentsline {subsection}{\numberline {3.2}Image processing}{5}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Neural training methods}{5}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Data visualization}{5}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Pseudocode}{6}{subsection.3.5}
 \contentsline {section}{\numberline {4}Interaction Viewpoint}{6}{section.4}
 \contentsline {subsection}{\numberline {4.1}Hardware setup}{6}{subsection.4.1}
 \contentsline {section}{\numberline {5}Conclusion}{7}{section.5}
