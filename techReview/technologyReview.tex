@@ -465,9 +465,8 @@ Nimbex is a very tempting second, as it offers very good pricing and a lot of NV
 Cogeco Peer 1 is much too focused for long term business solutions to be a reasonable option on this project. 
 It also offers less power than the Amazon cloud.
 
-\section{Jetson TX1}
-\subsection{Introduction}
-The role of making sure everything runs smoothly on the platform required of us to implement out solution on can be further devided into supporting goals.
+\section{Communication}
+The role of making sure everything runs smoothly on the platform required of us to implement our solution on can be further devided into supporting goals.
 These goals are finding the right communication methods to use with our client for group meetings, deciding what camera technology we need and how we want to record our input for the program, and figuring out the best way to visialize the data.
 For each of these three tasks I have found three approaches that I have research and given thorough consideration.
 For each approach I have given a paragraph describing some of the costs and benefits as well as my informed opinion on which approach is the best for the task.
@@ -519,6 +518,7 @@ If there are only a couple of us in the group already familiar with how to use T
 The better sound quality isn't enough to merit learning how to use Team Speak since its not very necessary for out group meetings.
 However, if everyone is already accustomed to using Team Speak then our group might be able to benefit from Team Speak's greater flexibility.
 
+\section{Camera}
 \subsection{Leopard Imaging}
 For deciding what kind of camera we should use, there are a lot of factors to consider.
 The camera will need to be able to record in HD with at least 30 frames per second.
@@ -545,6 +545,15 @@ This is likely the best camera our team should use since it is provided freely a
 The camera is also recommended by our client for use with the Jetson TX1.
 Our client is shipping our team this camera along with the Jetson.
 
+\subsection{Camera we ended up using}
+After further research in our prject we realized that a good camera didn't necessarily have to be very high end.
+The camera we needed simply had to capture frames at a moderate speed and clearly video the galaga gameplay from a short distance.
+Our project could easily process images at as low as 10 frames per second and still be able to play the game fairly well.
+Therefor we saw no need to request anything that cost more than \$100.
+We were able to buy an inexpensive camera for around \$30 and was still more than we required.
+It is a three megapixel camera that records at 720p.
+
+\section{Data visualization}
 \subsection{Live Data}
 The third task involves figuring out how to visualize the data gathered from the program.
 There are many ways in which this could be done.
