@@ -1,7 +1,7 @@
 LATEX	= latex -shell-escape
 #BIBTEX	= bibtex
 DVIPS	= dvips
-DVIPDF  = dvipdft
+DVIPDF  = dvipdfmx
 XDVI	= xdvi -gamma 4
 GH		= gv
 
