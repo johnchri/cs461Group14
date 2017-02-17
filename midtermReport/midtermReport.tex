@@ -76,7 +76,7 @@ As such, our documentation must be detailed enough to give readers a clear under
 Throughout the first term we have laid out all the ground work for out project.
 We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
 These documents have been given to our client who has signed and returned them to ensure that everything will run smoothly for the future of the project.
-
+\newline\newline
 Over winter break we began implementation. 
 The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
 Though there are many bugs to iron out, the system can communicate and commands can be given to the game from the neural network. 
@@ -124,7 +124,7 @@ We've purchased a camera to watch the screen of the other PC and send that back 
 At the moment reflectivity is hampering this process, so we are working on getting a screen with as little reflectiveness as possible.
 Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
 To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
-
+\newline\newline
 The major issue that hangs over our heads heading into the end of the term is the speed the neural network.
 On a normal PC, our system actually runs really well, but the Jetson is considerably slower. 
 With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network is simply too slow to play a 60 fps game right now.
