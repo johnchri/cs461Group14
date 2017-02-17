@@ -423,6 +423,9 @@ Our network needs to be able to process the game fast enough to play, and GoogLe
 There is a high probability our choice of neural network architecture will change. 
 Most of the available documentation on neural network architectures is highly complex and we do not fully understand every element of these architectures at this time. 
 The current decision is made based on what we have been able to understand, but our opinions may change as we study further and research other neural network architectures that might suit our needs better.
+On further review, we've discovered that GoogLeNet is the backbone design of the Caffe based SSD we're using.
+While we are not fully using GoogLeNet as it was originally designed, it's design still heavily contributes to how our network runs.
+
 
 \section{GPU Cloud}
 \subsection{EC2}
@@ -464,6 +467,9 @@ Furthermore, our client has offered to handle the costs of this cloud computing 
 Nimbex is a very tempting second, as it offers very good pricing and a lot of NVIDIA GPU support for Neural Network training. However it isn’t quite as powerful as the Amazon cloud. 
 Cogeco Peer 1 is much too focused for long term business solutions to be a reasonable option on this project. 
 It also offers less power than the Amazon cloud.
+\newline\newline
+At the present moment this section mostly remains as a reminder of technology considered for use, as well as remaining in the possiblity that we do end up using a cloud as training amps up for the project.
+We have not yet had to use any cloud computing for our training, but as we add more images it may come to our best interest to use a cloud to hasten at least the first stage of training the system.
 
 \section{Jetson TX1}
 \subsection{Introduction}
