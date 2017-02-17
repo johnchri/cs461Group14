@@ -176,7 +176,7 @@ The neural network created for this project will be able to play Galaga.
 Its design is based on GoogLeNet, a convolutional neural network designed in coordination with Google Inc.,  University of North Carolina, Chapel Hill, University of Michigan, and Magic Leap Inc. [2].
 This neural network will undergo two main phases of training.
 One training phase will be done with just still images, while the second will involve live image feed from the game Galaga.
-The system will run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via a controller.
+The system will run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via an ethernet connection and python scripts.
 The Jetson will be wired to the controller to control the game on the seperate computer.
 Cloud computing GPUs will be used to handle the training.
 In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
@@ -292,7 +292,7 @@ At this step, it’s important to convert the given neural network to an object 
 Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
 The hardware connection of the camera as well as the control mechanism of the game shall be explained in section \ref{sssec:num1}.
 Since videos are just consecutive images, OpenCV will be used to process the images by comparing them with the trained neural network.
-The idea is to identify the location of each dangerous object that could reduce the player's life so the Jetson TX1 can send a command to the game controller and move the player away from the harmful object.
+The idea is to identify the location of each dangerous object that could reduce the player's life so the Jetson TX1 can send a command to the game and move the player away from the harmful object.
 
 
 
@@ -300,6 +300,7 @@ The idea is to identify the location of each dangerous object that could reduce 
 
 The training of the neural network will be done in two stages.
 In the first stage, we will be using images created from the game to teach the network how to recognize in game objects.
+We will use labelImg, a graphical image labeling tool made in python, to label images and their features for the neural network to see and record.
 Given that GoogLeNet was designed with image categorization in mind, this set-up will be easy to create and bring to functionality.
 We will feed the network with images doctored by OpenCV and it will interpret them and label them.
 Once it has a high degree of success in correctly identifying in game objects, we will take the training to stage two.
@@ -308,6 +309,8 @@ Once it has a high degree of success in correctly identifying in game objects, w
 In the second stage of training we will be feeding the network images directly from live game progress.
 The game will be running and the network will be deployed on the Jetson.
 The network will be given the ability to take actions based on the objects it identifies on screen.
+This is implemented as a final decision layer as the final level of processing in the neural network.
+This decision layer takes as input the labeled image that has gone through the network and outputs game commands.
 Positive feedback will be given to the neural network when it correctly kills an enemy or completes a level.
 Negative feedback will be given to the network when it dies, gets a game over, or loops too long doing nothing.
 As the neural network plays the game, it will improve performance and eventually be considered proficient.
@@ -360,13 +363,11 @@ Choosing out hardware was key to determining how each piece would fit into the d
 \newline
 \newline
 Our project will actually need to be able to control the game.
-Inputs from the neural net need to be received by the game so that it can be played.
+Inputs from the neural net need to be received by the game in a timely manner.
 To do this we decided not to use the standard keyboard.
 Using a keyboard requires a lot of additional coding to map the Jetson to the controls.
-Instead we decided to find a game controller that we will hardwire to the Jetson TX1.
-A game controller will significantly reduce the work load because it will already contain a lot of built in functionality that we need to connect it to the Jetson.
-The Jetson will be able to control the game using the controller's built in functionality.
-This controller will be hooked up to another computer that will actually be running the game.
+Instead we decided to write a script that will wait for the neural network's output and send it to the other computer.
+There, a server script in python accepts the commands and translates them into keystrokes.
 This setup is outlined in figure \ref{fig:4.2}.
 \newline
 \newline
@@ -376,18 +377,18 @@ This setup is outlined in figure \ref{fig:4.2}.
   \label{fig:4.2}
 \end{figure}% Figure \ref{fig:4.3} shows the basic layout.
 Since the Jetson has to learn how to play the game on its own it needs to be able to see the game.
-For this we decided to use the camera sent to us by our client.
+For this we decided to use a simple webcam.
 This was the simplest option seeing as we can connect the camera directly to the Jetson.
 The camera will be connected to the Jetson and aimed at the monitor, which is connected to the computer running the game.
 The program will first be trained by being given the video input to recognize and characterize objects within the game.
 We will set up tables so that the neural net will be able to store information such as the locations of objects.
-Once the objects and tables are set up the neural net will be able to train itself by playing the game using the controller.
+Once the objects and tables are set up the neural net will be able to train itself by playing the game using the communication script.
 Its decisions will be based on the table of information that it stores and will increasingly be able to survive the game longer.
 Eventually the neural net will learn to respond to certain patterns in the table in order to become better at the game.
 
 \section{Conclusion}
 The goal of this design document is to provide the how to of this deep learning project which will be turned to the NVIDIA's deep learning institute to use it in a deep learning course.
 The overall steps for this document are to teach the Jetson TX1 to play the game Galaga by training a neural network to identify game objects and become effectively able to move the player away from enemies.
-This can be done based on three major phases which are preparing images for the game objects, training a neural network based on the set of images with labels, and finally by using a camera connected to the Jetson TX1 while the game hosted on a different machine that is being controlled using the Jetson TX1 and a controller input.
+This can be done based on three major phases which are preparing images for the game objects, training a neural network based on the set of images with labels, and finally by using a camera connected to the Jetson TX1 while the game hosted on a different machine that is being controlled using the Jetson TX1 and a python script.
 
 \end{document}
