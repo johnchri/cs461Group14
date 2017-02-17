@@ -47,6 +47,7 @@
 \usepackage{xcolor}
 \usepackage{anyfontsize}
 \usepackage{amsmath}
+\usepackage[section]{placeins}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \ganttset{group/.append style={orange},
 milestone/.append style={red},
@@ -272,31 +273,20 @@ More detail on the training will be given in section \ref{sssec:num2}.
 
 \section{Information viewpoint}\label{sssec:num2}%Luay
 
-The data in this section consists of image processing of the game being played as well as the data of the trained neural network.
+The data in this section consists of image processing of the game being played as well as the trained neural network.
 This section will go in depth of both how image processing will be done as well as different ways to train and improve the neural network.
 A pseudocode will be included to give an overview of where these data will be used in this project.
-Also, the pseudocode in \ref{sssec:num3} will include a general algorithm of how the Jetson will be able to play the game Galaga using the image capture data and the neural network.
+Also, the pseudocode in \ref{sssec:num3} will include a general algorithm to show how output decision's layer works.
 
 \subsection{Set up image dataset}%Luay
 
-OpenCV is a useful tool for this deep learning project.
-It will be used as a helper tool to prepare the images for each object in the game such as players, enemies, and bullets.
-A script will be written in python which will use OpenCV to crop, resize, and filter the game images when needed.
-The goal is to have a full set of the game images and their labels which will be used to train the neural network.
-Using OpenCV at this phase is optional, but, due to the need of fast image manipulation, OpenCV can be used to do this task easily and will help to save time and effort.
-Although, collecting objects’ images can be done manually, eventually, OpenCV will be used to resize the collected images to a consistent size.
-
-\subsection{Image processing}%Luay
-
-After having a trained neural network, a software written in python will start by loading the necessary dependencies, which are OpenCV, Caffe, and the trained neural network.
-At this step, it’s important to convert the given neural network to an object that OpenCV can understand.
-Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API
-The hardware connection of the camera as well as the control mechanism of the game shall be explained in section \ref{sssec:num1}.
-Since videos are just consecutive images, OpenCV will be used to process the images by comparing them with the trained neural network.
-The idea is to identify the location of each dangerous object that could reduce the player's life so the Jetson TX1 can send a command to the game controller and move the player away from the harmful object.
-
-
-
+Setting up image set for training and testing requires using annotation methods that can be used to label and identify objects from any given image.
+In this project, Pascal VOC annotation is being used because it's the most common and supported by the majority of deep learning frameworks as well as neural networks.
+The deep learning framework we are currently using supports Pascal VOC and Coco but only Pascal VOC is being used.
+However, in order to prepare the annotations we would need to separate train validation images and test images so we can easily list them in a text file along with their path and XML which is the annotation file.
+In addition, we would need to write down a label map file that lists all the objects that need to be identified by the neural network.
+Overall, the files are needed in order to create the LMDB database are trainval.txt, test_name_size.txt, test.txt, lebelmap_voc.prototxt.
+Examples of how to write those files are in \ref{sssec:num33}.
 \subsection{Neural training methods}%Gabe
 
 The training of the neural network will be done in two stages.
@@ -313,6 +303,14 @@ Positive feedback will be given to the neural network when it correctly kills an
 Negative feedback will be given to the network when it dies, gets a game over, or loops too long doing nothing.
 As the neural network plays the game, it will improve performance and eventually be considered proficient.
 
+\subsection{Input image processing}%Luay
+
+After having a trained neural network, a software written in python will start by loading the necessary dependencies, which are OpenCV.
+Then, a video capture of the game will take a place to record the monitor where the game is being played using OpenCV's API.
+The hardware connection of the camera, as well as the control mechanism of the game, shall be explained in section \ref{sssec:num1}.
+Since videos are just consecutive images, OpenCV will be used to get each frame and then pass the image to the input of neural network.
+Then we would need to do a forward call to the network's API using Caffe which give us the output from the neural network.
+
 \subsection{Data visualization}%Chris
 
 It was necessary to figure out how to display the results of each round.
@@ -324,7 +322,56 @@ Having detailed and easily readable data is key to knowing how to train the mach
 
 \newpage
 
-\subsection{Pseudocode}\label{sssec:num3}%Chris
+\subsection{Setup Image Data Sets Example}\label{sssec:num33}
+
+\subsubsection{trainval.txt}
+train/image1.png train/image1.xml
+
+\subsubsection{test.txt}
+test/test1.png test/test1.xml
+
+\subsubsection{test_name_size.txt}
+imageName imageWidth imageHeight\newline
+test1     1080       1920
+
+\subsubsection{labelmap_voc.prototxt}
+\{\newline
+name:"player",\newline
+label: 0,\newline
+display_name:"player"\newline
+\}\newline
+\textbf{Note:} Label is a numerical value and should be incremented every time a new label is added.
+
+\subsection{Pseudocode}\label{sssec:num3}
+% \subsection{Decision Layer Pseudocode}\label{sssec:num300}
+\begin{algorithm}
+  % Load necessary packages for openCV, and Caffe.\.
+  % Load the trained net.\.
+  % Convert the trained net to an object which OpenCV understands.
+  % Start video capture.
+  % For each frame in the video capture:
+  \emph{Reshape the Layer to set output one thing of size 1 - for possible outputs such as left,right,shoot}\;
+  \emph{In Forward Function:};\newline
+  \nl$player_x,player_y\leftarrow Coordinates Of the label Player$\;
+  \nl$topData\leftarrow buttom[0]->date()$\;
+  \ForEach{object on the game}{
+    \If { (object.y $\geq$ 300) and and (object.x $\leq$  player_x+200) }
+    {
+      \nl$topData[0]\leftarrow 0$\;
+    }
+    \ElseIf{ (object.y $\geq$ 300) and (object.x $\leq$  player_x+200) }
+    {
+      \nl$topData[0]\leftarrow 1$\;
+    }
+    \ElseIf{ (object.x $\leq$  player_x+100) and (object.x $\geq$  player_x-100) }
+    {
+      \nl$topData[0]\leftarrow 2$\;
+    }
+  }
+
+    \caption{Decision Layer}
+\end{algorithm}
+
 \begin{algorithm}
   % Load necessary packages for openCV, and Caffe.\.
   % Load the trained net.\.
@@ -332,20 +379,16 @@ Having detailed and easily readable data is key to knowing how to train the mach
   % Start video capture.
   % For each frame in the video capture:
   \emph{Load necessary packages for openCV, and Caffe}\;
-  \emph{Load the trained net}\;
-  \emph{Convert the trained net to an object which OpenCV understands}\;
+  \emph{Load the trained net and label map}\;
+  \emph{Do input preprocessing using Caffe Transformer API}\;
   \emph{Start video capture}\;
   \ForEach{frame in the video capture}{
-    \If {there is a match in the frame of an enemy object from the trained neural network}
-    {
-      \nl$enemy_x,enemy_y\leftarrow Coordinates Of Enemy Object$\;
-      \emph{move the player away from the coordinates enemy_x, enemy_y}\
-
-    }
-
+    \emph{Load the frame to data layer which is the input of the nerual network}\;
+    \emph{Call Caffe forward API to get decision output from the network}\;
+    \emph{Send the decision through the network to the game hosted computer with a command such as left, right and shoot}\;
   }
 
-    \caption{Pseudocode}
+    \caption{Jetson TX1 plays Galaga}
 \end{algorithm}
 
 \section{Interaction Viewpoint}\label{sssec:num1}%Chris
