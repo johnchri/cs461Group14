@@ -414,18 +414,23 @@ The weights of the node layers at initialization plays a key role in affecting h
 The structure requires multiple GPUs to practice parallelism in its data processing. 
 The network on its own achieved a 7.3\% test error rate, and when two models were combined the error rate was only 6.8\%.
 
+\subsection{Single Shot Multi-Box Detector}
+Single Shot Multi-Box Detector, or SSD for short, is a convolutional neural network designed by a team of people cooperating between the University of North Carolina, Zoox Inc, Google Inc, and the University of Michigan, Ann-Arbor [21]. 
+The key focus of SSD in comparison to other convolutional neural networks is its focus on individual object detection within an image.
+SSD is based on a feed-forward model that uses well established architecture for image classification on the first few layers, then dives into feature layers which rescale the image and produce bounding boxes on image features.
+It uses predictive logic in there layers to predict the offsets of the bounding boxes and eventually is able to class objects within the bounding boxes [21].
+The training requires extra parameters compared to the training of a usual neural network, as defaults must be set for the bounding boxes and other factors which influece how SSD recognizes image components.
+Compared to other neural networks, SSD is much faster at identifying image components in real time, reaching frames per second values in the 40's for how many images it can process in real time. 
+Confidence of detection ranges from around 50\% to up to around 76\% confidence that the objects are identified correctly, which just shows that SSD's speed does come at a cost when evaluating it in terms of accuracy.
 
 \subsection{Choice of Network}
-After reviewing the documentation, implementations, and performance of the neural network architectures available, we decided to use GoogLeNet for now. 
-GoogLeNet is a newer architecture and provides heavy processing power for multiple images. 
-It takes advantage of the most nodes while also having a solid plan to compress its data usage, which results in the kind of speed we need for real-time image processing. 
-Our network needs to be able to process the game fast enough to play, and GoogLeNet offers a viable model for doing so.
-There is a high probability our choice of neural network architecture will change. 
-Most of the available documentation on neural network architectures is highly complex and we do not fully understand every element of these architectures at this time. 
-The current decision is made based on what we have been able to understand, but our opinions may change as we study further and research other neural network architectures that might suit our needs better.
-On further review, we've discovered that GoogLeNet is the backbone design of the Caffe based SSD we're using.
-While we are not fully using GoogLeNet as it was originally designed, it's design still heavily contributes to how our network runs.
-
+After reviewing the documentation, implementations, and performance of the neural network architectures available, we initially thought to use a GoogLeNet model, but SSD has proven itself to be much more applicable to our project upon further research. 
+SSD is an incredibly fast and powerful algorithm that gives us the tools to identify in game objects while the neural net plays Galaga.
+The other architectures are only set up with the idea of classifying whole images, while SSD is powerful enough to break down the component parts.
+This is essential to allowing our neural network to accurately understand the game state and make more informed play decisions. 
+The speed is also an important factor in this decision, as the high processsing speed of a fully trained network is ideal for the high fps environment of a game like Galaga. 
+The speed of detection will allow the game to make decisions faster, which makes its overall skill potential higher.
+Given the nature of the task, SSD has presented itself as an ideal model for completing the project.
 
 \section{GPU Cloud}
 \subsection{EC2}
@@ -618,6 +623,7 @@ We might get more efficient feedback if it was all summarized at the end.
 [18] Dong, J. (2007). Macintosh Operating System. In J. Dong, Network Dictionary (p. 298). Javvin Technologies Inc.\newline
 [19] Sanner, M. F. (1999). Python: a programming language for software integration and	development. J Mol Graph Model, 17(1), 57 61.\newline
 [20] Selic, B. (2003). The pragmatics of model-driven development. IEEE software, 20(5), 19.\newline
+[21] W. Liu et al., “SSD: Single Shot MultiBox Detector,” arxiv.org, 29-Dec-2016. [Online]. Available: https://arxiv.org/pdf/1512.02325.pdf.
 
 
 
