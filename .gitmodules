@@ -1,0 +1,6 @@
+[submodule "keyboardServer"]
+	path = keyboardServer
+	url = https://github.com/luayalshawi/keyboardServer.git
+[submodule "SSD_GALAGA"]
+	path = SSD_GALAGA
+	url = https://github.com/luayalshawi/SSD_GALAGA.git
