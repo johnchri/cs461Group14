@@ -1,0 +1,181 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{tabu}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Deep Learning on Embedded Platform}
+\def \CapstoneTeamNumber{		14}
+\def \GroupMemberOne{			Christopher Johnson}
+\def \GroupMemberTwo{			Gabe Morey}
+\def \GroupMemberThree{			Luay Alshawi}
+\def \CapstoneProjectName{		AI Gaming}
+\def \CapstoneSponsorCompany{	NVIDIA}
+\def \CapstoneSponsorPerson{		Mark Ebersole}
+
+\def \DocType{	%Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				Progress Report
+				}
+
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	% \includegraphics[height=4cm]{coe_v_spot1}
+        \hfill
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+			\vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par
+            \vspace{5pt}
+			{\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        In this document we describe the what we have done so far with our project to create a deep learning program that can learn to play the game Galaga, and will be used as a training tool.
+	We breifly describe the pupose of the project, the progress we made, and the problems we faced throughout the initial phase of development.
+	We also set forward some goals and plans for the rest of the term and how we will be moving forward on this project.
+
+        \end{abstract}
+    \end{singlespace}
+\end{titlepage}
+
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+
+\section{Project Purpose}
+The main goal of our project is to create a neural net that can learn to play the game Galaga.
+The neural network must run on NVIDIA's Jetson developer kit.
+This project will be used by trainers and students in the field of deep learning.
+NVIDIA's Deep Learning Institute will take the work that we do and use it to create a learning course.
+It must be possible to recreate this project, or it will not make a good learning tool.
+As such, our documentation must be detailed enough to give readers a clear understanding of how we made the system.
+
+\section{Current Progress}
+Throughout the first term we have laid out all the ground work for out project.
+We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
+These documents have been given to our client who has signed and returned them to ensure that everything will run smoothly for the future of the project.
+\newline\newline
+Over winter break we began implementation.
+The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
+Though there are many bugs to iron out, the system can communicate and commands can be given to the game from the neural network.
+Moving forward the main goals are increasing the speed of command, the accuracy of gameplay, and ironing out bugs.
+
+\section{Problems and Solutions}
+We ran into several problems throughout the first term.
+One problem we had was our busy schedules.
+It was difficult to find times to meet up and work on projects.
+We had to schedule our weekly TA meeting on Fridays which wasn't ideal.
+Our TA is planning on scheduling all his meetings on Monday which might help for Winter term.
+We're also handling this problem by improving our lines of communication with each other.
+By staying in touch regularly and planning ahead, we have mitigated a lot of the scheduling issues that have plagued this term.
+\newline\newline
+Another problem we had was getting our documents signed.
+Our client was very busy throughout the term and it took a while to to get responses from him.
+All of our assignments were either turned in late or without a signature.
+He said that his schedule should soon be clearing up and he won't have to travel as much so it shouldn't be as bad next term.
+Just in case our client remains difficult to contact we planned to ask him about more methods of contact as well as maybe finding other people at the company who can weigh in when he's unavilable.
+\newline\newline
+Another problem arose in this project due to the vagueness of the initial project.
+Initially, we had no solid idea what our project was going to be, other than that it had to involve a neural network.
+Issues contacting our client compounded this issue as we needed information about what kinds of projects would be considered suitble for the task at hand.
+Eventually we were able to establish solid enough contact to determine our actual task.
+\newline\newline
+The final issue first term arose from the difficulty of actually understanding neural networks.
+Learning about neural networks required much more research than we initially assumed, and the field is incredibly complex.
+In order to better understand what was going on, we had to try and cram tons of research into a very small period.
+This met with middling success and we still weren't fully confident in our design.
+We did, however, have a solution in mind.
+We reached out to our client and made contact with an engineer at NVIDIA.
+We also took advantage of the increased free time during winter break to more thoroughly study our subject and prepare the initial system.
+\newline\newline
+The second term started off with a long winter break, during which major breakthroughs and problems were discovered.
+Perhaps the biggest thing to come out of winter break was a new understanding what exactly we had to do to get our neural network functioning.
+By the end of the break we had a much more solid plan for what we were going to accomplish.
+However, our initial approach to the network required some custom implementation that we weren't sure how to do yet.
+We didn't know how to get the neural net telling the game how to play.
+To solve this, we spoke with our client and he connected us with an engineer at NVIDIA who had more experience with neural networks.
+With his help, we came to the decision of implementing a single decision layer into the neural net that would take the output of the image processing layers and produce an output in the form of a game command.
+\newline\newline
+The next big problem we needed to approach was the setup we need to use to get the setup correct for playing the game.
+Because we need to have the Jetson run the neural network, we've been gathering parts to allow us to put Galaga on a PC seperate from the jetson for playing.
+We've purchased a camera to watch the screen of the other PC and send that back as input.
+At the moment reflectivity is hampering this process, so we are working on getting a screen with as little reflectiveness as possible.
+Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
+To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
+\newline\newline
+The major issue that hangs over our heads heading into the end of the term is the speed the neural network.
+On a normal PC, our system actually runs really well, but the Jetson is considerably slower.
+With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network is simply too slow to play a 60 fps game right now.
+We're testing ways around this limitation, but have come to a satisfactory conclusion as of yet.
+
+\section{Retrospective}
+
+\begin{center}
+\begin{tabu} to 0.9\linewidth{ || X[l] | X[l] | X[l] || }
+	\hline
+	Positives & Deltas & Actions \\
+	\hline\hline
+	Decided on Galaga as main project & Need to improve system setup & Research more in depth how deep learning systems are constructed \\ \hline
+	Found a way to work together despite scheduling problems & Need to carefully evaluate design of system to ensure robustness & Seek help from professors who research neural networks and ask our client if anyone at NVIDIA can give us some setup advice \\ \hline
+	Finished all necessary documentation & Need to improve clarity and quality of documentation & Rewrite portions of documentation as our design improves to make sure our project's goals and design are clear \\ \hline
+	Figured out a preliminary design with several tools we can use to make it work & Need to complete setup of the network to begin training & Begin working on neural network setup, particularly engaging phase 1, teaching the network how to recognize in game objects \\ \hline
+	Researched more and figured out how to work our project & Need to fully finish the design & Will continue to update documentation as we figure more out about the specific challenges of the project \\ \hline
+	Completed the alpha build of the project setup & Need to work out the kinks of our setup and continue training & Test the system intently and improve functionality \\ \hline
+\end{tabu}
+\end{center}
+
+\section{Week by week summary}
+
+\subsection{Spring Week 1}
+
+\subsection{Spring Week 2}
+
+\subsection{Spring Week 3}
+
+\subsection{Spring Week 4}
+
+\subsection{Spring Week 5}
+
+\subsection{Spring Week 6}
+
+\section{Code}
+\subsection{Python Script Plays the Game}
+\subsection{Nodejs Server}
+\section{Project Photos}
+\subsection{Training Plot}
+\subsection{Detection Sample}
+\subsection{Final Project Setup}
+\end{document}
