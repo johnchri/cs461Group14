@@ -63,9 +63,9 @@
             \vspace{20pt}
         }
         \begin{abstract}
-        In this document we describe the what we have done in this cours with our project to create a deep learning program that can learn to play the game Galaga. 
+        In this document we describe what we have done with our project to create a deep learning program that can learn to play the game Galaga. 
 	This project will be used as a training tool for NVIDIA's Deep Learning Institute.
-	We breifly describe the pupose of the project, the progress we made, and the problems we faced throughout development.
+	We briefly describe the purpose of the project, the progress we made, and the problems we faced throughout development.
 	We also set forward some goals and plans to finish out the year and hand off the project to NVIDIA.
 
         \end{abstract}
@@ -78,20 +78,20 @@
 
 \section{Project Purpose}
 The main goal of our project is to create a neural net that can learn to play the game Galaga.
-The neural network must run on NVIDIA's Jetson developer kit.
+The neural network must run on NVIDIA's Jetson developer kit, as this was one of the requirements for the project.
 This project will be used by trainers and students in the field of deep learning.
 NVIDIA's Deep Learning Institute will take the work that we do and use it to create a learning course.
 It must be possible to recreate this project, or it will not make a good learning tool.
-As such, our documentation must be detailed enough to give readers a clear understanding of how we made the system.
+As such, our documentation had to be detailed enough to give readers a clear understanding of how we made the system.
 
 \section{Current Progress}
-Throughout the first term we have laid out all the ground work for out project.
+Throughout the first term we laid out all the ground work for out project.
 We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
-These documents have been given to our client who has signed and returned them to ensure that everything will run smoothly for the future of the project.
+These documents have been given to our client who has signed and returned them to ensure that everything can be smoothly recreated and used in an educational setting.
 \newline\newline
 Over winter break we began implementation.
 The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
-Though there are many bugs to iron out, the system can communicate and commands can be given to the game from the neural network.
+Though there are many bugs to iron out, the system can generate actions based on the situation of the player, and commands can be given to the game from the neural network.
 Moving forward the main goals are increasing the speed of command, the accuracy of gameplay, and ironing out bugs.
 
 \section{Problems and Solutions}
@@ -161,16 +161,69 @@ We're testing ways around this limitation, but have come to a satisfactory concl
 \section{Week by week summary}
 
 \subsection{Spring Week 1}
+This week we had a lecture to prepare us for the coming months.
+We have only training left to do before expo so this week we started creating annotations for the neural net's image detection.
 
 \subsection{Spring Week 2}
+This week I was able to get some annotations done and we found a group to discuss our poster with.
+We're feeling pretty relaxed now that most of the work is done.
+This week we were able to find a group to discuss our poster with for the extra credit.
+Luay started working on improving the defense and attack algorithm.
+Gabe decided to work on trying to run tensorRT on the Jetson TX1 and try to integrate it with SSD.
+The plan for next week is to have work done on the decision layer algorithm and test it on the Jetson TX1 as well as home computer GPU.
 
 \subsection{Spring Week 3}
+Chris made more annotations.
+We still have yet to meet with our team to discuss our poster.
+We need to make a final draft soon.
+We also have to get it to Mark as soon as possible since it will probably take him a while to get it signed.
 
 \subsection{Spring Week 4}
+This week we met up and figured out what we had left to do before the code freeze on May 1st.
+We realized there was a lot on the requirements document that we still needed to update and we weren't sure if we could meet a lot of them by May 1st.
+The neural net still isn't performing as well as it should be.
+We fixed up our poster, got our group photo, and sent the poster to Mark and the professors.
+We also asked the professors how much we needed to fix with the requirements document.
+
+Luay was given a Jetson TX2 to test our project on.
+The goal was to compare the performance between both the TX1 and TX2.
+Due to the differences in GPU architecture on both boards the GPU performance of Caffe was slow.
+This issue was solved by altering the makefile configuration.
+The maximum performance with the TX1 that we could get was 10 FPS using our custom nerual network model.
+On the other hand, Gabe was working on improving the decision algorithm on Jetson Tx1 and tensorRT.
+There were some difficulties finding resources on integrating tensorRT.
+Luay tried working on TensorRT as well as improving the decision layer.
+Writing a tensorRT program unfortunately wouldn't work because tennsorRT does not support custom Caffe layers which was stated on the release note and was the complaint error when running the program.
+
+By the end of the week the neural network played the game winning stage 1 90% of the time.
+The highest score reached so far is 15520 which is a new record.
+Also, the neural network was able to reach stage 4 of the game and this is the best result so far.
+We are hoping to do a live demo during expo by having one Laptop that has the game and the Jetson TX1.
+By using the camera on board we are going to save space and be able to do a live demo.
 
 \subsection{Spring Week 5}
+This week we got through the code freeze after making sure everything we used was in our repo.
+We also finished our poster and submitted it for printing.
+Luay recently was able to boost the performance of the neural net using screen capturing instead of video recording.
+We will most likely continue working up until Expo on May 19th.
+There are still two more lectures before then.
+
+This week I continue working on installing OpenCV 3.2.0 to use the Jetson TX1 on board camera.
+The onboard camera is better quality and capable of capturing full HD compare to the current USB camera which is only able to capture up to 720p.
+The process of installing OpenCV 3.2.0 was painful because there was not enough disk space and had to spend the time to clean unnecessary files.
+However, after cleaning the disk from unwanted files I was finally able to install OpenCV.
+Although, the process of installing OpenCV from source code took more than an hour due to the low power nature of the Jetson TX1.
+By using the onboard camera we might be able to do a live demo during the expo.
+Finally, we are planning to email our client this week to give him updates on our current progress.
+
+This week we submitted the poster and merged all our github repos for the the final code freeze.
+Luay has been working on performance.
+Meanwhile I've been turning my attention to documentation.
+With Expo coming up and the final code done, we need to get our documentation on track for the end of the term.
+I am starting with the requirements document, as the scope of the project has changed drastically since we wrote it.
 
 \subsection{Spring Week 6}
+
 
 \section{Code}
 \subsection{Python Script Plays the Game}
