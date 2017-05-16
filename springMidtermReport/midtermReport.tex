@@ -4,10 +4,10 @@
 \usepackage{setspace}
 \usepackage{array}
 \usepackage{tabu}
-
+\usepackage{listings}
 \usepackage{geometry}
 \geometry{textheight=9.5in, textwidth=7in}
-
+\graphicspath{ {images/} }
 % 1. Fill in these details
 \def \CapstoneTeamName{		Deep Learning on Embedded Platform}
 \def \CapstoneTeamNumber{		14}
@@ -63,7 +63,7 @@
             \vspace{20pt}
         }
         \begin{abstract}
-        In this document we describe what we have done with our project to create a deep learning program that can learn to play the game Galaga. 
+        In this document we describe what we have done with our project to create a deep learning program that can learn to play the game Galaga.
 	This project will be used as a training tool for NVIDIA's Deep Learning Institute.
 	We briefly describe the purpose of the project, the progress we made, and the problems we faced throughout development.
 	We also set forward some goals and plans to finish out the year and hand off the project to NVIDIA.
@@ -225,11 +225,116 @@ I am starting with the requirements document, as the scope of the project has ch
 \subsection{Spring Week 6}
 
 
-\section{Code}
+\section{Code Sample}
 \subsection{Python Script Plays the Game}
+\begin{lstlisting}[language=Python,caption=Python script captures image and feed to nerual network to send a decision to the other computer.]
+while True:
+    flag, frame = cap.read() # Capture image from the webcam
+    start = time.time()
+    if not flag:
+        continue
+    numerate = 0
+    image = frame
+    transformed_image = transformer.preprocess('data', image)
+    net.blobs['data'].data[...] = transformed_image # input the image to neural network
+    # Forward pass.
+    decision = net.forward()['decision']# Get decision from the neural network.
+    if(decision[0]==0.0): #send right command to move away from enemies
+        print "right"
+        payload = {'keys': 'x'}
+        response = unirest.post(url, params=json.dumps(payload), headers=headers, callback=callback_function)
+        print response
+    elif decision[0]==1.0: #send left command to move away from enemies
+        print "left"
+        payload = {'keys': 'z'}
+        response = unirest.post(url, params=json.dumps(payload), headers=headers, callback=callback_function)
+        print response
+    elif decision[0]==2.0: #send shoot command
+        print "shoot"
+        payload = {'keys': "f"}
+        response = unirest.post(url, params=json.dumps(payload), headers=headers, callback=callback_function)
+        print response
+    elif decision[0]==10.0: #send right command to find enemies to shoot
+        print "right _x"
+        payload = {'keys': "_x"}
+        response = unirest.post(url, params=json.dumps(payload), headers=headers)#, callback=callback_function)
+        print response
+    elif decision[0]==100.0:  #send left command to find enemies to shoot
+        print "left _z"
+        payload = {'keys': "_z"}
+        response = unirest.post(url, params=json.dumps(payload), headers=headers)#, callback=callback_function)
+        print response
+    cv2.imshow('video', frame)
+    cv2.waitKey(1)
+\end{lstlisting}
 \subsection{Nodejs Server}
+\begin{lstlisting}[language=VBScript,caption=Nodejs script runs a server and listen for client request to execute keyboard commands.]
+	var express = require('express')
+	var app = express()
+	var robot = require('robotjs');
+	var robotjs = require('robot-js');
+	var bodyParser = require('body-parser')
+	var keyboard = robotjs.Keyboard();
+
+	app.use(bodyParser.json())
+
+	app.listen(5000, function () {
+	  console.log('app listening on port 5000!')
+	})
+	app.post('/api/sendkeys', function (req, res) {
+	var key = req.body.keys;
+	res.json({ success: 'message'});
+	  if (key=="z")
+	  {
+	    keyboard.press(robotjs.KEY_Z);
+	    robotjs.Timer.sleep (160);
+	    keyboard.click(robotjs.KEY_D);
+	    keyboard.release(robotjs.KEY_Z);
+	  }
+	  else if (key=="_z")
+	  {
+
+	    keyboard.press(robotjs.KEY_Z);
+	    robotjs.Timer.sleep (25);
+	    keyboard.click(robotjs.KEY_D);
+	    keyboard.release(robotjs.KEY_Z);
+	  }
+	  else if(key=="x")
+	  {
+	    keyboard.press(robotjs.KEY_X);
+	    robotjs.Timer.sleep (160);
+	    keyboard.click(robotjs.KEY_D);
+	    keyboard.release(robotjs.KEY_X);
+	  }
+	  else if(key=="_x")
+	  {
+	    keyboard.press(robotjs.KEY_X);
+	    robotjs.Timer.sleep (25);
+	    keyboard.click(robotjs.KEY_D);
+	    keyboard.release(robotjs.KEY_X);
+	  }
+	  else if(key=="f")
+	  {
+	    keyboard.click(robotjs.KEY_D);
+
+	  }
+})
+\end{lstlisting}
 \section{Project Photos}
-\subsection{Training Plot}
-\subsection{Detection Sample}
+\subsection{Detection Layer Result Sample 1}
+\begin{center}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{d1.eps}}
+\end{center}
+\subsection{Detection Layer Result Sample 2}
+\begin{center}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{d2.eps}}
+\end{center}
+\subsection{Training plot Loss v.s Accuracy}
+\begin{center}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{plot.eps}}
+\end{center}
 \subsection{Final Project Setup}
+\begin{center}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{setup.eps}}
+\end{center}
 \end{document}
