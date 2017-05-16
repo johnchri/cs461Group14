@@ -137,10 +137,58 @@ At the moment reflectivity is hampering this process, so we are working on getti
 Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
 To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
 \newline\newline
-The major issue that hangs over our heads heading into the end of the term is the speed the neural network.
-On a normal PC, our system actually runs really well, but the Jetson is considerably slower.
-With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network is simply too slow to play a 60 fps game right now.
-We're testing ways around this limitation, but have come to a satisfactory conclusion as of yet.
+The major issue that hung over our heads heading into the end of winter term was the speed the neural network.
+On a normal PC, our system actually ran decently, but the Jetson is considerably slower.
+With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network was simply too slow to play a 60 fps game right now.
+We tested ways around this limitation and eventually improved the speed.
+\newline\newline
+The biggest improvement to the project since the middle of winter term was the frame rate.
+We now get around 12-15 frames processed per second with the neural network.
+This is possible because of optimizations we found for the Jetson that help divert resources to running a neural network.
+We set our sights on improving the decision layer code, as well as getting the neural network trained further.
+\newline\newline
+In order to get ready for Expo this term, we started with a few goals.
+Goal number one was to get our neural network trained better.
+Goal number two was to improve the decision layer logic for the network.
+Our final goal was to buff up the frame rate of the neural network response.
+Along the way we also had to finish the poster for expo and prepare to present.
+\newline\newline
+Getting the neural network trained was a matter of continuing to do what he'd done for a while now.
+We needed to gather more images and annotate them for the training process.
+Getting more images was a central part of getting the project ready for expo.
+We've managed to build up a good image base with over one hundred annotations.
+After the latest training run, our detection results have proved better than ever before.
+\newline\newline
+When it came to the decision layer logic, we tried quite a few methods.
+Our initial logic only allowed the network to move away from incoming enemies or shoot them.
+After a bit more refinement, we tried a version where the system was allowed to shoot, then move in one command.
+This second version had some better performance and its results were used on our expo poster due to the time in term.
+Afterwards, we arrived at what is now the final and best version of the decision layer.
+This version moves much more often and can prepare to fire when it sees no enemies.
+This version also tends to shoot whenever it moves.
+This combination helps it find enemy targets as well as shoot reflexively at oncoming enemies.
+With this version, we've come to meet our goal of beating the first level of Galaga 90\% of the time.
+\newline\newline
+The framerate is the goal we've consistently had the most trouble meeting.
+While framerate was not a part of our requirements, we wanted to have a reasonable play speed to make the network more exciting.
+However, we've never gotten much more than 15 FPS out of the Jetson. 
+Pushing the game speed up higher results in the Jetson responding too slow to perform well.
+We tried using some optimization tools from NVIDIA, but they didn't properly support the SSD basis of our neural network or its custom layers.
+We have signed up for the test of the new version, so we may yet be able to do something.
+\newline\newline
+One major issue we had to resolve this term was getting results for our poster.
+When we first handed it off to our client, he liked what we had but wanted more concrete performance results from our neural network.
+The week before the poster's due date became a challenging rush to optimize our system and get good results to put on the poster.
+Ultimately, the poster turned out good and the results were usable. 
+We do wish we could have had more time, however, as we've since achieved much better results, with a maximum score of 18230 and now being able to regularly beat level 1.
+\newline\newline
+Overall, we're very happy with the progress and outcome of this project, but we aren't done yet.
+We continue to try and optimize it, and we have a lot of documentation to catch up on.
+We're a far cry away from where we were at the start of the term, and we're better programmers for it.
+That does mean, however, that most of the documentation written then does not match what our project has come to be.
+While we do have some edits done from last term, we still have a lot to catch up on if we are to meet the requirements of the class.
+It's also important that our documentation be excellent because NVIDIA needs to be able to recreate it as a Deep Learning Institute lab.
+With that in mind, we have a lot of work cut out for us to finish this class.
 
 \section{Retrospective}
 
@@ -155,6 +203,9 @@ We're testing ways around this limitation, but have come to a satisfactory concl
 	Figured out a preliminary design with several tools we can use to make it work & Need to complete setup of the network to begin training & Begin working on neural network setup, particularly engaging phase 1, teaching the network how to recognize in game objects \\ \hline
 	Researched more and figured out how to work our project & Need to fully finish the design & Will continue to update documentation as we figure more out about the specific challenges of the project \\ \hline
 	Completed the alpha build of the project setup & Need to work out the kinks of our setup and continue training & Test the system intently and improve functionality \\ \hline
+	Improved system speed & Need to increase FPS further & Will continue searching for optimizations \\ \hline
+	Completed training to a satisfactory level & Could always use more training & We might try one more training run before expo \\ \hline
+	Improved Decision Layer logic to consistently beat level 1 & Need to get documentation for project up to date & Will spend the rest of the term fixing and improving documents \\ \hline
 \end{tabu}
 \end{center}
 
