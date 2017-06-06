@@ -103,7 +103,7 @@ Gabriel worked on training images, device communication, neural network function
 \input{requirementsDoc}
 
 \section{Changes made from the requirements document}
-
+\subsection{Change Table}
 \begin{center}
 \begin{tabu} to 0.9\linewidth{ || X[l] | X[l] | X[l] | X[l] || }
 	\hline
@@ -118,6 +118,76 @@ Gabriel worked on training images, device communication, neural network function
 	8 & Ideally the system should be able to make it past level 5 approximately 50\% of the time. & This requirement was mostly dropped. & This was intended as a possibly reachable stretch goal, but we never achieved this level of performance, so it was not relevant to the final project.\\ \hline
 \end{tabu}
 \end{center}
+
+\subsection{Altered Gantt Chart}
+\resizebox{\textwidth}{!}{
+%    \centering
+     \begin{ganttchart}[%Specs
+     y unit title=2cm,
+     y unit chart=2cm,
+     vgrid,hgrid,
+     title height=1,
+%     title/.style={fill=none},
+     title label font=\bfseries\footnotesize,
+     bar/.style={fill=blue},
+     bar height=0.7,
+%   progress label text={},
+     group right shift=0,
+     group top shift=0.7,
+     group height=.3,
+     group peaks={}{}{0.2}{},
+     inline]{1}{50}
+    %labels
+    \gantttitle{Plan}{50}\\  % title 1
+    \gantttitle{W1}{2}
+    \gantttitle{W2}{2}
+    \gantttitle{W3}{2}
+    \gantttitle{W4}{2}
+    \gantttitle{W5}{2}
+    \gantttitle{W6}{2}
+    \gantttitle{W7}{2}
+    \gantttitle{W8}{2}
+    \gantttitle{W9}{2}
+    \gantttitle{W10}{2}
+    \gantttitle{W11}{2}
+    \gantttitle{W12}{2}
+    \gantttitle{W13}{2}
+    \gantttitle{W14}{2}
+    \gantttitle{W15}{2}
+    \gantttitle{W16}{2}
+    \gantttitle{W17}{2}
+    \gantttitle{W18}{2}
+    \gantttitle{W19}{2}
+    \gantttitle{W20}{2}
+    \gantttitle{W21}{2}
+    \gantttitle{W22}{2}
+    \gantttitle{W23}{2}
+    \gantttitle{W24}{2}
+    \gantttitle{W25}{2}
+    % Setting group if any
+    \ganttgroup[inline=false]{Documents}{1}{16} \\
+    \ganttbar[progress=30,inline=false]{Requirement}{1}{5} \\
+    \ganttbar[progress=0,inline=false]{Technical}{5}{10}\\
+    \ganttbar[progress=0,inline=false]{Design}{10}{15} \\
+
+    \ganttgroup[inline=false]{\small  {Winter Break} } {17}{24} \\
+
+    \ganttgroup[inline=false]{\small{Desing Game Interface}}{25}{30} \\
+
+    \ganttgroup[inline=false]{\small{Train Neural Network}}{31}{39} \\
+    \ganttbar[progress=0,inline=false]{Training 1}{31}{33}\\
+    \ganttbar[progress=0,inline=false]{Training 2}{34}{36}\\
+    \ganttbar[progress=0,inline=false]{Training 3}{37}{39}\\
+
+    \ganttgroup[inline=false]{Game Testing}{31}{39} \\
+    \ganttbar[progress=0,inline=false]{Test 1}{32}{33}\\
+    \ganttbar[progress=0,inline=false]{Test 2}{35}{36}\\
+    \ganttbar[progress=0,inline=false]{Test 3}{38}{41}\\
+
+    \ganttgroup[inline=false]{Improvements}{42}{50} \\
+
+\end{ganttchart}
+}
 
 \section{Design document}
 
