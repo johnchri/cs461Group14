@@ -64,9 +64,10 @@
         }
         \begin{abstract}
         In this document we describe everything we have done in our project to create a deep learning program that can learn to play the game Galaga.
-	This project was created to be used as a training tool for NVIDIA's Deep Learning Institute.
-	In this document we go over in a bit more detail the purpose of the project.
-	We also talk about the progress we made and the problems we faced throughout development.
+	The project was created to be used as a training tool for NVIDIA's Deep Learning Institute.
+	This document covers every piece of development material, including previously created documents, changes, and the final design of the project.
+	Each team member will also present their logs of the development process and a summary of their learning throughout the term.
+
 
 
         \end{abstract}
@@ -78,22 +79,24 @@
 \tableofcontents
 
 \section{Introduction}
-The main goal of our project was to create a neural network that can learn to play the game Galaga.
-During the research phase we set up some benchmarks for how well the neural net should play at the project's completion.
-There were a few requirements for the neural network.
-The neural network must run on NVIDIA's Jetson developer kit.
-It will be used by trainers and students in the field of deep learning.
-NVIDIA's Deep Learning Institute will take the work that we do and use it to create a learning course.
-It must be possible to recreate this project, or it will not make a good learning tool.
-As such, our documentation had to be detailed enough to give readers a clear understanding of how we made the system.
-With modern technology and hardware becoming more and more advanced new computational techniques are becoming possible.
-The field of AI has improved dramatically is the last 10 to 20 years.
-Machine learning has become a lot more popular since modern hardware can now support it.
-With machine learning now being more prevalent, it's important to help others build a thorough understanding so that computer scientists can take full advantage of this new technology.
-Our client was Mark Ebersole, a Training Development Manager and Director at NVIDIA.
-The members on the team were Luay Alshawi, Gabe Morey, and Chris Johnson.
-Luay was in charge of the decision layer. Gabe handled the communication of commands to the neural net, and Chris created the input data for training.
-The client acted as a supervisor, signing off on each step of the process.
+Our project was requested by NVIDIA's Deep Learning Institute in order to provide a new training course in neural network training and development for new developers.
+The goal was to provide an exciting project for beginners that would help ease them in to the growing field of Deep Learning.
+Deep Learning itself is a field focused on the training and development of Deep Neural networks to be applied to machine-learning based challenges.
+Deep Learning is a major avenue toward building technology like self-driving cars and autmoatic facial recognition. 
+Getting more developers involved will support the field's continued growth and lead to important breakthroughs in AI technology.
+\newline\newline
+The project itself was given in an open-ended fashion.
+We, as a team, were allowed to choose a project that met a few simple requirements.
+The first was that we had to use a Neural Network to accomplish the task. 
+The second was that it had to run inference on the Jetson TX1 developer kit.
+With these guidelines set, we decided to use the project to train a neural network to play the video game Galaga, an arcade shooter.
+\newline\newline
+Our client was Mark Ebersole and our team consisted of Gabriel Morey, Luay Alshawi, and Chris Johnson. 
+Mr. Ebersole acted as a supervisor and provided us necessary resources from his company, such as the Jetson TX1 developer kit.
+He also connected us with people at NVIDIA who could offer advice on technical implementation of the project.
+Chris was assigned as team captain and provided work building training images, setting up and acquiring hardware, and creating and organizing documentation.
+Luay was the primary authority on the neural network itself and was in charge of training it and improving its functionality for our task.
+Gabriel worked on training images, device communication, neural network functionality improvements, deployment testing, and documentation improvements.
 
 \section{Requirements document}
 
