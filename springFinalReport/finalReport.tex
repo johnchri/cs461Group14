@@ -63,10 +63,11 @@
             \vspace{20pt}
         }
         \begin{abstract}
-        In this document we describe what we have done with our project to create a deep learning program that can learn to play the game Galaga.
-	This project will be used as a training tool for NVIDIA's Deep Learning Institute.
-	We briefly describe the purpose of the project, the progress we made, and the problems we faced throughout development.
-	We also set forward some goals and plans to finish out the year and hand off the project to NVIDIA.
+        In this document we describe everything we have done in our project to create a deep learning program that can learn to play the game Galaga.
+	This project was created to be used as a training tool for NVIDIA's Deep Learning Institute.
+	In this document we go over in a bit more detail the purpose of the project.
+	We also talk about the progress we made and the problems we faced throughout development.
+
 
         \end{abstract}
     \end{singlespace}
@@ -76,140 +77,176 @@
 \pagenumbering{arabic}
 \tableofcontents
 
-\section{Project Purpose}
-The main goal of our project is to create a neural net that can learn to play the game Galaga.
-The neural network must run on NVIDIA's Jetson developer kit, as this was one of the requirements for the project.
-This project will be used by trainers and students in the field of deep learning.
+\section{Introduction}
+The main goal of our project was to create a neural network that can learn to play the game Galaga.
+During the research phase we set up some benchmarks for how well the neural net should play at the project's completion.
+There were a few requirements for the neural network.
+The neural network must run on NVIDIA's Jetson developer kit.
+It will be used by trainers and students in the field of deep learning.
 NVIDIA's Deep Learning Institute will take the work that we do and use it to create a learning course.
 It must be possible to recreate this project, or it will not make a good learning tool.
 As such, our documentation had to be detailed enough to give readers a clear understanding of how we made the system.
+With modern technology and hardware becoming more and more advanced new computational techniques are becoming possible.
+The field of AI has improved dramatically is the last 10 to 20 years.
+Machine learning has become a lot more popular since modern hardware can now support it.
+With machine learning now being more prevalent, it's important to help others build a thorough understanding so that computer scientists can take full advantage of this new technology.
+Our client was Mark Ebersole, a Training Development Manager and Director at NVIDIA.
+The members on the team were Luay Alshawi, Gabe Morey, and Chris Johnson.
+Luay was in charge of the decision layer. Gabe handled the communication of commands to the neural net, and Chris created the input data for training.
+The client acted as a supervisor, signing off on each step of the process.
 
-\section{Current Progress}
-Throughout the first term we laid out all the ground work for out project.
-We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
-These documents have been given to our client who has signed and returned them to ensure that everything can be smoothly recreated and used in an educational setting.
-\newline\newline
-Over winter break we began implementation.
-The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
-Though there are many bugs to iron out, the system can generate actions based on the situation of the player, and commands can be given to the game from the neural network.
-Moving forward the main goals are increasing the speed of command, the accuracy of gameplay, and ironing out bugs.
+\section{Requirements document}
 
-\section{Problems and Solutions}
-We ran into several problems throughout the first term.
-One problem we had was our busy schedules.
-It was difficult to find times to meet up and work on projects.
-We had to schedule our weekly TA meeting on Fridays which wasn't ideal.
-Our TA is planning on scheduling all his meetings on Monday which might help for Winter term.
-We're also handling this problem by improving our lines of communication with each other.
-By staying in touch regularly and planning ahead, we have mitigated a lot of the scheduling issues that have plagued this term.
-\newline\newline
-Another problem we had was getting our documents signed.
-Our client was very busy throughout the term and it took a while to to get responses from him.
-All of our assignments were either turned in late or without a signature.
-He said that his schedule should soon be clearing up and he won't have to travel as much so it shouldn't be as bad next term.
-Just in case our client remains difficult to contact we planned to ask him about more methods of contact as well as maybe finding other people at the company who can weigh in when he's unavilable.
-\newline\newline
-Another problem arose in this project due to the vagueness of the initial project.
-Initially, we had no solid idea what our project was going to be, other than that it had to involve a neural network.
-Issues contacting our client compounded this issue as we needed information about what kinds of projects would be considered suitble for the task at hand.
-Eventually we were able to establish solid enough contact to determine our actual task.
-\newline\newline
-The final issue first term arose from the difficulty of actually understanding neural networks.
-Learning about neural networks required much more research than we initially assumed, and the field is incredibly complex.
-In order to better understand what was going on, we had to try and cram tons of research into a very small period.
-This met with middling success and we still weren't fully confident in our design.
-We did, however, have a solution in mind.
-We reached out to our client and made contact with an engineer at NVIDIA.
-We also took advantage of the increased free time during winter break to more thoroughly study our subject and prepare the initial system.
-\newline\newline
-The second term started off with a long winter break, during which major breakthroughs and problems were discovered.
-Perhaps the biggest thing to come out of winter break was a new understanding what exactly we had to do to get our neural network functioning.
-By the end of the break we had a much more solid plan for what we were going to accomplish.
-However, our initial approach to the network required some custom implementation that we weren't sure how to do yet.
-We didn't know how to get the neural net telling the game how to play.
-To solve this, we spoke with our client and he connected us with an engineer at NVIDIA who had more experience with neural networks.
-With his help, we came to the decision of implementing a single decision layer into the neural net that would take the output of the image processing layers and produce an output in the form of a game command.
-\newline\newline
-The next big problem we needed to approach was the setup we need to use to get the setup correct for playing the game.
-Because we need to have the Jetson run the neural network, we've been gathering parts to allow us to put Galaga on a PC seperate from the jetson for playing.
-We've purchased a camera to watch the screen of the other PC and send that back as input.
-At the moment reflectivity is hampering this process, so we are working on getting a screen with as little reflectiveness as possible.
-Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
-To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
-\newline\newline
-The major issue that hung over our heads heading into the end of winter term was the speed the neural network.
-On a normal PC, our system actually ran decently, but the Jetson is considerably slower.
-With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network was simply too slow to play a 60 fps game right now.
-We tested ways around this limitation and eventually improved the speed.
-\newline\newline
-The biggest improvement to the project since the middle of winter term was the frame rate.
-We now get around 12-15 frames processed per second with the neural network.
-This is possible because of optimizations we found for the Jetson that help divert resources to running a neural network.
-We set our sights on improving the decision layer code, as well as getting the neural network trained further.
-\newline\newline
-In order to get ready for Expo this term, we started with a few goals.
-Goal number one was to get our neural network trained better.
-Goal number two was to improve the decision layer logic for the network.
-Our final goal was to buff up the frame rate of the neural network response.
-Along the way we also had to finish the poster for expo and prepare to present.
-\newline\newline
-Getting the neural network trained was a matter of continuing to do what he'd done for a while now.
-We needed to gather more images and annotate them for the training process.
-Getting more images was a central part of getting the project ready for expo.
-We've managed to build up a good image base with over one hundred annotations.
-After the latest training run, our detection results have proved better than ever before.
-\newline\newline
-When it came to the decision layer logic, we tried quite a few methods.
-Our initial logic only allowed the network to move away from incoming enemies or shoot them.
-After a bit more refinement, we tried a version where the system was allowed to shoot, then move in one command.
-This second version had some better performance and its results were used on our expo poster due to the time in term.
-Afterwards, we arrived at what is now the final and best version of the decision layer.
-This version moves much more often and can prepare to fire when it sees no enemies.
-This version also tends to shoot whenever it moves.
-This combination helps it find enemy targets as well as shoot reflexively at oncoming enemies.
-With this version, we've come to meet our goal of beating the first level of Galaga 90\% of the time.
-\newline\newline
-The framerate is the goal we've consistently had the most trouble meeting.
-While framerate was not a part of our requirements, we wanted to have a reasonable play speed to make the network more exciting.
-However, we've never gotten much more than 15 FPS out of the Jetson. 
-Pushing the game speed up higher results in the Jetson responding too slow to perform well.
-We tried using some optimization tools from NVIDIA, but they didn't properly support the SSD basis of our neural network or its custom layers.
-We have signed up for the test of the new version, so we may yet be able to do something.
-\newline\newline
-One major issue we had to resolve this term was getting results for our poster.
-When we first handed it off to our client, he liked what we had but wanted more concrete performance results from our neural network.
-The week before the poster's due date became a challenging rush to optimize our system and get good results to put on the poster.
-Ultimately, the poster turned out good and the results were usable. 
-We do wish we could have had more time, however, as we've since achieved much better results, with a maximum score of 18230 and now being able to regularly beat level 1.
-\newline\newline
-Overall, we're very happy with the progress and outcome of this project, but we aren't done yet.
-We continue to try and optimize it, and we have a lot of documentation to catch up on.
-We're a far cry away from where we were at the start of the term, and we're better programmers for it.
-That does mean, however, that most of the documentation written then does not match what our project has come to be.
-While we do have some edits done from last term, we still have a lot to catch up on if we are to meet the requirements of the class.
-It's also important that our documentation be excellent because NVIDIA needs to be able to recreate it as a Deep Learning Institute lab.
-With that in mind, we have a lot of work cut out for us to finish this class.
+\input{requirementsDoc}
 
-\section{Retrospective}
+\section{Changes made from the requirements document}
 
-\begin{center}
-\begin{tabu} to 0.9\linewidth{ || X[l] | X[l] | X[l] || }
-	\hline
-	Positives & Deltas & Actions \\
-	\hline\hline
-	Decided on Galaga as main project & Need to improve system setup & Research more in depth how deep learning systems are constructed \\ \hline
-	Found a way to work together despite scheduling problems & Need to carefully evaluate design of system to ensure robustness & Seek help from professors who research neural networks and ask our client if anyone at NVIDIA can give us some setup advice \\ \hline
-	Finished all necessary documentation & Need to improve clarity and quality of documentation & Rewrite portions of documentation as our design improves to make sure our project's goals and design are clear \\ \hline
-	Figured out a preliminary design with several tools we can use to make it work & Need to complete setup of the network to begin training & Begin working on neural network setup, particularly engaging phase 1, teaching the network how to recognize in game objects \\ \hline
-	Researched more and figured out how to work our project & Need to fully finish the design & Will continue to update documentation as we figure more out about the specific challenges of the project \\ \hline
-	Completed the alpha build of the project setup & Need to work out the kinks of our setup and continue training & Test the system intently and improve functionality \\ \hline
-	Improved system speed & Need to increase FPS further & Will continue searching for optimizations \\ \hline
-	Completed training to a satisfactory level & Could always use more training & We might try one more training run before expo \\ \hline
-	Improved Decision Layer logic to consistently beat level 1 & Need to get documentation for project up to date & Will spend the rest of the term fixing and improving documents \\ \hline
-\end{tabu}
-\end{center}
+\section{Design document}
 
-\section{Week by week summary}
+\input{designDoc}
+
+\section{Changes made from the design document}
+
+\section{Technology review}
+
+\input{technologyReview}
+
+\section{Changes made from the technology review}
+
+\section{Weekly blog posts}
+
+\subsection{Fall Week 3}
+Our first weekly progress report was for week three.
+We had been planning on brainstorming ideas and figuring out exactly what we wanted to do for our project.
+Our client gave us a pretty good description of what we were doing and some examples of projects that revolved around deep learning.
+Our progress as of this point had involved getting a better understanding of our problem.
+Our main issue was setting up meetings that worked for everyone's schedules.
+We also started working on the problem statement where each person on the team was assigned to do a portion of the document.
+Gabe was responsible for Problem definition, Chris was responsible for proposed solution and Luay for the performance metrics.
+
+\subsection{Fall Week 4}
+On week four the team met two times to discuss our problem statement's document and to improve it, also, we met with our TA Vee for the first time.
+Also, during our meeting, we decided what our project is going to be.
+Our project will use deep learning to train a machine to identify mesquite and point at them using a laser.
+The plan for next week is to gather as many requirements regarding the project to make progress and we planned to discuss ideas with our client to get a better idea of what each idea would require.
+
+\subsection{Fall Week 5}
+This week we were able to get the problem statement submitted, turn in a rough draft of our requirements document, and schedule another meeting with our client.
+There was still a little uncertainty with the project we were going to do and the things that we needed for it but we ended up settling on a game playing project.
+This project would learn how to play the game galaga by looking at gameplay.
+After that we were able to get a rough draft for our requirements document.
+We planned to meet again with our client via skype and hash out some more of the specifics.
+
+\subsection{Fall Week 6}
+This week we still had trouble catching up.
+We needed work revising some of our previous documents now that we had a better idea of what we were doing.
+We also met with Kirsten to go over what we had on the requirements document where she helped us on the formatting and gave us feedback.
+We also went over the problem statements and did the changes based on the feedback we received from Kirsten.
+Currently, we are waiting for our Client to sign the requirements document.
+But, we still had a bit of trouble coordinating since all of our schedules are pretty busy and our client's schedule even more busy.
+Next week we thought we'd be able to get our requirements document in and get started on our tech review.
+
+\subsection{Fall Week 7}
+This week the team met to revise the requirements document.
+The necessary revisions were made based on the feedback we have received from our client.
+Also, each member of the team knows what to do for the tech review document.
+However, we didn't get a whole lot done this week, but we were able to get a signature back from out client for our requirements document and gave it to our TA who was able to give us some ideas to improve it.
+It was a pretty busy week. We plan to add improvements to our requirements document and turn it in again before starting on our tech review.
+
+\subsection{Fall Week 8}
+This week we finished the Tech Review and tried to start on the design document.
+The tech review ran into trouble and we couldn't quite finish before it was due.
+We did send in for an extension and luckily were not the only ones.
+We managed to turn it in complete by the new cutoff date discussed in class.
+With that done, we set our sights on the design document and met Friday to get started.
+We reviewed the IEEE standard and tried to brainstorm a way to approach it, but ultimately didn't get much of the document written.
+We split off to work on relevant sections by ourselves and reconvene later.
+
+\subsection{Fall Week 9}
+This was a short week because of thanksgiving break.
+We met up and discussed briefly our design document and tried to hash out roughly what our design was going to look like.
+We weren't able to get the design document in by Wednesday like we had hoped.
+We did a lot of research but still weren't feeling very confident about our understanding of our design.
+We still had a lot of research to do and were hoping to have made a good dent on the design document by Sunday.
+
+\subsection{Fall Week 10}
+This week was pretty stressful.
+We tried to get the design document done as best we could despite still being fuzzy about how the design was supposed to go.
+We planned on arranging a meeting with people who can better explain details of neural nets so we have a better idea of the best approach.
+We sent Mark a rough design document before getting help from the professor on how to improve it.
+We sent a new copy of the document on Thursday and another on Friday.
+On Friday we spent a good portion of the day working on our project report.
+
+\subsection{Winter Break}
+Winter break was an overwhelmingly productive period for this project.
+Without classes looming over our heads, we had time to more thoroughly research our project and vastly improve the design of our neural network.
+We found out how to properly set up our neural network parameters through Caffe and SSD as well as how to properly set up images for the training.
+By the end of this period, we had the beginnings of our neural network and knew how to train it.
+
+\subsection{Winter Week 1}
+This week we met in order to run and test the jetson kit we received from our client.
+We were hoping to install Caffe and test the Single Shot Detection neural network. 
+We were able to run ubuntu on it. 
+Then we started to discuss what we currently have and how the training was done using SSD. 
+We realized we were doing something that could be wrong because we are supposed to train the neural network to play the game and not just be able to identify the game objects. 
+So we emailed our Client and ask whether what we are doing is fine. 
+We also discussed other methods of approach we could use to complete the project.
+
+\subsection{Winter Week 2}
+This week we heard back from our client and got in touch with an engineer from NVIDIA. 
+He answered some of the questions we'd been having and we felt reaffirmed in our initial approach using Caffe.
+We decided that sticking with Caffe was the best decision and decided to implement a custom layer to the neural network to allow it to make in-game decisions.
+
+\subsection{Winter Week 3}
+We had an important meeting this week to delegate tasks so we could get our system running. 
+Chris was placed in charge of all things hardware, both acquiring things and making them work in the way we needed them to.
+Luay was placed in charge of implementing the decision layer of our neural network so that our training could move on to the next level.
+Gabe was placed in charge of creating a communications protocol to allow the neural network to send its commands to the game, which is running ona seperate computer.
+Everybody took on the responsibility of gathering and labeling images to use in training.
+
+\subsection{Winter Week 4}
+In a meeting this week we decided who would take on the extra duties of team leader. 
+Chris offered to take on the role, and so set about creating the OneNote setup we need moving forward.
+Luay ran our first major training sprint, which took 13 hours to complete using 66 images. 
+The lack of high speed is due to lacking availability of super high-powered gpu computing. 
+Results were promising, though still not precise as we'd like.
+Gabe began looking into different ways to set up the communication and found that the emulator had inbuilt functionality for Lua scripting, including its own library of direct control functions.
+
+\subsection{Winter Week 5}
+This week we continued work on our indivividual segments. 
+For the comm script, codebase was changed from Lua to Python in order to greate a more universally applicable solution, though the keypress commands are still operating system specific.
+The decision layer was still in the process of being implemented.
+A number of images were labeled and added to the training base to try and improve performance.
+
+\subsection{Winter Week 6}
+This week was a mad dash to get everything edited and put together for the midterm report due date.
+We've finished up the baseline comm code and the decision layer and have begun testing the system as a whole, with the full hardware setup put together.
+We also began editing our old documents with new and relevant information and prepared the midterm report for turn-in.
+
+\subsection{Winter Week 7}
+This week we did present our project to our TA and show a demo of the Neural network plays the game.
+We worked on improving the decision algorithm.
+The original algorithm was mainly developed to make decisions based on defense.
+That being said the neural network only makes decisions to make the player survive throughout the game.
+However, the new approach is to stay away from enemies as well as move the player the enemies’ direction and shoot them.
+Hopefully, by making decisions that can attack enemies and stay away from them will make the neural network reaches higher levels.
+
+\subsection{Winter Week 8}
+Work was done to improve the training and image detection.
+Unfortunately, the results were the same as before and no improvements.
+It seems we need to gather more annotated images for training.
+
+\subsection{Winter Week 9}
+This week we sent our midterm report to our client for a signature.
+We currently have 160 images for training.
+The goal is to reach around 500 before EXPO.
+We're able to run the game at 10 frames per second now.
+
+\subsection{Winter Week 10}
+We met up this week to touch base and get a rough draft of our EXPO poster.
+We each recorded our portions of the final presentation and stitched them together.
+Commands are successfully being sent to the neural net and the decision layer has seen improvement.
+We can still only have the neural net play the game at 10 frames per second.
 
 \subsection{Spring Week 1}
 This week we had a lecture to prepare us for the coming months.
@@ -259,22 +296,19 @@ Luay recently was able to boost the performance of the neural net using screen c
 We will most likely continue working up until Expo on May 19th.
 There are still two more lectures before then.
 \newline\newline
-This week I continue working on installing OpenCV 3.2.0 to use the Jetson TX1 on board camera.
+Luay continued working on installing OpenCV 3.2.0 to use the Jetson TX1 on board camera.
 The onboard camera is better quality and capable of capturing full HD compare to the current USB camera which is only able to capture up to 720p.
 The process of installing OpenCV 3.2.0 was painful because there was not enough disk space and had to spend the time to clean unnecessary files.
-However, after cleaning the disk from unwanted files I was finally able to install OpenCV.
 Although, the process of installing OpenCV from source code took more than an hour due to the low power nature of the Jetson TX1.
 By using the onboard camera we might be able to do a live demo during the expo.
 Finally, we are planning to email our client this week to give him updates on our current progress.
-\newline\newline
-This week we submitted the poster and merged all our github repos for the the final code freeze.
-Luay has been working on performance.
-Meanwhile I've been turning my attention to documentation.
-With Expo coming up and the final code done, we need to get our documentation on track for the end of the term.
-I am starting with the requirements document, as the scope of the project has changed drastically since we wrote it.
 
 \subsection{Spring Week 6}
-This week we did a lot of important things to prep for expo. The first was meeting with another group and Professor Winters on Tuesaday to discuss our pitches and poster. We worked on how we'd talk to people on the expo floor and got a lot of useful insight from the professor and our peers. We also got to work on the midterm report and presentation and divided out duties for how to tackle it. With everything planned out, we will be finishing off the midterm and getting prepped for expo on Friday the 19th.
+This week we did a lot of important things to prep for expo.
+The first was meeting with another group and Professor Winters on Tuesaday to discuss our pitches and poster.
+We worked on how we'd talk to people on the expo floor and got a lot of useful insight from the professor and our peers.
+We also got to work on the midterm report and presentation and divided out duties for how to tackle it.
+With everything planned out, we will be finishing off the midterm and getting prepped for expo on Friday the 19th.
 
 \section{Code Sample}
 \subsection{Python Script Plays the Game}
@@ -388,4 +422,120 @@ while True:
 \begin{center}
   \makebox[\textwidth]{\includegraphics[width=\paperwidth]{setup.eps}}
 \end{center}
+
+
+
+
+
+\section{Current Progress}
+Throughout the first term we laid out all the ground work for out project.
+We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
+These documents have been given to our client who has signed and returned them to ensure that everything can be smoothly recreated and used in an educational setting.
+\newline\newline
+Over winter break we began implementation.
+The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
+Though there are many bugs to iron out, the system can generate actions based on the situation of the player, and commands can be given to the game from the neural network.
+Moving forward the main goals are increasing the speed of command, the accuracy of gameplay, and ironing out bugs.
+
+\section{Problems and Solutions}
+We ran into several problems throughout the first term.
+One problem we had was our busy schedules.
+It was difficult to find times to meet up and work on projects.
+We had to schedule our weekly TA meeting on Fridays which wasn't ideal.
+Our TA is planning on scheduling all his meetings on Monday which might help for Winter term.
+We're also handling this problem by improving our lines of communication with each other.
+By staying in touch regularly and planning ahead, we have mitigated a lot of the scheduling issues that have plagued this term.
+\newline\newline
+Another problem we had was getting our documents signed.
+Our client was very busy throughout the term and it took a while to to get responses from him.
+All of our assignments were either turned in late or without a signature.
+He said that his schedule should soon be clearing up and he won't have to travel as much so it shouldn't be as bad next term.
+Just in case our client remains difficult to contact we planned to ask him about more methods of contact as well as maybe finding other people at the company who can weigh in when he's unavilable.
+\newline\newline
+Another problem arose in this project due to the vagueness of the initial project.
+Initially, we had no solid idea what our project was going to be, other than that it had to involve a neural network.
+Issues contacting our client compounded this issue as we needed information about what kinds of projects would be considered suitble for the task at hand.
+Eventually we were able to establish solid enough contact to determine our actual task.
+\newline\newline
+The final issue first term arose from the difficulty of actually understanding neural networks.
+Learning about neural networks required much more research than we initially assumed, and the field is incredibly complex.
+In order to better understand what was going on, we had to try and cram tons of research into a very small period.
+This met with middling success and we still weren't fully confident in our design.
+We did, however, have a solution in mind.
+We reached out to our client and made contact with an engineer at NVIDIA.
+We also took advantage of the increased free time during winter break to more thoroughly study our subject and prepare the initial system.
+\newline\newline
+The second term started off with a long winter break, during which major breakthroughs and problems were discovered.
+Perhaps the biggest thing to come out of winter break was a new understanding what exactly we had to do to get our neural network functioning.
+By the end of the break we had a much more solid plan for what we were going to accomplish.
+However, our initial approach to the network required some custom implementation that we weren't sure how to do yet.
+We didn't know how to get the neural net telling the game how to play.
+To solve this, we spoke with our client and he connected us with an engineer at NVIDIA who had more experience with neural networks.
+With his help, we came to the decision of implementing a single decision layer into the neural net that would take the output of the image processing layers and produce an output in the form of a game command.
+\newline\newline
+The next big problem we needed to approach was the setup we need to use to get the setup correct for playing the game.
+Because we need to have the Jetson run the neural network, we've been gathering parts to allow us to put Galaga on a PC seperate from the jetson for playing.
+We've purchased a camera to watch the screen of the other PC and send that back as input.
+At the moment reflectivity is hampering this process, so we are working on getting a screen with as little reflectiveness as possible.
+Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
+To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
+\newline\newline
+The major issue that hung over our heads heading into the end of winter term was the speed the neural network.
+On a normal PC, our system actually ran decently, but the Jetson is considerably slower.
+With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network was simply too slow to play a 60 fps game right now.
+We tested ways around this limitation and eventually improved the speed.
+\newline\newline
+The biggest improvement to the project since the middle of winter term was the frame rate.
+We now get around 12-15 frames processed per second with the neural network.
+This is possible because of optimizations we found for the Jetson that help divert resources to running a neural network.
+We set our sights on improving the decision layer code, as well as getting the neural network trained further.
+\newline\newline
+In order to get ready for Expo this term, we started with a few goals.
+Goal number one was to get our neural network trained better.
+Goal number two was to improve the decision layer logic for the network.
+Our final goal was to buff up the frame rate of the neural network response.
+Along the way we also had to finish the poster for expo and prepare to present.
+\newline\newline
+Getting the neural network trained was a matter of continuing to do what he'd done for a while now.
+We needed to gather more images and annotate them for the training process.
+Getting more images was a central part of getting the project ready for expo.
+We've managed to build up a good image base with over one hundred annotations.
+After the latest training run, our detection results have proved better than ever before.
+\newline\newline
+When it came to the decision layer logic, we tried quite a few methods.
+Our initial logic only allowed the network to move away from incoming enemies or shoot them.
+After a bit more refinement, we tried a version where the system was allowed to shoot, then move in one command.
+This second version had some better performance and its results were used on our expo poster due to the time in term.
+Afterwards, we arrived at what is now the final and best version of the decision layer.
+This version moves much more often and can prepare to fire when it sees no enemies.
+This version also tends to shoot whenever it moves.
+This combination helps it find enemy targets as well as shoot reflexively at oncoming enemies.
+With this version, we've come to meet our goal of beating the first level of Galaga 90\% of the time.
+\newline\newline
+The framerate is the goal we've consistently had the most trouble meeting.
+While framerate was not a part of our requirements, we wanted to have a reasonable play speed to make the network more exciting.
+However, we've never gotten much more than 15 FPS out of the Jetson. 
+Pushing the game speed up higher results in the Jetson responding too slow to perform well.
+We tried using some optimization tools from NVIDIA, but they didn't properly support the SSD basis of our neural network or its custom layers.
+We have signed up for the test of the new version, so we may yet be able to do something.
+\newline\newline
+One major issue we had to resolve this term was getting results for our poster.
+When we first handed it off to our client, he liked what we had but wanted more concrete performance results from our neural network.
+The week before the poster's due date became a challenging rush to optimize our system and get good results to put on the poster.
+Ultimately, the poster turned out good and the results were usable. 
+We do wish we could have had more time, however, as we've since achieved much better results, with a maximum score of 18230 and now being able to regularly beat level 1.
+\newline\newline
+Overall, we're very happy with the progress and outcome of this project, but we aren't done yet.
+We continue to try and optimize it, and we have a lot of documentation to catch up on.
+We're a far cry away from where we were at the start of the term, and we're better programmers for it.
+That does mean, however, that most of the documentation written then does not match what our project has come to be.
+While we do have some edits done from last term, we still have a lot to catch up on if we are to meet the requirements of the class.
+It's also important that our documentation be excellent because NVIDIA needs to be able to recreate it as a Deep Learning Institute lab.
+With that in mind, we have a lot of work cut out for us to finish this class.
+
+
+
+
+
+
 \end{document}
