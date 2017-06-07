@@ -252,6 +252,55 @@ The camera we ultimately used was a small, \$30 Logitech camera.
 We also used the Jetson TX1's build in camera on occassion. 
 In total, the actal main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
+\section{Guide}
+
+\subsection{Installing Caffe}
+
+After cloning SSD\_GALAGA repository we can start installing Caffe.
+It needs to be installed on the host machine that will be doing the training and on the Jetson TX1.
+There is a list of dependencies located in \path{SSD_GALAGA/dependencies.txt} that list packages based on Ubuntu and some notes.
+After installing all dependencies we also need to copy Makefile.config.example and rename it to Makefile.config then we would need to make changes based on the configuration we have.
+There are other examples included in the repository shows the configuration file used on the Jetson Tx1 and desktop running Ubuntu.
+Finally, we can run "make -j4" followed by "make py".
+
+\subsection{Set up image dataset}
+
+Setting up image set for training and testing requires using annotation methods that can be used to label and identify objects from any given image.
+In this project, Pascal VOC annotation is being used because it's the most common and supported by the majority of deep learning frameworks as well as neural networks.
+The deep learning framework we are currently using supports Pascal VOC and Coco but only Pascal VOC is being used.
+However, in order to prepare the annotations we would need to separate train validation images and test images so we can easily list them in a text file along with their path and XML which is the annotation file.
+In addition, we would need to write down a label map file that lists all the objects that need to be identified by the neural network. Overall, the files are needed in order to create the LMDB database are trainval.txt,test\_name\_size.txt, test.txt, lebelmap\_voc.prototxt. These files located in \path{SSD_GALAGA/data/VOC0712}. To annotate images we used labelImage which is graphical annotation software. It can be dowloanded and installed from \path{https://github.com/tzutalin/labelImg}.
+
+\subsection{Training}
+
+Before we start training we need to run a script to create LMDB database for the training data set.
+The script is located in \path{SSD_GALAGA/data/VOC0712/create_data.sh}.
+We would need to make sure data\_root\_dir is pointing to our data set.
+After running the script the database will be created and linked to \path{SSD_GALAGA/examples/}.
+We also need to make some modifications on the Python training script in \path{examples/ssd/ssd_pascal.py}.
+We would need to change some values in solver\_param dictionary which are base\_lr and max\_iter.
+It's recommended to start with 0.01 value for base\_lr and then decreasing the value till it fits with our data set.
+Also, the variable num\_classes needs to be updated based on the total number of objects we are training.
+Changes can be taken place to the file if needed.
+Finally, the script can be run using "python \path{examples/ssd/ssd_pascal.py}".
+
+\subsection{Play the game}
+\subsubsection{Game Hosting Computer}
+
+This computer will run the game as well as the Expressjs server in the background.
+The server is based on Nodejs and thus must be installed.
+After cloning the keyboardServer repository we need to install the dependencies by running "npm install" then "nodejs ./index.js" to run the server.
+The server will receive requests from the Jetson TX1 then will execute the commands in the form of keyboard press using robot\-js library.
+
+\subsubsection{Jetson TX1}
+
+When the training is over we can start using the output model to make it play the game by deploying the model on the Jetson TX1.
+There is a python script located in \path{SSD_GALAGA/examples/n_post_play.py}.
+This script contains a URL variable that points to the IP address of the machine that hosts the game and needs to be updated.
+Also, labelmap\_file, model\_def, and model\_weights might need to change based on the path. This scripts captures an image and sent it the neural network to get a decision back.
+The decision will be sent through the network asynchronously to the other machine that hosts the game.
+In fact, the other machine runs Expressjs server based on Nodejs listening on port 5000.
+
 \section{Weekly blog posts}
 \subsection{Fall Week 3: Gabe}
 This week was a meeting with our clent, idea brainstorming, and the beginning of work on the problem statement. The project is pretty open-ended right now, so we get to make a decsion on what to focus on. We've discussed a few ideas with Mark and between ourselves but we haven't hit anything solid yet. We need to figure out to finish the problem statement though.
