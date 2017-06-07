@@ -253,201 +253,158 @@ We also used the Jetson TX1's build in camera on occassion.
 In total, the actal main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
 \section{Weekly blog posts}
-
-\subsection{Fall Week 3}
-Our first weekly progress report was for week three.
-We had been planning on brainstorming ideas and figuring out exactly what we wanted to do for our project.
-Our client gave us a pretty good description of what we were doing and some examples of projects that revolved around deep learning.
-Our progress as of this point had involved getting a better understanding of our problem.
-Our main issue was setting up meetings that worked for everyone's schedules.
-We also started working on the problem statement where each person on the team was assigned to do a portion of the document.
-Gabe was responsible for Problem definition, Chris was responsible for proposed solution and Luay for the performance metrics.
-
-\subsection{Fall Week 4}
-On week four the team met two times to discuss our problem statement's document and to improve it, also, we met with our TA Vee for the first time.
-Also, during our meeting, we decided what our project is going to be.
-Our project will use deep learning to train a machine to identify mesquite and point at them using a laser.
-The plan for next week is to gather as many requirements regarding the project to make progress and we planned to discuss ideas with our client to get a better idea of what each idea would require.
-
-\subsection{Fall Week 5}
-This week we were able to get the problem statement submitted, turn in a rough draft of our requirements document, and schedule another meeting with our client.
-There was still a little uncertainty with the project we were going to do and the things that we needed for it but we ended up settling on a game playing project.
-This project would learn how to play the game galaga by looking at gameplay.
-After that we were able to get a rough draft for our requirements document.
-We planned to meet again with our client via skype and hash out some more of the specifics.
-
-\subsection{Fall Week 6}
-This week we still had trouble catching up.
-We needed work revising some of our previous documents now that we had a better idea of what we were doing.
-We also met with Kirsten to go over what we had on the requirements document where she helped us on the formatting and gave us feedback.
-We also went over the problem statements and did the changes based on the feedback we received from Kirsten.
-Currently, we are waiting for our Client to sign the requirements document.
-But, we still had a bit of trouble coordinating since all of our schedules are pretty busy and our client's schedule even more busy.
-Next week we thought we'd be able to get our requirements document in and get started on our tech review.
-
-\subsection{Fall Week 7}
-This week the team met to revise the requirements document.
-The necessary revisions were made based on the feedback we have received from our client.
-Also, each member of the team knows what to do for the tech review document.
-However, we didn't get a whole lot done this week, but we were able to get a signature back from out client for our requirements document and gave it to our TA who was able to give us some ideas to improve it.
-It was a pretty busy week. We plan to add improvements to our requirements document and turn it in again before starting on our tech review.
-
-\subsection{Fall Week 8}
-This week we finished the Tech Review and tried to start on the design document.
-The tech review ran into trouble and we couldn't quite finish before it was due.
-We did send in for an extension and luckily were not the only ones.
-We managed to turn it in complete by the new cutoff date discussed in class.
-With that done, we set our sights on the design document and met Friday to get started.
-We reviewed the IEEE standard and tried to brainstorm a way to approach it, but ultimately didn't get much of the document written.
-We split off to work on relevant sections by ourselves and reconvene later.
-
-\subsection{Fall Week 9}
-This was a short week because of thanksgiving break.
-We met up and discussed briefly our design document and tried to hash out roughly what our design was going to look like.
-We weren't able to get the design document in by Wednesday like we had hoped.
-We did a lot of research but still weren't feeling very confident about our understanding of our design.
-We still had a lot of research to do and were hoping to have made a good dent on the design document by Sunday.
-
-\subsection{Fall Week 10}
-This week was pretty stressful.
-We tried to get the design document done as best we could despite still being fuzzy about how the design was supposed to go.
-We planned on arranging a meeting with people who can better explain details of neural nets so we have a better idea of the best approach.
-We sent Mark a rough design document before getting help from the professor on how to improve it.
-We sent a new copy of the document on Thursday and another on Friday.
-On Friday we spent a good portion of the day working on our project report.
-
-\subsection{Winter Break}
-Winter break was an overwhelmingly productive period for this project.
-Without classes looming over our heads, we had time to more thoroughly research our project and vastly improve the design of our neural network.
-We found out how to properly set up our neural network parameters through Caffe and SSD as well as how to properly set up images for the training.
-By the end of this period, we had the beginnings of our neural network and knew how to train it.
-
-\subsection{Winter Week 1}
-This week we met in order to run and test the jetson kit we received from our client.
-We were hoping to install Caffe and test the Single Shot Detection neural network. 
-We were able to run ubuntu on it. 
-Then we started to discuss what we currently have and how the training was done using SSD. 
-We realized we were doing something that could be wrong because we are supposed to train the neural network to play the game and not just be able to identify the game objects. 
-So we emailed our Client and ask whether what we are doing is fine. 
-We also discussed other methods of approach we could use to complete the project.
-
-\subsection{Winter Week 2}
-This week we heard back from our client and got in touch with an engineer from NVIDIA. 
-He answered some of the questions we'd been having and we felt reaffirmed in our initial approach using Caffe.
-We decided that sticking with Caffe was the best decision and decided to implement a custom layer to the neural network to allow it to make in-game decisions.
-
-\subsection{Winter Week 3}
-We had an important meeting this week to delegate tasks so we could get our system running. 
-Chris was placed in charge of all things hardware, both acquiring things and making them work in the way we needed them to.
-Luay was placed in charge of implementing the decision layer of our neural network so that our training could move on to the next level.
-Gabe was placed in charge of creating a communications protocol to allow the neural network to send its commands to the game, which is running ona seperate computer.
-Everybody took on the responsibility of gathering and labeling images to use in training.
-
-\subsection{Winter Week 4}
-In a meeting this week we decided who would take on the extra duties of team leader. 
-Chris offered to take on the role, and so set about creating the OneNote setup we need moving forward.
-Luay ran our first major training sprint, which took 13 hours to complete using 66 images. 
-The lack of high speed is due to lacking availability of super high-powered gpu computing. 
-Results were promising, though still not precise as we'd like.
-Gabe began looking into different ways to set up the communication and found that the emulator had inbuilt functionality for Lua scripting, including its own library of direct control functions.
-
-\subsection{Winter Week 5}
-This week we continued work on our indivividual segments. 
-For the comm script, codebase was changed from Lua to Python in order to greate a more universally applicable solution, though the keypress commands are still operating system specific.
-The decision layer was still in the process of being implemented.
-A number of images were labeled and added to the training base to try and improve performance.
-
-\subsection{Winter Week 6}
-This week was a mad dash to get everything edited and put together for the midterm report due date.
-We've finished up the baseline comm code and the decision layer and have begun testing the system as a whole, with the full hardware setup put together.
-We also began editing our old documents with new and relevant information and prepared the midterm report for turn-in.
-
-\subsection{Winter Week 7}
-This week we did present our project to our TA and show a demo of the Neural network plays the game.
-We worked on improving the decision algorithm.
-The original algorithm was mainly developed to make decisions based on defense.
-That being said the neural network only makes decisions to make the player survive throughout the game.
-However, the new approach is to stay away from enemies as well as move the player the enemies’ direction and shoot them.
-Hopefully, by making decisions that can attack enemies and stay away from them will make the neural network reaches higher levels.
-
-\subsection{Winter Week 8}
-Work was done to improve the training and image detection.
-Unfortunately, the results were the same as before and no improvements.
-It seems we need to gather more annotated images for training.
-
-\subsection{Winter Week 9}
-This week we sent our midterm report to our client for a signature.
-We currently have 160 images for training.
-The goal is to reach around 500 before EXPO.
-We're able to run the game at 10 frames per second now.
-
-\subsection{Winter Week 10}
-We met up this week to touch base and get a rough draft of our EXPO poster.
-We each recorded our portions of the final presentation and stitched them together.
-Commands are successfully being sent to the neural net and the decision layer has seen improvement.
-We can still only have the neural net play the game at 10 frames per second.
-
-\subsection{Spring Week 1}
-This week we had a lecture to prepare us for the coming months.
-We have only training left to do before expo so this week we started creating annotations for the neural net's image detection.
-
-\subsection{Spring Week 2}
-This week I was able to get some annotations done and we found a group to discuss our poster with.
-We're feeling pretty relaxed now that most of the work is done.
-This week we were able to find a group to discuss our poster with for the extra credit.
-Luay started working on improving the defense and attack algorithm.
-Gabe decided to work on trying to run tensorRT on the Jetson TX1 and try to integrate it with SSD.
-The plan for next week is to have work done on the decision layer algorithm and test it on the Jetson TX1 as well as home computer GPU.
-
-\subsection{Spring Week 3}
-Chris made more annotations.
-We still have yet to meet with our team to discuss our poster.
-We need to make a final draft soon.
-We also have to get it to Mark as soon as possible since it will probably take him a while to get it signed.
-
-\subsection{Spring Week 4}
-This week we met up and figured out what we had left to do before the code freeze on May 1st.
-We realized there was a lot on the requirements document that we still needed to update and we weren't sure if we could meet a lot of them by May 1st.
-The neural net still isn't performing as well as it should be.
-We fixed up our poster, got our group photo, and sent the poster to Mark and the professors.
-We also asked the professors how much we needed to fix with the requirements document.
+\subsection{Fall Week 3: Gabe}
+This week was a meeting with our clent, idea brainstorming, and the beginning of work on the problem statement. The project is pretty open-ended right now, so we get to make a decsion on what to focus on. We've discussed a few ideas with Mark and between ourselves but we haven't hit anything solid yet. We need to figure out to finish the problem statement though.
+\subsection{Fall Week 3: Luay}
+On week three we had the chance to talk to our client. We discussed about what we are going to do and Mark helped us with some ideas to think about regarding the senior design project. Also, we started working on the problem statement each person on the team did a section on the problem statement.
+\subsection{Fall Week 3: Chris}
+So far we are planning on still brainstorming ideas and figuring out exactly what we want to do for our project. Our client gave us a pretty good description of what we were doing and some examples of projects that used deep learning. Our progress as of this point has involved getting a better understanding of our problem. Our main issue was setting up meetings that worked for everyone's schedule. This is the part I guess where I have to get creative. I'm not sure what to say. I'm excited to get started on the project and see what cool things we can create using deep learning.
+\subsection{Fall Week 4: Gabe}
+This week was a bit of a rough week. We had issue meeting with our client and with getting his signature for the problem statement. In fact, we didn't hear from our client at all this week. We've continued to make changes and improvements to our problem statement. It seems like it's almost ready to turn in, but it may require a few more edits. Next week we plan to meet with our client again and hammer out the requirements document. We also plan to get the signature on our problem statement and turn it in. This week has been stressful, but hopefully we can get back on track soon.
+\subsection{Fall Week 4: Luay}
+On week four the team met two times to discuss our problem statement and to improve it. Also, we met with our TA Vee. During this week I worked on performance metrics subsection of the problem statement and tried to make an improvement. Also, during our team meeting, we decided what our project is going to be. Our project will use deep learning to identify mesquite and point at them using a laser. The plan for next week is to gather as many requirements regarding the project to make progress.
+\subsection{Fall Week 4: Chris}
+We didn't make a whole lot of progress this week. We're still unsure of exactly what we want to do for our project and are waiting to set up a meeting with our client so we can talk about some of the specifics. We plan to discuss ideas with our client to get a better idea of what each one will require.
+\subsection{Fall Week 5: Gabe}
+This week started off slow, and we were still having problems reaching our client. However, we finally heard back from them and got our Problem Statement turned in on Wednesday. We then focused on the requirements document, but had issues because we didn't have the opportunity to meet with our client. We made a cursory rough draft with an estimated Gantt Chart that we can discuss with our client and refine. We will hopefully be back on track next week and turn in the final requirements doc on time.
+\subsection{Fall Week 5: Luay}
+This week, our team held a meeting to start thinking about the requirements for our project. During the meeting, we decided to do something else using machine learning. The idea is to train a neural network to play the game Galaga by providing a capture of the screen and feed it to the Jetson development board. However, we are struggling with the requirements as we were not able to meet with our client to gather enough requirements for the project. Eventually, we were able to turn in what we have for the requirements and I worked on integrating the chart with latex.
+\subsection{Fall Week 5: Chris}
+This week we were able to get the problem statement submitted, turn in a rough draft of our requirements document, and schedule another meeting with our client. There was still a little uncertainty with the project we were going to do and the things that we would need for it but we ended up settling on a game playing project. This project would learn how to play the game galaga by watching game play. After that we were able to get a rough draft for our requirements document. We plan to meet again with our client via skype and hash out some more of the specifics.
+\subsection{Fall Week 6: Gabe}
+This week we got our requirements document done and made revisions to our problem statement. It was a very productive, but also hectic week. We ran into a lot of timing issues and couldn't get everything done till Thursday. We didn't hear back from our client when we sent it off, so we had to ask for a deadline extension. Hopefully in the next week we can get everything settled and be back on course.
+\subsection{Fall Week 6: Luay}
+This out team had a second meeting with our client. Unfortunately, I was not able to join the meeting due to a problem with Skybe. However, my team members were able to gather enough requirements from our client for the project. During this week I worked on converting what we have written in the requirements document to the IEEE 830-1998. We also met with Kirsten to go over what we had on the requirements document where she helped us on the formatting and gave us feedback. We also went over the problem statements and did the changes based on the feedback we received from Kirsten. Currently, we are waiting for our Client to sign the requirements document.
+\subsection{Fall Week 7: Gabe}
+This week we met to revise our requirements document and also turned in our revised problem statement. We got the signature go ahead on the requirements doc, even if it was a little late. Other than that, we divided up responsibility on the tech review. Though we didn't get much work done during the actual week, it should be finished up by the end of the weekend to turn in on time.
+\subsection{Fall Week 7: Luay}
+This week the team met again to revise the requirements document. The necessary revisions were made based on the feedback we have received from our client. Also, each member of the team knows what to talk about in the tech review document. My portions of this are to talk about three different technologies and find three alternatives. For technology 1, I will be discussing visual libraries that will be used in our project to understand visual movements from the game, libraries such as open cv, CCV, and simple cv. Technology 2 is going to compare three different programming languages to write the necessary software for the project. Finally, technology 3, is comparing three operating systems in terms of software development environment.
+\subsection{Fall Week 7: Chris}
+We didn't get a whole lot done this week. We were able to get a signature back from out client for our requirements document and gave it to our TA who was able to give us some ideas to improve it. It was a pretty busy week. We plan to add improvements to our requirements document and turn it in again before starting on our tech review.
+\subsection{Fall Week 8: Gabe}
+This week we finished the Tech Review and tried to start on the design document. The tech review ran into trouble and we couldn't quite finish before it was due. We did send in for an extension and luckily were not the only ones. We managed to turn it in complete by the new cutoff date discussed in class. With that done, we set our sights on the design document and met Friday to get started. We reviewed the IEEE standard and tried to brainstorm a way to approach it, but ultimately didn't get much of the document written. We split off to work on relevant sections by ourselves and reconvene later.
+\subsection{Fall Week 8: Luay}
+This week we turned in the requirements documents. Each person in the team talked about three different technologies, each technology compared with three different alternatives. In my portion, I talked about vision libraries where on my conclusion I decided that we are going to use OpenCV as it’s the best option. Also, I did a comparison between programming languages that we are going to heavily use and the winning language was python because of the smooth syntax and the good documentation. Finally, a comparison was done to compare three different operating systems that should be used for the development environment and LNIX was the winning solution. Other than the requirement documents, there is also a document design that we started to consider and we have a starting point for the latex.
+\subsection{Fall Week 8: Chris}
+Week 8 was another really busy week. We were able to get our requirements document finished and turned in. We've also got a start on our design document and were hoping to be able to send Mark something by Wednesday, just to stay ahead.
+\subsection{Fall Week 9: Gabe}
+This week we didn't really get much done. After only about half a week of school, there was the brief holiday break. I certainly didn't accomplish much this week. The next week will be a scramble to finish the design document and make sure we can get it in on time.
+\subsection{Fall Week 9: Luay}
+This week was a short week, but I spent time learning open CV as well as Caffe (Deep learning framework). The reason behind learning these tools at this time is that I want to have a general idea of the design process.
+\subsection{Fall Week 9: Chris}
+This was a short week because of thanksgiving break. We met up and discussed briefly our design document and tried to hash out roughly what our design was going to look like. I did some research but was not feeling very confident about my understanding of our design. I still have a lot of research to go and am hoping to have made a good dent on the design document by Sunday.
+\subsection{Fall Week 10: Gabe}
+This week we finished the design document despite many setbacks. We really buckled down on Tuesday to complete a rough draft, and then met with McGrath on Wednesday and Thursday to revise and improve the document. While the design is still rough and needs improvement, I believe we can make it better as we continue forward. What we have should satisfy our needs for now. We are also starting work on the final progress report and presentation.
+\subsection{Fall Week 10: Luay}
+This week I have a good shape of what I am going to do in this project. Also, I finally got myself familiar with the concepts of deep learning, neural networks, training a neural network, and be able to do image manipulation using OpenCV. During this week I gain more confident about our ability to have a fully successful working project that will let the Jetson TX1 be successfully able to play the game Galaga. Although, this week we worked on the design document where each person wrote the parts that are responsible for.
+\subsection{Fall Week 10: Chris}
+This week was pretty stressful. We tried to get the design document done as best we could despite still being fuzzy about how the design was supposed to go. We're planning on arranging meeting with people who can better explain details of neural nets so we have a better idea of the best approach. We sent Mark the design document we were able to come up with. We also met up on Friday and spent most of the day working on our project report. We plan on finishing it up a little bit during the weekend and on Monday.
+\subsection{Winter Week 1: Gabe}
+This week we met and worked on our Jetson setup. As we discussed the ongoing build for the neural network, we came to the conclusion that more work was needed in order to get it from identifying images to properly playing the game. We looked at some other methods of doing this, but for now it looks like we'll be sticking with Caffe. We've contacted our client for help.
+\subsection{Winter Week 1: Luay}
+This week we met at Gabe's place in order to run and test the jetson kit we received from our client. We were hoping to install Caffe and test the Single Shot Detection neural network. We were able to run ubuntu on it. But, then we started to discuss what we currently have and how I did the training using SSD. We realized we were doing something that could be wrong because we are supposed to train the neural network to play the game and not just be able to identify the game objects. So I had to email our Client and ask whether what we are doing is fine. We also about to shift our path away from Caffe and maybe use Neuroevolution of augmenting topologies.
+\subsection{Winter Week 1: Chris}
+The first week we had lecture on Tuesday. We met at Gabe's house to discuss the project and start putting it together. We made some progress starting up the jetson and running it with Ubuntu. We also discussed some of the limitations of our project and other methods we could use to improve on it.
+\subsection{Winter Week 2: Gabe}
+This week we heard back from our client and got in touch with an engineer from NVIDIA. He answered some of the questions we'd been having and we felt reaffirmed in our initial approach using Caffe. We have decided that sticking with Caffe is the best decision and have decided to implement a custom layer to the neural network to allow it to make in-game decisions.
+\subsection{Winter Week 2: Luay}
+This week we decided that we are going to stick with Caffe and maybe we could implement a custom layer on top of SSD that make a decision only. So, by the time we heard back from our client he directed us to an expert and I asked him about our approach which is to implement a custom layer on top of SSD. We got a green light on implementing a custom layer.
+\subsection{Winter Week 2: Chris}
+This week our client emailed us back answering some of our question and getting us in touch with a professional. He was able to okay some of our design decisions.
+\subsection{Winter Week 3: Gabe}
+This week we had an important meeting to lay out tasks to get done with our plans for the rest of the term. We're now using Githubs issue tracker system to keep tabs on what we're working on. Chris is in charge of getting our hardware setup working right. Luay is in charge of implementing the custom decision layer. I am in charge of setting up a communication protocol for allowing our neural network's commands to be sent to the game, which will be running on a separate computer. We've all taken on the task of capturing and labeling game images to be used in training the neural network.
+\subsection{Winter Week 3: Luay}
+This week I started to learn how to write a custom layer using Caffe framework. I feel like I am comfortable working with Caffe and I am hoping to be able to finish it within two weeks from now. So hopefully by the end of week five, we should have a decision layer that can output reasonable results that will be feed to the controller. Also by the of this week, we are having team meeting which we will discuss available tasks and then everyone will be given a task to work on. Tasks are created using the issue tracker in Github to easily keep track of all tasks as well as to know which member is assigned to which task.
+\subsection{Winter Week 3: Chris}
+This week we had a team meeting to discuss how the project was looking so far and what we still had to do. We divided up each of the tasks and assigned them. I was in charge of making sure we got all the hardware we needed and that it all worked together.
+\subsection{Winter Week 4: Gabe}
+This week in a meeting we decided who would take on the extra duties of team leader. Chris offered to take on the role, and so set about creating the OneNote setup we need moving forward. Luay ran our first major training sprint. I began looking into different ways to set up the communication and found that the emulator had inbuilt functionality for Lua scripting, including its own library of direct control functions.
+\subsection{Winter Week 4: Luay}
+This week I run an extensive training on the neural network that took 13 hours to finish. The result was better from the previous training because I also increased the annotated images to a total of 53 for validation and 13 for testing. With increasing the images and their annotations I realized the neural network got better on some of the labels that the precision got increased. As a team, we would need to do a lot of image annotation in order to make the neural network output high precision result. We also met this weekend to discuss who is going to be the leader and set up one note.
+\subsection{Winter Week 4: Chris}
+This week we had a lecture and our group met up to discuss where we were at and who would be the team leader. I offered to be the team leader. I have to get oneNote set up and figure out how to share it with the professors.
+\subsection{Winter Week 5: Gabe}
+This week we met once more and solidified our plans moving forward to finish the alpha build and paperwork on time. I continued work on my communications program, but switched to python scripts over the lua approach upon being encouraged to create a more generally applicable setup, since the lua script would have been emulator specific. My new project will have to be Windows specific to get the keyboard command access, but some changes can be made to apply it to other operating systems.
+\subsection{Winter Week 5: Luay}
+This week I did work on the algorithm which makes decisions based on the detections coming from the detection_out layer. I was able to test it through setting up a screen capture of a second monitor that has the game Galage from the same machine and see the interactions and decisions that are coming out from the neural network. In addition, Chris was able to annotate 100 images of the game which I had to run another training on the neural network. The training took about 12 hours to finish and reached 35k iterations. The network is able to identify objects in the game with higher confidence.
+\subsection{Winter Week 5: Chris}
+This week I got into the annotation process of the images so that I could begin making them to improve the testing. It was slow at first but I was eventually able to become decently efficient. I was able to get 100 in two days.
+\subsection{Winter Week 6: Gabe}
+This week we made the hustled effort to finish off the midterm report and document edits. I made a great deal of revisions to the requirements document and the tech review in addition to working on the midterm report. I also finished off my communications code, which we made the decision to do as a python server rather than using the lua script method I tried first.
+\subsection{Winter Week 6: Luay}
+This week I was able to finish the decision layer implementation which has CPU and GPU support in Caffe. Also, I was able to test it using another machine that has the game Galaga open and receives a request from the Jetson which then a keyboard press event will be processed to simulate player's movement through the game. A server based on node js used to do this job which is installed on a machine that has Galage and the Jetson TX1 sends a post request to the game hosting machine. Obviously, this a temporary solution and we might need to use Gabe's pure implementation of Sockets instead. But, a comparison between these two methods will be tested based on the fastest and efficient way. Finally, we were able to make some modifications on our documents to reflect the new changes were made on the project for the alpha release.
+\subsection{Winter Week 6: Chris}
+This week was pretty busy. We had to revise all of our documents to reflect the changes we'd made throughout our process and get our project setup so that we had something that we could demo.
+\subsection{Winter Week 7: Gabe}
+This week was a slow week following the midterm report. We showed off the project to our TA to show that the project is working. We're currently getting only about 3-9 frames per second when the game runs though. We're currently looking at ways to improve the frame rate of the game play. I'm working on gathering annotated images for the neural network training.
+\subsection{Winter Week 7: Luay}
+This week we did present our project to our TA and show a demo of the Neural network plays the game. Also, this week I worked on the decision algorithm to do some improvements. The original algorism was mainly developed to make decisions based on defense. That being said the neural network only makes deskins to make the player survive throughout the game. However, the new approach is to stay away from enemies as well as move the player the enemies’ direction and shoot them. Hopefully, by making decisions that can attack enemies and stay away from them will make the neural network reaches higher levels.
+\subsection{Winter Week 7: Chris}
+This was a busy week for most of my other classes so I was able to work a whole lot on the project. We provided a demo for our TA showing that the neural net now moves left and right to avoid bullets and enemy ships.
+\subsection{Winter Week 8: Gabe}
+I didn't get much done this week as I was busy with other classes. I did make some annotations for the training, as well as gathered screenshots from the game to annotate.
+\subsection{Winter Week 8: Luay}
+This week I worked on improving the training parameters and hoping to improve the detection precision of the game. Unfortunately, the results were the same as before and no improvements. I would assume the reason is that we still need to gather more annotations of the game to improve the output results of the detection layer.
+\subsection{Winter Week 8: Chris}
+This was another very busy week for the rest of my classes.
+\subsection{Winter Week 9: Gabe}
+This week was very relaxed. I annotated a few more images for the neural network training, but spent most of the time working on other classes. The project is on a very good track with the timetables. Our neural network core is set up and the training process is clear to everyone. We just need to keep feeding more images until the neural network improves its detection. We've also managed to refine resources on the Jetson to get 10 frames per second consistently in the image processing, which allows us better speed of play.
+\subsection{Winter Week 9: Luay}
+This week, there was nothing to do on my end. The core of this project is considered complete. Although, training the neural network is still a continues process. Training can be done whenever we have more annotated images of the game. Currently there a total of 160 images for training. We hope to reach over 500 hundred before the EXPO. Annotating an image is a long process and takes time. But, our goal for this term is to be able to make decisions and make the neural network plays the game by sending signal commands to the game host's computer.
+\subsection{Winter Week 9: Chris}
+This week I went over some of our documentation and read up a bit more on SSD. We were emailed that we were supposed to have our midterm report signed so I emailed our client for a signature.
+\subsection{Winter Week 10: Gabe}
+This week we came together to create a rough draft of the poster. We had some confusion about how exactly to put it together, but I think the end result works, at least as a rough draft. We also planned ahead for what we would cover in our presentation. Since most of the things we talked about at midterm haven't changed, merely slightly improved, it won't be difficult to talk about the project. Moving forward, I'm going to be working on improving the logic of the neural network's decision layer so that it plays the game better and can more often complete levels without dying.
+\subsection{Winter Week 10: Luay}
+This week we met to work on the poster, we did our best to fill all the details. Also, for our presentation, we decided to work on it individually, then at the end, we are going to put everything together. In fact, there are no major changes in terms of our work since the presentation we worked on from week 6. Currently, we have a working solution for handling the communication between the Jetson TX1 and the hosting computer for the game. Also, the decision layer has improved since week 6 and now it can fully play the game independently. There is only one problem which is the processing limitation on the Jetson TX1, it can only process one image per 100 milliseconds. This means the Jetson TX1 makes 10 decisions every second. The workaround for this problem is to reduce the frame rate of the game to slow it and hoping there would be enough time for the Jetson TX1 to make decisions in a timely manner.
+\subsection{Winter Week 10: Chris}
+This week our group met up to make sure we knew what we had to do for the next two weeks and to get a rough draft of our expo poster ready.
+\subsection{Spring Week 1: Gabe}
+This week I settled into my new schedule while thinking about ways to improve the decision layer logic of the neural network. I didn't get a lot of annotations done this week.
+\subsection{Spring Week 1: Luay}
+\subsection{Spring Week 1: Chris}
+This week we had a lecture to prepare us for the coming months. We have only training left to do before expo so this week I started creating annotations for the neural net's image detection.
+\subsection{Spring Week 2: Gabe}
+I started working on integrating TensorRT into our neural network this week so that we could improve the lagging fps of the system. While we are now at a much better pace of play than previously, somewhere between 13 and 15 fps, it's still slower than we'd like. Hopefully through the implementation of this optimization method we can improve the performance.
+\subsection{Spring Week 2: Luay}
+This week we were able to find a group to discuss our poster with for the extra credit. Also, I started working on improving the defense and attack algorithm. Since Gabe decided to work on trying to run tensorRT on the Jetson TX1 and try to integrate it with SSD. The plan for next week is to have work done on the decision layer algorithm and test it on the Jetson TX1 as well as home computer GPU.
+\subsection{Spring Week 2: Chris}
+This week I was able to get some annotations done and we found a group to discuss our poster with. It was a pretty easy week. We're feeling pretty relaxed now that most of the work is done.
+\subsection{Spring Week 3: Gabe}
+This week I kept working with researching TensorRT, though it's looking to be difficult to set up. It's possible it might not even be compatible with our current neural net construction, but it's hard to tell as the program is still in testing phases. There's not a lot of documentation out about it right now.
+\subsection{Spring Week 3: Luay}
+\subsection{Spring Week 3: Chris}
+This week I was able to get more annotations made. We still have yet to meet with our team to discuss our poster. We need to make a final draft soon. We also have to get it to Mark as soon as possible since it will probably take him a while to get it signed.
+\subsection{Spring Week 4: Gabe}
+This week we discovered that TensorRT would not work with our custom layer. We have tried signing up for the early test release of the next version , which does support custom layers, but we can't be sure we'll get it in time. Meanwhile, I've been working on the decision layer logic, particularly how the network responds to certain stimuli. I've decided to add more movement when it notices things and to change slightly how it sends commands as a way of ensuring it dodges incoming enemies better.
+\subsection{Spring Week 4: Luay}
+This week I had given the Jetson TX2 to run and test our project on it. The goal is to compare the performance between both TX1 and TX2. Due to the differences in GPU architecture between both boards and that resulted in running slow GPU performance of Caffe . The solution of this issue could be solved by changing makefile configuration and hopefully, it can be then run faster than TX1. The best result of TX1 gets up to 10 FPS using our custom nerual network model. On the other hand, Gabe was working on improving the decision algorithm on Jetson Tx1 and tensorRT. There were some difficulties finding resources on integrating tensorRT. However, I also tried to improve the decision layer as well as working on the tensorRT. I was able to write a program using the tesnorRT engine but unfortunately, it did not work because tennsorRT does not support custom Caffe layers as this was stated on the release note and this was the complaint error when running the program.
 \newline\newline
-Luay was given a Jetson TX2 to test our project on.
-The goal was to compare the performance between both the TX1 and TX2.
-Due to the differences in GPU architecture on both boards the GPU performance of Caffe was slow.
-This issue was solved by altering the makefile configuration.
-The maximum performance with the TX1 that we could get was 10 FPS using our custom nerual network model.
-On the other hand, Gabe was working on improving the decision algorithm on Jetson Tx1 and tensorRT.
-There were some difficulties finding resources on integrating tensorRT.
-Luay tried working on TensorRT as well as improving the decision layer.
-Writing a tensorRT program unfortunately wouldn't work because tennsorRT does not support custom Caffe layers which was stated on the release note and was the complaint error when running the program.
+Good improvements happen by the end of this week which resulted in making the neural network plays the game and winning stage 1 90\% of the time. Also, the highest score reached so far is 15520 which is a record. Also, the neural network was able to reach stage 4 of the game and this is the best result so far.
 \newline\newline
-By the end of the week the neural network played the game winning stage 1 90% of the time.
-The highest score reached so far is 15520 which is a new record.
-Also, the neural network was able to reach stage 4 of the game and this is the best result so far.
-We are hoping to do a live demo during expo by having one Laptop that has the game and the Jetson TX1.
-By using the camera on board we are going to save space and be able to do a live demo.
-
-\subsection{Spring Week 5}
-This week we got through the code freeze after making sure everything we used was in our repo.
-We also finished our poster and submitted it for printing.
-Luay recently was able to boost the performance of the neural net using screen capturing instead of video recording.
-We will most likely continue working up until Expo on May 19th.
-There are still two more lectures before then.
+My plan for this coming week is to install OpenCV 3.2.0 from the source code in order to use the camera on the Jetson TX1 board because the OpcenCv version in apt-get package manager has only 2.4 and this version does not support the Jetson TX1 camera. We are hoping to do a live demo during expo by having one Laptop that has the game and the Jetson TX1. By using the camera on board we are going to save space and be able to do a live demo.
+\subsection{Spring Week 4: Chris}
+This week we met up and figured out what we had left to do before the code freeze on May 1st. We realized there was a lot on the requirements document that we still needed to update and weren't sure if we could meet some of them by May 1st. The neural net still isn't performing as well as it should have. We fixed up our poster, got our group photo, and sent the poster to Mark and the professors. We also asked the professors how much we needed to fix with the requirements document.
+\subsection{Spring Week 5: Gabe}
+This week we submitted the poster and merged all our github repos for the the final code freeze. Luay has been working on performance. Meanwhile I've been turning my attention to documentation. With Expo coming up and the final code done, we need to get our documentation on track for the end of the term. I am starting with the requirements document, as the scope of the project has changed drastically since we wrote it.
+\subsection{Spring Week 5: Luay}
+This week I continue working on installing OpenCV 3.2.0 to use the Jetson TX1 on board camera. The onboard camera is better quality and capable of capturing full HD compare to the current USB camera which is only able to capture up to 720p. The process of installing OpenCV 3.2.0 was painful because there was not enough disk space and had to spend the time to clean unnecessary files. However, after cleaning the disk from unwanted files I was finally able to install OpenCV. Although, the process of installing OpenCV from source code took more than an hour due to the low power nature of the Jetson TX1. By using the onboard camera we might be able to do a live demo during the expo. Finally, we are planning to email our client this week to give him updates on our current progress.
+\subsection{Spring Week 5: Chris}
+This week we got through the code freeze after making sure everything we used was in our repo. We also finished our poster and submitted it for printing. Luay recently was able to boost the performance of the neural net using screen capturing instead of video recording. We will most likely continue working up until Expo on May 19th. There are still two more lectures before then.
+\subsection{Spring Week 6: Gabe}
+This week we did a lot of important things to prep for expo. The first was meeting with another group and Professor Winters on Tuesaday to discuss our pitches and poster. We worked on how we'd talk to people on the expo floor and got a lot of useful insight from the professor and our peers. We also got to work on the midterm report and presentation and divided out duties for how to tackle it. With everything planned out, we will be finishing off the midterm and getting prepped for expo on Friday the 19th.
+\subsection{Spring Week 6: Luay}
+This week I was able to install OpenCV 3.2.0 along with OpenCV 2.4. The old version of OpenCV is needed for Caffe, therefore I had to keep both. The progress to make this happen was painful but at the end, I was able to use the onboard camera by using OpenCV 3.2.0 and version 2.4 for Caffe. The plan is to be able to use both the web camera and onboard camera in case we run into reflection issues on the screen. Also, this week we had to meet in person to work on the midterm presentation. During the meeting, we divided everything so that each person knows what to present during the presentation. At the moment I am working on making sure that we have video recorded for the game just in case we run into issues and use it for backup. Hopefully, we never run into issues and be able to do a live demo of the project during EXPO.
+\subsection{Spring Week 6: Chris}
+This week we met up to get started on our midterm report and presentation. We set up our project to see how it was doing in its current state and it was able to make it level four and get a new high score of 18230. We got video of this for our presentation and for expo if we decide we can't do a live presentation of our project with the limited table space. We divided up topics to talk about in our video so that we each had an about equal amount to present.
+\subsection{Spring Week 7: Gabe}
+This has been quite the project. Were I to start it all over again, I would definitely tell myself to hit research hard sooner. I would also tell myself to spend more time setting things up in winter break. Partially a lot of time was lost due to breaking my leg, but more research would have helped at the very least. I do think things ultimately came together though. I learned a lot of things from working on this project, particularly in the realm of project and time management. Time budgeting is essential to major projects. It's also just as essential to know what to work on at what time and also to be able to revisit and revise plans when things don't work quite right. Of course I also learned how to train and deploy neural networks. I definitely see myself using the management skills, though I don't know if I'll be focusing on neural networks in the future.
 \newline\newline
-Luay continued working on installing OpenCV 3.2.0 to use the Jetson TX1 on board camera.
-The onboard camera is better quality and capable of capturing full HD compare to the current USB camera which is only able to capture up to 720p.
-The process of installing OpenCV 3.2.0 was painful because there was not enough disk space and had to spend the time to clean unnecessary files.
-Although, the process of installing OpenCV from source code took more than an hour due to the low power nature of the Jetson TX1.
-By using the onboard camera we might be able to do a live demo during the expo.
-Finally, we are planning to email our client this week to give him updates on our current progress.
-
-\subsection{Spring Week 6}
-This week we did a lot of important things to prep for expo.
-The first was meeting with another group and Professor Winters on Tuesaday to discuss our pitches and poster.
-We worked on how we'd talk to people on the expo floor and got a lot of useful insight from the professor and our peers.
-We also got to work on the midterm report and presentation and divided out duties for how to tackle it.
-With everything planned out, we will be finishing off the midterm and getting prepped for expo on Friday the 19th.
+The project itself was awesome when it started working. Watching the machine play Galaga was kind of exhilarating, especially after all the work that went into getting there. There were also a lot of fun challenges in getting the network deployed and optimized. What I liked least was how complicated it was to figure things out. I often found myself wishing I was on a project I knew more about beforehand, due to needing to do so much research into Neural Networks to get this going. My teammates were super helpful in the research department, and Luay did an amazing job catching us all up to speed once he made breakthroughs in how the network could work. I think the result of this project is ultimately something our client will be happy with. If we had time to continue this out further, I would want to change our decision layer logic into several more layers designed to train the neural network how to make its own decisions, rather than just being one layer of hard-coded logic.
+\subsection{Spring Week 7: Luay}
+This week we were able to present our project during expo and do a live demo showing off our project. I am happy with the accomplishment we have made so far. Going back to Fall term, we had so many struggles putting pieces together for deep learning. By that time we did not know what we were doing but we eventually decided to pick Galaga and use the science of deep learning to play the game through video capture of the game. This requires fast detection modal that can work on embedded devices. If I have the knowledge right now in Fall term or winter term I would use unsupervised training to accomplish this task since this type of training works best with classic games. Also, I would pick another area to work on that solves real life problems such as in medicine.
+\subsection{Spring Week 7: Chris}
+Now that expo is over, if I were to do it all over again the thing I would tell myself to do is keep in better contact with the client. He was often busy traveling but If we had contacted our client at least every week we probably could have avoided some contact issues. The biggest skill I've acquired throughout this project would probably planning and documenting a project that a client is requesting and being able to work with a client to deliver what they are expecting. This seems like a major skill and one that I'll be using and improving a lot in the future. I liked that our project was fun and creative. I didn't like that we didn't have enough time do everything we wanted to do on it. While working on the project I learned that my teammates are both smart, creative, and hardworking individuals. If I were the client I would be pretty satisfied with the work me and my teammates have done. The project could be improved if it were learning more than just recognizing images to play the game, and if given more time that's what I would be working on.
 
 \section{Code Sample}
 \subsection{Python Script Plays the Game}
@@ -561,120 +518,6 @@ while True:
 \begin{center}
   \makebox[\textwidth]{\includegraphics[width=\paperwidth]{setup.eps}}
 \end{center}
-
-
-
-
-
-\section{Current Progress}
-Throughout the first term we laid out all the ground work for out project.
-We've created documentation for our project requirements, our decisions for the technology that we want to use, and how we will be using that technology in our project.
-These documents have been given to our client who has signed and returned them to ensure that everything can be smoothly recreated and used in an educational setting.
-\newline\newline
-Over winter break we began implementation.
-The project at present has the following components: a neural network still in the stages of training to properly identify in game objects, a set of python scripts implementing port communication protocol to allow the neural network to converse with the system hosting the game, and a hardware setup with camera to allow the Jetson to see what's happening on the other computer.
-Though there are many bugs to iron out, the system can generate actions based on the situation of the player, and commands can be given to the game from the neural network.
-Moving forward the main goals are increasing the speed of command, the accuracy of gameplay, and ironing out bugs.
-
-\section{Problems and Solutions}
-We ran into several problems throughout the first term.
-One problem we had was our busy schedules.
-It was difficult to find times to meet up and work on projects.
-We had to schedule our weekly TA meeting on Fridays which wasn't ideal.
-Our TA is planning on scheduling all his meetings on Monday which might help for Winter term.
-We're also handling this problem by improving our lines of communication with each other.
-By staying in touch regularly and planning ahead, we have mitigated a lot of the scheduling issues that have plagued this term.
-\newline\newline
-Another problem we had was getting our documents signed.
-Our client was very busy throughout the term and it took a while to to get responses from him.
-All of our assignments were either turned in late or without a signature.
-He said that his schedule should soon be clearing up and he won't have to travel as much so it shouldn't be as bad next term.
-Just in case our client remains difficult to contact we planned to ask him about more methods of contact as well as maybe finding other people at the company who can weigh in when he's unavilable.
-\newline\newline
-Another problem arose in this project due to the vagueness of the initial project.
-Initially, we had no solid idea what our project was going to be, other than that it had to involve a neural network.
-Issues contacting our client compounded this issue as we needed information about what kinds of projects would be considered suitble for the task at hand.
-Eventually we were able to establish solid enough contact to determine our actual task.
-\newline\newline
-The final issue first term arose from the difficulty of actually understanding neural networks.
-Learning about neural networks required much more research than we initially assumed, and the field is incredibly complex.
-In order to better understand what was going on, we had to try and cram tons of research into a very small period.
-This met with middling success and we still weren't fully confident in our design.
-We did, however, have a solution in mind.
-We reached out to our client and made contact with an engineer at NVIDIA.
-We also took advantage of the increased free time during winter break to more thoroughly study our subject and prepare the initial system.
-\newline\newline
-The second term started off with a long winter break, during which major breakthroughs and problems were discovered.
-Perhaps the biggest thing to come out of winter break was a new understanding what exactly we had to do to get our neural network functioning.
-By the end of the break we had a much more solid plan for what we were going to accomplish.
-However, our initial approach to the network required some custom implementation that we weren't sure how to do yet.
-We didn't know how to get the neural net telling the game how to play.
-To solve this, we spoke with our client and he connected us with an engineer at NVIDIA who had more experience with neural networks.
-With his help, we came to the decision of implementing a single decision layer into the neural net that would take the output of the image processing layers and produce an output in the form of a game command.
-\newline\newline
-The next big problem we needed to approach was the setup we need to use to get the setup correct for playing the game.
-Because we need to have the Jetson run the neural network, we've been gathering parts to allow us to put Galaga on a PC seperate from the jetson for playing.
-We've purchased a camera to watch the screen of the other PC and send that back as input.
-At the moment reflectivity is hampering this process, so we are working on getting a screen with as little reflectiveness as possible.
-Another major part of this setup was getting a program setup that could relay the commands from the neural net to the game.
-To solve this, we set up a basic communication server setup through python, which waits for commands and then simulates the keypresses ordered through a Windows api.
-\newline\newline
-The major issue that hung over our heads heading into the end of winter term was the speed the neural network.
-On a normal PC, our system actually ran decently, but the Jetson is considerably slower.
-With average processing speed between 3 and 9 fps (frames per second) when implemented on the Jetson, our network was simply too slow to play a 60 fps game right now.
-We tested ways around this limitation and eventually improved the speed.
-\newline\newline
-The biggest improvement to the project since the middle of winter term was the frame rate.
-We now get around 12-15 frames processed per second with the neural network.
-This is possible because of optimizations we found for the Jetson that help divert resources to running a neural network.
-We set our sights on improving the decision layer code, as well as getting the neural network trained further.
-\newline\newline
-In order to get ready for Expo this term, we started with a few goals.
-Goal number one was to get our neural network trained better.
-Goal number two was to improve the decision layer logic for the network.
-Our final goal was to buff up the frame rate of the neural network response.
-Along the way we also had to finish the poster for expo and prepare to present.
-\newline\newline
-Getting the neural network trained was a matter of continuing to do what he'd done for a while now.
-We needed to gather more images and annotate them for the training process.
-Getting more images was a central part of getting the project ready for expo.
-We've managed to build up a good image base with over one hundred annotations.
-After the latest training run, our detection results have proved better than ever before.
-\newline\newline
-When it came to the decision layer logic, we tried quite a few methods.
-Our initial logic only allowed the network to move away from incoming enemies or shoot them.
-After a bit more refinement, we tried a version where the system was allowed to shoot, then move in one command.
-This second version had some better performance and its results were used on our expo poster due to the time in term.
-Afterwards, we arrived at what is now the final and best version of the decision layer.
-This version moves much more often and can prepare to fire when it sees no enemies.
-This version also tends to shoot whenever it moves.
-This combination helps it find enemy targets as well as shoot reflexively at oncoming enemies.
-With this version, we've come to meet our goal of beating the first level of Galaga 90\% of the time.
-\newline\newline
-The framerate is the goal we've consistently had the most trouble meeting.
-While framerate was not a part of our requirements, we wanted to have a reasonable play speed to make the network more exciting.
-However, we've never gotten much more than 15 FPS out of the Jetson. 
-Pushing the game speed up higher results in the Jetson responding too slow to perform well.
-We tried using some optimization tools from NVIDIA, but they didn't properly support the SSD basis of our neural network or its custom layers.
-We have signed up for the test of the new version, so we may yet be able to do something.
-\newline\newline
-One major issue we had to resolve this term was getting results for our poster.
-When we first handed it off to our client, he liked what we had but wanted more concrete performance results from our neural network.
-The week before the poster's due date became a challenging rush to optimize our system and get good results to put on the poster.
-Ultimately, the poster turned out good and the results were usable. 
-We do wish we could have had more time, however, as we've since achieved much better results, with a maximum score of 18230 and now being able to regularly beat level 1.
-\newline\newline
-Overall, we're very happy with the progress and outcome of this project, but we aren't done yet.
-We continue to try and optimize it, and we have a lot of documentation to catch up on.
-We're a far cry away from where we were at the start of the term, and we're better programmers for it.
-That does mean, however, that most of the documentation written then does not match what our project has come to be.
-While we do have some edits done from last term, we still have a lot to catch up on if we are to meet the requirements of the class.
-It's also important that our documentation be excellent because NVIDIA needs to be able to recreate it as a Deep Learning Institute lab.
-With that in mind, we have a lot of work cut out for us to finish this class.
-
-
-
-
 
 
 \end{document}
