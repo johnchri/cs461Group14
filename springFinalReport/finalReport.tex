@@ -220,6 +220,18 @@ The final hardware layout was pretty much exactly as described, though it could 
 \input{technologyReview}
 
 \section{Changes made from the technology review}
+A number of the technologies discussed in the tech review ended up being superfluous due to some confusion on what the tech review needed to cover.
+Outside of that, there were several changes that had to be made as we found better solutions. 
+From the first section, we did end up using OpenCV as our primary vision library, though its actual uses in our project were minimal and largely only involved in getting the camera feed through script.
+The development OS was mainly Linux, as stated, because of the Linux running on the TX1.
+The discussion of programming languages wasn't necessary, and we ended up using a mix of c++, cuda, python, and node.js.
+We did use Caffe as our neural network framework,  but the neural network architecture we eventually settled on was actually SSD, or Single Shot Multi-box Detector.
+We didn't use a cloud for training at all, so the cloud section is entirely irrelevant.
+There was just no need for cloud training when our existing systems could handle the job.
+The discussions of team communication platform and data visualization also ended up being irrelevant to how we completed the final project. 
+The camera we ultimately used was a small, \$30 Logitech camera. 
+We also used the Jetson TX1's build in camera on occassion. 
+In total, the actal main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
 \section{Weekly blog posts}
 
