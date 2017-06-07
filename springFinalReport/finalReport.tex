@@ -194,6 +194,26 @@ Gabriel worked on training images, device communication, neural network function
 \input{designDoc}
 
 \section{Changes made from the design document}
+Several things outlined in the design document's original form were far off base from the reality of the finished product, as is to be expected.
+When the original design document was written, our team had not fully researched the topic and we were still learning how to go about accomplishing the task. 
+The first major change from initial design was the choice of neural network architecture. 
+Originally we had planned to use a model based on GoogLeNet to accomplish the task.
+As our research expanded outward, we discovered SSD, which allowed us to not only detect the presence of objects in a screenshot, but also to identify where they were.
+We also ended up changing the structure of the decision output.
+While initially we had intended to build a set of custom learning logic so the neural network could learn to make the game decisions on its own.
+Due to the difficulty of this relative to the time we had, we scaled back to one layer of in-built decision logic.
+\newline\newline
+When it came to our training methods we also had to re-examine our initial approach.
+We set up our images in largely the same way as described, but not with any doctoring through OpenCV.
+We did still do stage one of training, using labeled images to train the network to recognize specific objects.
+Due to the above changes, training stage two was dropped entirely.
+There was no longer a component of our project to train as described in stage two.
+We also did not use any kind of cloud computing for the training, as our own computers proved sufficient.
+\newline\newline
+We never implemented any kind of automatic data visualization for output of the neural network.
+We did still use a client server system to allow the neural network to communicate with the computer hosting the game.
+The client-server code was ultimately coded in Node.js.
+The final hardware layout was pretty much exactly as described, though it could be adapted to use wireless communication and the inbuilt camera on the Jetson TX1.
 
 \section{Technology review}
 
