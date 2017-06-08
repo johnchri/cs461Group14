@@ -282,14 +282,9 @@ The neural network set-up itself is a multi-layered combination of components.
 At the basic level of design, our neural network follows the architecture known as SSD.
 SSD is designed, as a convolutional neural network, specifically to process images and categorize objects within the images in real time.
 The network uses a set of bounding boxes and feature maps created through layers of network code to identify individual components of a frame.
-A basic visualization of this detection style can be seen in \ref{fig:1}.
-\newline
-\newline
-\begin{figure}
-  \includegraphics{SSDBoxes.eps}
-  \caption{SSD Image Mapping}
-  \label{fig:1}
-\end{figure}The network set-up provided by SSD is built using the deep-learning framework Caffe, so its functions are intimately involved in the final project.
+A basic visualization of this detection style can be seen in .
+
+The network set-up provided by SSD is built using the deep-learning framework Caffe, so its functions are intimately involved in the final project.
 Caffe allows for command line instructions to be sent to define the network.
 To set up the network and Caffe properly we are using the tools provided by Caffe itself and the components found in the SSD branch of the main Caffe repository on Github.
 In addition to using Caffe resources, the network is coded using a mix of C++ and Cuda, with several scripts in python used to run individual components.
@@ -369,7 +364,7 @@ The decision will be sent through the network asynchronously to the other machin
 The other machine must be running the Expressjs server, based on Nodejs, listening on port 5000.
 
 \section{Learning Reflection}
-\subesction{Gabe's Reflection}
+\subsection{Gabe's Reflection}
 This project was quite the journey.
 At the beginning I knew almost nothing about neural networks and how they worked.
 I was aware of their existence and that they were modelled after the human brain, but I had no idea how complex and interesting the field was.
@@ -477,7 +472,7 @@ This week we had a lecture and our group met up to discuss where we were at and 
 \subsection{Winter Week 5: Gabe}
 This week we met once more and solidified our plans moving forward to finish the alpha build and paperwork on time. I continued work on my communications program, but switched to python scripts over the lua approach upon being encouraged to create a more generally applicable setup, since the lua script would have been emulator specific. My new project will have to be Windows specific to get the keyboard command access, but some changes can be made to apply it to other operating systems.
 \subsection{Winter Week 5: Luay}
-This week I did work on the algorithm which makes decisions based on the detections coming from the detection_out layer. I was able to test it through setting up a screen capture of a second monitor that has the game Galage from the same machine and see the interactions and decisions that are coming out from the neural network. In addition, Chris was able to annotate 100 images of the game which I had to run another training on the neural network. The training took about 12 hours to finish and reached 35k iterations. The network is able to identify objects in the game with higher confidence.
+This week I did work on the algorithm which makes decisions based on the detections coming from the detection\_out layer. I was able to test it through setting up a screen capture of a second monitor that has the game Galage from the same machine and see the interactions and decisions that are coming out from the neural network. In addition, Chris was able to annotate 100 images of the game which I had to run another training on the neural network. The training took about 12 hours to finish and reached 35k iterations. The network is able to identify objects in the game with higher confidence.
 \subsection{Winter Week 5: Chris}
 This week I got into the annotation process of the images so that I could begin making them to improve the testing. It was slow at first but I was eventually able to become decently efficient. I was able to get 100 in two days.
 \subsection{Winter Week 6: Gabe}
