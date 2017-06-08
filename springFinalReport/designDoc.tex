@@ -174,19 +174,20 @@ The documentation provided here reflects this focus and is written with develope
 
 \subsection{Summary}
 
-The neural network created for this project will be able to play Galaga.
-Its design is based on SSD, a convolutional neural network designed in coordination with Google Inc.,  University of North Carolina Chapel Hill, and University of Michigan, Ann-Arbor[2].
-This neural network will undergo two main phases of training.
-One training phase will be done with just still images, while the second will involve live image feed from the game Galaga.
-The system will run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via communications scripts written in python.
-The Jetson will be linked to the seperate PC via ethernet cable.
-Cloud computing GPUs will be used to handle portions of the training.
-In total, the system should be able to learn how to play Galaga, and then continually improve as it plays.
+The neural network created for this projectwill be able to play Galaga. Its design is based on GoogLeNet, a convolutional
+neural network designed in coordination with Google Inc., University of North Carolina, Chapel Hill, University of
+Michigan, and Magic Leap Inc. [2]. This neural network will undergo two main phases of training. One training phase
+will be done with just still images, while the second will involve live image feed from the game Galaga. The system will
+run inference on the Jetson TX1 developer kit, which will interface between a seperate computer via a controller. The
+Jetson will be wired to the controller to control the game on the seperate computer. Cloud computing GPUs will be used
+to handle the training. In total, the system should be able to learn how to play Galaga, and then continually improve as
+it plays.
 
 \subsection{References}
 
 [1] F. Rojas, "Galaga (Namco)," in gaminghistory101.com, Gaming History 101, 2012. [Online]. Available: https://gaminghistory101.com/2012/03/22/galaga/.\newline
-[2] W. Liu et al., “SSD: Single Shot MultiBox Detector,” arxiv.org, 29-Dec-2016. [Online]. Available: https://arxiv.org/pdf/1512.02325.pdf.\newline
+[2] C. Szegedy et al., ”Going Deeperwith Convolutions,” in cs.unc.edu. [Online]. Available: https://www.cs.unc.edu/wliu/
+papers/GoogLeNet.pdf.
 
 \subsection{Definitions}
 \begin{description}
@@ -240,16 +241,15 @@ The heart of this structure is our neural network set-up.
 
 \subsubsection{Neural network setup}%Gabe
 
-The neural network set-up itself is a multi-layered combination of components.
-At the basic level of design, our neural network follows the architecture known as SSD.
-SSD is designed, as a convolutional neural network, specifically to process images and categorize objects within the images in real time.
-The network uses a set of bounding boxes and feature maps created through layers of network code to identify individual components of a frame [2].
-A basic visualization of this detection style can be seen in \ref{fig:4.1}.
+The neural network set-up itself is a multi-layered combination of components. At the basic level of design, our neural
+network follows the architecture known as GoogLeNet. GoogLeNet is designed, as a convolutional neural network,
+specifically to process images and categorize them. At the architectural level it has 22 layers, each consisting of special
+modules [2]. These modules have a structure similar to that outlined in \ref{fig:4.1}.
 \newline
 \newline
 \begin{figure}
-  \includegraphics{SSDBoxes.eps}
-  \caption{SSD Image Mapping}
+  \includegraphics{GoogLeNetModule.eps}
+  \caption{GoogLeNet Module}
   \label{fig:4.1}
 \end{figure}The network set-up provided by SSD is built using the deep-learning framework Caffe, so its functions are intimately involved in the final project.
 Caffe allows for command line instructions to be sent to define the network.
