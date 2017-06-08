@@ -252,6 +252,67 @@ The camera we ultimately used was a small, \$30 Logitech camera.
 We also used the Jetson TX1's build in camera on occasion. 
 In total, the actual main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
+\section{Final Desgin}
+\subsection{Context}
+
+This system is not designed for an average computer user.
+This system is a showcase of possibilities when working with Neural Networks.
+As such, no real UI will be developed for the purposes of this project.
+Average people may see the result of the final project by viewing the network play Galaga.
+\newline
+\newline
+This system is designed for developers.
+Developers should be able to do a project like this as an introduction to deep learning neural networks.
+The documentation provided here reflects this focus and is written with developers in mind.
+
+\subsection{Summary}
+
+The neural network created for this project is able to play Galaga.
+Its design is based on SSD, a convolutional neural network designed in coordination with Google Inc.,  University of North Carolina Chapel Hill, and University of Michigan, Ann-Arbor.
+For more information on SSD see https://github.com/weiliu89/caffe/tree/ssd.
+This neural network underwent one phase of training.
+The training phase was done with annotated images.
+The system runs inference on the Jetson TX1 developer kit, and interfaces between a seperate computer via communications scripts written in nodejs.
+The Jetson is linked to the seperate PC via ethernet cable.
+In total, the system learns how to identify objects in Galaga and then uses that knowledge to make a decision on control inputs.
+
+\subsection{Neural Network Setup}
+
+The neural network set-up itself is a multi-layered combination of components.
+At the basic level of design, our neural network follows the architecture known as SSD.
+SSD is designed, as a convolutional neural network, specifically to process images and categorize objects within the images in real time.
+The network uses a set of bounding boxes and feature maps created through layers of network code to identify individual components of a frame.
+A basic visualization of this detection style can be seen in \ref{fig:4.1}.
+\newline
+\newline
+\begin{figure}
+  \includegraphics{SSDBoxes.eps}
+  \caption{SSD Image Mapping}
+  \label{fig:4.1}
+\end{figure}The network set-up provided by SSD is built using the deep-learning framework Caffe, so its functions are intimately involved in the final project.
+Caffe allows for command line instructions to be sent to define the network.
+To set up the network and Caffe properly we are using the tools provided by Caffe itself and the components found in the SSD branch of the main Caffe repository on Github.
+In addition to using Caffe resources, the network is coded using a mix of C++ and Cuda, with several scripts in python used to run individual components.
+
+\subsection{Communication}
+In the setup for this project, we have the neural network running inference on the Jetson TX1, but a different computer is hosting the game Galaga.
+Two elements exist which allow for the network to actually get commands to the game.
+The first is the decision layer.
+The decision layer is a hard-coded set of logical responses to in-game stimuli that sits at the very top of the neural network.
+Coded primarily in Cuda, the decision layer uses the detection output to decide what command it will send out to the game.
+The second element is a client-server system coded in Nodejs. 
+The client code is run by the neural network deployment script and sends messages to the server code, which must be running on the machine that hosts Galaga.
+The server code receives the commands from the system and executes them in-game via key press.
+
+\subsection{Hardware Setup}
+In order to actually use the system, several pieces of hardware are required.
+The first is an NVIDIA Jetson TX1.
+The second is a computer capable of playing Galaga and an appropriate monitor.
+The next is a recording device of some sort.
+This can be an external camera, the Jetson's in built camera, or a local screen capture device on the Galaga computer.
+As long as the images are being sent to the neural network on the Jetson, it will work.
+Finally the system requires an Ethernet cable connecting the host computer and the Jetson.
+When the neural network is supplied visual feed from the game, the computers are properly linked, and the communication servers are running the network will capably play the game.
 \section{Guide}
 
 \subsection{Installing Caffe}
