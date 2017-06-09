@@ -131,9 +131,9 @@ Gabriel worked on training images, device communication, neural network function
 	2 & The neural net must be trained and allowed to create its own code to accomplish the task. & The neural network was trained and does create some of its own code in the form of trained prototext, but it does not create code for the entirety of the problem. & While this requirement changed very little at face value, it is heavily tied to another requirement and thus there have been minor changes to the strictness of its wording.\\ \hline
 	3 & The neural network should define for itself how to respond to in-game stimuli and react accordingly, as per the training it has received. & This requirement was dropped in its entirety. We replaced this with allowing for a custom built decision layer to be set-up on top of the neural network with responses to network output that we as a group defined. & We found that setting up our own neural network structure on top of the one we had already started with would take more development time than we had due to the complexity of developing full network learning layers.\\ \hline
 	4 & The final project must be able to run inference on the Jetson TX1 Developer platform. & This requirement was never changed and was met in its entirety. & There was no unusual difficulty to this requirement and it could not change due to it being part of the core requests of our client.\\ \hline
-	5 & The project must usea high-end GPU cloud to train. & This was more of a design statement and was thus dropped entirely as an actual requirement. & This also ended up being an early and unnecessary design statement as our final neural network did not need cloud computing for its training.\\ \hline
+	5 & The project must use a high-end GPU cloud to train. & This was more of a design statement and was thus dropped entirely as an actual requirement. & This also ended up being an early and unnecessary design statement as our final neural network did not need cloud computing for its training.\\ \hline
 	6 & We must clearly outline our actions taken and resources required at every step of the process. & This requirement remained unchanged throughout the project. & This requirement was vital to the project, and also easy to meet given the large amount of documentation we had to do anyway. The documentation we've made will be necessary to allow our project to be recreated for training purposes.\\ \hline
-	7 & The solution of our project must be able to beat the first level of the game at least 90\% of the time. & This requirement was unchanged. & We initially had trouble meeting this goal, and considered changing it to an easiermetric, but within a few weeks of expo we managed to start meeting it and thus made no change.\\ \hline
+	7 & The solution of our project must be able to beat the first level of the game at least 90\% of the time. & This requirement was unchanged. & We initially had trouble meeting this goal, and considered changing it to an easier metric, but within a few weeks of expo we managed to start meeting it and thus made no change.\\ \hline
 	8 & Ideally the system should be able to make it past level 5 approximately 50\% of the time. & This requirement was mostly dropped. & This was intended as a possibly reachable stretch goal, but we never achieved this level of performance, so it was not relevant to the final project.\\ \hline
 \end{tabu}
 \end{center}
@@ -184,26 +184,26 @@ Gabriel worked on training images, device communication, neural network function
     \gantttitle{W24}{2}
     \gantttitle{W25}{2}
     % Setting group if any
-    \ganttgroup[inline=false]{Documents}{1}{16} \\
-    \ganttbar[progress=30,inline=false]{Requirement}{1}{5} \\
-    \ganttbar[progress=0,inline=false]{Technical}{5}{10}\\
-    \ganttbar[progress=0,inline=false]{Design}{10}{15} \\
+    \ganttgroup[inline=false]{Documents}{1}{50} \\
+    \ganttbar[progress=30,inline=false]{Requirement}{1}{10} \\
+    \ganttbar[progress=0,inline=false]{Technical}{5}{15}\\
+    \ganttbar[progress=0,inline=false]{Design}{10}{20} \\
 
     \ganttgroup[inline=false]{\small  {Winter Break} } {17}{24} \\
 
     \ganttgroup[inline=false]{\small{Desing Game Interface}}{25}{30} \\
 
-    \ganttgroup[inline=false]{\small{Train Neural Network}}{31}{39} \\
-    \ganttbar[progress=0,inline=false]{Training 1}{31}{33}\\
-    \ganttbar[progress=0,inline=false]{Training 2}{34}{36}\\
-    \ganttbar[progress=0,inline=false]{Training 3}{37}{39}\\
+    \ganttgroup[inline=false]{\small{Train Neural Network}}{31}{48} \\
+    \ganttbar[progress=0,inline=false]{Training 1}{31}{36}\\
+    \ganttbar[progress=0,inline=false]{Training 2}{34}{39}\\
+    \ganttbar[progress=0,inline=false]{Training 3}{39}{44}\\
 
-    \ganttgroup[inline=false]{Game Testing}{31}{39} \\
-    \ganttbar[progress=0,inline=false]{Test 1}{32}{33}\\
-    \ganttbar[progress=0,inline=false]{Test 2}{35}{36}\\
-    \ganttbar[progress=0,inline=false]{Test 3}{38}{41}\\
+    \ganttgroup[inline=false]{Game Testing}{31}{48} \\
+    \ganttbar[progress=0,inline=false]{Test 1}{32}{36}\\
+    \ganttbar[progress=0,inline=false]{Test 2}{36}{40}\\
+    \ganttbar[progress=0,inline=false]{Test 3}{40}{46}\\
 
-    \ganttgroup[inline=false]{Improvements}{42}{50} \\
+    \ganttgroup[inline=false]{Improvements}{46}{50} \\
 
 \end{ganttchart}
 }
@@ -252,7 +252,7 @@ The camera we ultimately used was a small, \$30 Logitech camera.
 We also used the Jetson TX1's build in camera on occasion. 
 In total, the actual main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
-\section{Final Desgin}
+\section{Final Design}
 \subsection{Context}
 
 This system is not designed for an average computer user.
@@ -308,6 +308,9 @@ This can be an external camera, the Jetson's in built camera, or a local screen 
 As long as the images are being sent to the neural network on the Jetson, it will work.
 Finally the system requires an Ethernet cable connecting the host computer and the Jetson.
 When the neural network is supplied visual feed from the game, the computers are properly linked, and the communication servers are running the network will capably play the game.
+
+\includegraphics{SSDBoxes.eps}
+
 \section{Guide}
 
 \subsection{Installing Caffe}
