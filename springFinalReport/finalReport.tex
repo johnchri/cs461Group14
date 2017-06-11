@@ -101,16 +101,16 @@ progress label node anchor/.append style={text=red}}
 Our project was requested by NVIDIA's Deep Learning Institute in order to provide a new training course in neural network training and development for new developers.
 The goal was to provide an exciting project for beginners that would help ease them in to the growing field of Deep Learning.
 Deep Learning itself is a field focused on the training and development of Deep Neural networks to be applied to machine-learning based challenges.
-Deep Learning is a major avenue toward building technology like self-driving cars and autmoatic facial recognition. 
+Deep Learning is a major avenue toward building technology like self-driving cars and autmoatic facial recognition.
 Getting more developers involved will support the field's continued growth and lead to important breakthroughs in AI technology.
 \newline\newline
 The project itself was given in an open-ended fashion.
 We, as a team, were allowed to choose a project that met a few simple requirements.
-The first was that we had to use a Neural Network to accomplish the task. 
+The first was that we had to use a Neural Network to accomplish the task.
 The second was that it had to run inference on the Jetson TX1 developer kit.
 With these guidelines set, we decided to use the project to train a neural network to play the video game Galaga, an arcade shooter.
 \newline\newline
-Our client was Mark Ebersole and our team consisted of Gabriel Morey, Luay Alshawi, and Chris Johnson. 
+Our client was Mark Ebersole and our team consisted of Gabriel Morey, Luay Alshawi, and Chris Johnson.
 Mr. Ebersole acted as a supervisor and provided us necessary resources from his company, such as the Jetson TX1 developer kit.
 He also connected us with people at NVIDIA who could offer advice on technical implementation of the project.
 Chris was assigned as team captain and provided work building training images, setting up and acquiring hardware, and creating and organizing documentation.
@@ -220,8 +220,8 @@ Gabriel worked on training images, device communication, neural network function
 
 \section{Changes made from the design document}
 Several things outlined in the design document's original form were far off base from the reality of the finished product, as is to be expected.
-When the original design document was written, our team had not fully researched the topic and we were still learning how to go about accomplishing the task. 
-The first major change from initial design was the choice of neural network architecture. 
+When the original design document was written, our team had not fully researched the topic and we were still learning how to go about accomplishing the task.
+The first major change from initial design was the choice of neural network architecture.
 Originally we had planned to use a model based on GoogLeNet to accomplish the task.
 As our research expanded outward, we discovered SSD, which allowed us to not only detect the presence of objects in a screenshot, but also to identify where they were.
 We also ended up changing the structure of the decision output.
@@ -246,16 +246,16 @@ The final hardware layout was pretty much exactly as described, though it could 
 
 \section{Changes made from the technology review}
 A number of the technologies discussed in the tech review ended up being superfluous due to some confusion on what the tech review needed to cover.
-Outside of that, there were several changes that had to be made as we found better solutions. 
+Outside of that, there were several changes that had to be made as we found better solutions.
 From the first section, we did end up using OpenCV as our primary vision library, though its actual uses in our project were minimal and largely only involved in getting the camera feed through script.
 The development OS was mainly Linux, as stated, because of the Linux running on the TX1.
 The discussion of programming languages wasn't necessary, and we ended up using a mix of c++, cuda, python, and node.js.
 We did use Caffe as our neural network framework,  but the neural network architecture we eventually settled on was actually SSD, or Single Shot Multi-box Detector.
 We didn't use a cloud for training at all, so the cloud section is entirely irrelevant.
 There was just no need for cloud training when our existing systems could handle the job.
-The discussions of team communication platform and data visualization also ended up being irrelevant to how we completed the final project. 
-The camera we ultimately used was a small, \$30 Logitech camera. 
-We also used the Jetson TX1's build in camera on occasion. 
+The discussions of team communication platform and data visualization also ended up being irrelevant to how we completed the final project.
+The camera we ultimately used was a small, \$30 Logitech camera.
+We also used the Jetson TX1's build in camera on occasion.
 In total, the actual main technologies used were the Jetson TX1, SSD, a Logitech camera, our own computers, a basic computer monitor (multiple models were used for different tests), and ethernet cables.
 
 \section{Final Design}
@@ -302,7 +302,7 @@ Two elements exist which allow for the network to actually get commands to the g
 The first is the decision layer.
 The decision layer is a hard-coded set of logical responses to in-game stimuli that sits at the very top of the neural network.
 Coded primarily in Cuda, the decision layer uses the detection output to decide what command it will send out to the game.
-The second element is a client-server system coded in Nodejs. 
+The second element is a client-server system coded in Nodejs.
 The client code is run by the neural network deployment script and sends messages to the server code, which must be running on the machine that hosts Galaga.
 The server code receives the commands from the system and executes them in-game via key press.
 
@@ -313,7 +313,7 @@ The second is a computer capable of playing Galaga and an appropriate monitor.
 The next is a recording device of some sort.
 This can be an external camera, the Jetson's in built camera, or a local screen capture device on the Galaga computer.
 As long as the images are being sent to the neural network on the Jetson, it will work.
-Finally the system requires an Ethernet cable connecting the host computer and the Jetson.
+Finally the system requires an Ethernet cable connecting the host computer and the Jetson or both must be on the same local network.
 When the neural network is supplied visual feed from the game, the computers are properly linked, and the communication servers are running the network will capably play the game.
 
 \section{Guide}
@@ -322,7 +322,7 @@ When the neural network is supplied visual feed from the game, the computers are
 
 After cloning the SSD\_GALAGA repository you can start installing Caffe.
 It needs to be installed on the host machine that will be doing the training and on the Jetson TX1.
-There is a list of dependencies located in \path{SSD_GALAGA/dependencies.txt} that lists packages based on Ubuntu and some notes.
+There is a list of dependencies located in \path{SSD_GALAGA/dependencies.txt} that lists packages based on Ubuntu and some helpful notes.
 After installing all dependencies you also need to copy Makefile.config.example and rename it to Makefile.config.
 Then you need to make changes based on the configuration you have.
 There are other examples included in the repository that show the configuration file used on the Jetson TX1 and desktop running Ubuntu.
@@ -334,23 +334,23 @@ Setting up the image set for training and testing requires using annotation meth
 In this project, Pascal VOC annotation were used because it's the most common annotation method and is supported by the majority of deep learning frameworks as well as neural networks.
 The deep learning framework we are currently using supports Pascal VOC and Coco but only Pascal VOC is being used.
 However, in order to prepare the annotations you need to separate train validation images and test images so you can easily list them in a text file along with their path and XML, which is the annotation file.
-In addition, you need to write down a label map file that lists all the objects that need to be identified by the neural network. 
-The files are needed in order to create the LMDB database are trainval.txt,test\_name\_size.txt, test.txt, and lebelmap\_voc.prototxt. 
-These files located in \path{SSD_GALAGA/data/VOC0712}. 
-To annotate images we used labelImage which is graphical annotation software. 
+In addition, you need to write down a label map file that lists all the objects that need to be identified by the neural network.
+The files are needed in order to create the LMDB database are trainval.txt,test\_name\_size.txt, test.txt, and lebelmap\_voc.prototxt.
+These files located in \path{SSD_GALAGA/data/VOC0712}.
+To annotate images we used labelImage which is graphical annotation software.
 It can be downloaded and installed from \path{https://github.com/tzutalin/labelImg}.
 
 \subsection{Training}
 
-Before you start training you need to run a script to create LMDB database for the training data set.
+Before starting the training there is a script needs to be executed to create LMDB database for the training data set.
 The script is located in \path{SSD_GALAGA/data/VOC0712/create_data.sh}.
-You need to make sure data\_root\_dir is pointing to our data set.
+The variable data\_root\_dir should be pointing to the data set.
 After running the script the database will be created and linked to \path{SSD_GALAGA/examples/}.
-You also need to make some modifications on the Python training script in \path{examples/ssd/ssd_pascal.py}.
-You would need to change some values in solver\_param dictionary which are base\_lr and max\_iter.
+Some modifications need to be done on the Python training script in \path{examples/ssd/ssd_pascal.py}.
+Also, some values in solver\_param dictionary which are base\_lr and max\_iter.
 It's recommended to start with 0.01 value for base\_lr, and then decrease the value till it fits with the data set.
-Also, the variable num\_classes needs to be updated based on the total number of objects you are training.
-The file can be modified if needed..
+Also, the variable num\_classes needs to be updated based on the total number of objects that will be trained on.
+The file can be modified if needed.
 Finally, the script can be run using "python \path{examples/ssd/ssd_pascal.py}".
 
 \subsection{Play the game}
@@ -366,10 +366,10 @@ The server will receive requests from the Jetson TX1 and will then execute the c
 When the training is over you can start using the output model to make it play the game by deploying the model on the Jetson TX1.
 There is a python script located in \path{SSD_GALAGA/examples/n_post_play.py}.
 This script contains a URL variable that points to the IP address of the machine that hosts the game and needs to be updated.
-Also, labelmap\_file, model\_def, and model\_weights might need to change based on the path. 
+Also, labelmap\_file, model\_def, and model\_weights might need to change based on their path.
 This script captures an image and sends it the neural network to get a decision back.
 The decision will be sent through the network asynchronously to the other machine that hosts the game.
-The other machine must be running the Expressjs server, based on Nodejs, listening on port 5000.
+The other machine must be running the Expressjs server listening on port 5000.
 
 \section{Learning Reflection}
 \subsection{Gabe's Reflection}
@@ -377,15 +377,15 @@ This project was quite the journey.
 At the beginning I knew almost nothing about neural networks and how they worked.
 I was aware of their existence and that they were modelled after the human brain, but I had no idea how complex and interesting the field was.
 Over the course of this project I learned about the different kinds of neural networks, their architectures, and their frameworks.
-I learned how to train and deploy a neural network to accomplish a task. 
+I learned how to train and deploy a neural network to accomplish a task.
 I learned a little bit about custom layer creation too, though not quite enough to build my own network from scratch.
 \newline\newline
 From a non-technical perspective I learned so much about documentation and working in a team environment on major projects.
 In terms of documentation, my skills were definitely not up to par at the beginning of the term.
 I honestly think it's still something I need to improve on.
 However, I have improved greatly because of this project and learned how to express information much more clearly.
-I also have a much better idea about what kind of information is required on a major project. 
-This has also been an incredible lesson in project management. 
+I also have a much better idea about what kind of information is required on a major project.
+This has also been an incredible lesson in project management.
 I've learned how detrimental procrastination is when multiple people are delivering companents towards a greater whole.
 Deadlines are essential to making sure everything comes together, whether they are set by external pressure or a group decision.
 Group communication is also vital.
@@ -398,11 +398,11 @@ I'd start researching the project much earlier and I would have spent Winter Bre
 I would have updated documentation much more often and checked it regularly for necessary changes.
 Finally, I think we needed a different approach to this project, maybe even a different task more suited to the abilities of the Jetson TX1.
 \subsection{Luay's Reflection}
-There is many technical information I have learned over the year. I have heard about artificial intelligence and machine learning but I never had the chance to interact with them. Working on this project I was able to interact with a class of machine learning which is deep learning. Also, I was able to interact with the Caffe deep learning framework and be able to write customized neural layer using C++. This project is code intensive and I have been using Python, C++, Javascript and shell scripting. Python used as an interface for C++ and I was able to write python scripts that sends request to a server, do screen capture, and webcam capture using OpenCV. On the other hand, the non-technical aspect of this project. \newline
+I have learned many great skills over the year. Although, I have heard about artificial intelligence and machine learning but I never had the chance to interact with them. By working on this project I was able to interact with a class of machine learning which is deep learning. Also, I was able to interact with the Caffe deep learning framework and be able to write customized neural layer using C++. This project is code intensive and I have been using Python, C++, Javascript and shell scripting. Python used as an interface for C++ and I was able to write python scripts that send request to a server, do a screen capture, and webcam capture using OpenCV.\newline
 The project works I have learned is mainly gathering client requirements and being able to accomplish the tasks on time. Also, being able to log project progress and what was done in a wiki is something important especially for large projects. \newline
 In Project management, I have learned how to divide large tasks to small pieces to accomplish the work. I also tried to use agile methodology to the project by using user stories and iterations. This was accomplished using GitHub.
 Working with others in a team requires some patience and giving others the chance to express their ideas and thoughts. This was the most important things I have learned.  \newline
-Going back to Fall term, we had so many struggles putting pieces together for when learning deep learning. By that time we did not know what we were doing but we eventually decided to pick Galaga and use the science of deep learning to play the game through video capture of the game. This requires fast detection modal that can work on embedded devices. If I have the knowledge right now in Fall term or winter term I would use unsupervised training to accomplish this task since this type of training works best with games. Also, I would pick another area to work on that solves real life problems such as in medicine.
+Going back to Fall term, we had so many struggles putting pieces together when learning deep learning. By that time we did not know what we were doing but we eventually decided to pick Galaga and use the science of deep learning to play the game through video capture of the game. This requires fast detection modal that can work on embedded devices. If I have the knowledge right now in Fall term or winter term I would use unsupervised training to accomplish this task since this type of training works best with games. Also, I would pick another area to work on that solves real life problems such as in medicine.
 
 \subsection{Chris's Reflection}
 I learned a lot while working on this project.
