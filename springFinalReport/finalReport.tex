@@ -689,5 +689,24 @@ while True:
   \makebox[\textwidth]{\includegraphics[width=\paperwidth]{setup.eps}}
 \end{center}
 
+\section{Appendix 3}
+The benchmarks were obtained by running python \path{examples/ssd/ssd_pascal_video.py}.
+The results obtained based on running a video capture of 1000 frames of the game and on three different hardware.
+The performance of running SSD\_GALAGA repository on the Jetson TX2 is tremendously slow. The issue can be related to the new GPU architecture on the Jetson TX2 and could be a configuration problem. Both Jetsons were on their highest performance by running the jetson\_clocks.sh script before the benchmarks.
+By the time writing this report, TesnorRT does not support custom layers, therefore inference was based on the weight obtained from Caffe.
+\subsection{Benchmark}
+\begin{center}
+\begin{tabu} to 0.9\linewidth{ || X[l] | X[l] | X[l] | X[l] || }
+	\hline
+	Platform & Layer & Forward pass (1000 iterations) & Average frame per second \\
+	\hline\hline
+	i7-6700k 960 GTX GPU & detection\_out & 0.058727 ms & 17 fps \\ \hline
+	Jetson TX1 & detection\_out & 0.130591 ms & 8 fps  \\ \hline
+	Jetson TX2 & detection\_out & 0.270585 ms & 3.6 fps \\ \hline
+
+
+\end{tabu}
+\end{center}
+
 
 \end{document}
